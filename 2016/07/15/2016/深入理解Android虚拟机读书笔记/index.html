@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="imesong" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://imesong.com').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="《深入理解Android虚拟机》 本书的阅读笔记，整体来说这本书只适合通读，入门了解。通过对比阅读，发现很多内容不够严谨，同时内容安排上有拼凑之嫌。如果你和我一样，因为名字想阅读这本书，建议在这本书上花费的时间不要超过一天。">
+<meta name="keywords" content="Android,Dalvik,AOSP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解Android虚拟机读书笔记">
+<meta property="og:url" content="http:&#x2F;&#x2F;imesong.com&#x2F;2016&#x2F;07&#x2F;15&#x2F;2016&#x2F;%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Android%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0&#x2F;index.html">
+<meta property="og:site_name" content="imesong">
+<meta property="og:description" content="《深入理解Android虚拟机》 本书的阅读笔记，整体来说这本书只适合通读，入门了解。通过对比阅读，发现很多内容不够严谨，同时内容安排上有拼凑之嫌。如果你和我一样，因为名字想阅读这本书，建议在这本书上花费的时间不要超过一天。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xrkqt.com1.z0.glb.clouddn.com&#x2F;blogimage&#x2F;2016&#x2F;31JVM%E6%9E%84%E6%88%90%E5%9B%BE.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xrkqt.com1.z0.glb.clouddn.com&#x2F;blogimage&#x2F;2016&#x2F;32JVM%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BB%93%E6%9E%84%E6%A1%86%E5%9B%BE.png">
+<meta property="og:updated_time" content="2017-04-19T04:36:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;7xrkqt.com1.z0.glb.clouddn.com&#x2F;blogimage&#x2F;2016&#x2F;31JVM%E6%9E%84%E6%88%90%E5%9B%BE.png">
+
+<link rel="canonical" href="http://imesong.com/2016/07/15/2016/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Android%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>深入理解Android虚拟机读书笔记 | imesong</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9e900bf6e455a1e02b134a8284caa9e1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">imesong</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">我们的征途是星辰大海</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://imesong.com/2016/07/15/2016/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Android%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="http://gravatar.com/imesong">
+      <meta itemprop="name" content="imesong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="imesong">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          深入理解Android虚拟机读书笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-07-15 21:01:26" itemprop="dateCreated datePublished" datetime="2016-07-15T21:01:26+08:00">2016-07-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2017-04-19 12:36:26" itemprop="dateModified" datetime="2017-04-19T12:36:26+08:00">2017-04-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/07/15/2016/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Android%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="深入理解Android虚拟机读书笔记" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2016/07/15/2016/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Android%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/07/15/2016/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Android%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a href="https://book.douban.com/subject/26013542/" target="_blank" rel="noopener">《深入理解Android虚拟机》</a> 本书的阅读笔记，整体来说这本书只适合通读，入门了解。通过对比阅读，发现很多内容不够严谨，同时内容安排上有拼凑之嫌。如果你和我一样，因为名字想阅读这本书，建议在这本书上花费的时间不要超过一天。</p>
+<a id="more"></a>
+
+<h1 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h1><p>本书内容共13章，其中第1章[Android系统介绍]，第2章[Android系统结构]直接跳过，第7章[生命周期管理]明显拼凑，和Dalvik虚拟机关系不大，并且这章内容属于初级Android开发掌握的，第11章[JNI接口]介绍了基础的JNI编程，了解NDK的可以跳过。删减之后，剩下的内容就是这些</p>
+<ul>
+<li>虚拟机概述</li>
+<li>编译和调试Dalvik</li>
+<li>Dalvik 虚拟机运作流程</li>
+<li>Dex优化和安全管理</li>
+<li>内存分配策略</li>
+<li>垃圾收集</li>
+<li>线程管理</li>
+<li>异常管理</li>
+</ul>
+<h1 id="虚拟机概述"><a href="#虚拟机概述" class="headerlink" title="虚拟机概述"></a>虚拟机概述</h1><p>在没有接触和了解虚拟机之前，总觉得虚拟机是很高深，很‘底层’，很容易望文生义。虚拟机其实就是一套解释规范的执行者，解析规范的格式的文件，执行文件中的内容。这章概述主要介绍JVM虚拟机和Dalvik虚拟机的结构，原理。JVM部分建议参考<a href="https://book.douban.com/subject/25792515/" target="_blank" rel="noopener">JAVA虚拟机规范SE7</a>。通过阅读本章和规范，了解虚拟机结构和关键术语。</p>
+<h3 id="JVM虚拟机"><a href="#JVM虚拟机" class="headerlink" title="JVM虚拟机"></a>JVM虚拟机</h3><p><img src="http://7xrkqt.com1.z0.glb.clouddn.com/blogimage/2016/31JVM%E6%9E%84%E6%88%90%E5%9B%BE.png" alt="JVM构成图"></p>
+<p><strong>Java虚拟机的数据类型</strong></p>
+<ul>
+<li>byte</li>
+<li>short</li>
+<li>int </li>
+<li>long</li>
+<li>float</li>
+<li>double</li>
+<li>char</li>
+<li>object 对一个Java object 的4个字节引用</li>
+<li>returnAddress 4字节，用于 jsr/ret/jsr-w/ret-w指令</li>
+</ul>
+<p><strong>Java虚拟机的体系结构</strong></p>
+<ul>
+<li>指令集</li>
+<li>寄存器</li>
+<li>栈</li>
+<li>无用单元收集堆(Garbage-collected-heap)</li>
+<li>方法区域</li>
+</ul>
+<p><img src="http://7xrkqt.com1.z0.glb.clouddn.com/blogimage/2016/32JVM%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BB%93%E6%9E%84%E6%A1%86%E5%9B%BE.png" alt="Java虚拟机的结构框图"></p>
+<p>Java虚拟机基于栈的，这点是和Dalvik虚拟机主要区别之一。</p>
+<h3 id="Dalvik虚拟机"><a href="#Dalvik虚拟机" class="headerlink" title="Dalvik虚拟机"></a>Dalvik虚拟机</h3><p>dx 工具用来讲 .class 文件转换为 dex 文件。转换过程中，会进行优化，重复的字符串和其它常数在dex中只会保留一份。一个未压缩的dex通常比已经压缩的jar小一点。</p>
+<p>Dalvik 和 Java虚拟机的差异：</p>
+<blockquote>
+<ul>
+<li>Dalvik 早期没有JIT，2.2版本开始支持JIT技术</li>
+<li>Dalvik 使用自己的bytecode ,并非适用java的bytecode</li>
+<li>Dalvik 基于寄存器(Register),JVM 基于栈(Stack)</li>
+<li>Dalvik 通过Zygote 进行 Class Preloading ,Zygote 会完成虚拟机的初始化，这也是雨JVM虚拟机不同之处。</li>
+</ul>
+</blockquote>
+<h3 id="Dalvik虚拟机的初始化"><a href="#Dalvik虚拟机的初始化" class="headerlink" title="Dalvik虚拟机的初始化"></a>Dalvik虚拟机的初始化</h3><ul>
+<li>初始化准备工作</li>
+<li>初始化跟踪显示系统</li>
+<li>初始化垃圾回收器</li>
+<li>初始化线程列表和主线程环境参数</li>
+<li>分配内部操作方法的表格内存</li>
+<li>初始化虚拟机的指令码相关内容</li>
+<li>分配指令寄存器状态的内存</li>
+<li>初始化虚拟机基本的Java库</li>
+<li>初始化虚拟机使用的异常Java类库</li>
+<li>释放字符串哈希表</li>
+<li>初始化本地方法库的表</li>
+<li>初始化内部本地方法</li>
+<li>初始化JNI调用表</li>
+<li>缓存Java类里的反射类</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Android/" rel="tag"># Android</a>
+              <a href="/tags/Dalvik/" rel="tag"># Dalvik</a>
+              <a href="/tags/AOSP/" rel="tag"># AOSP</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/04/19/2016LearningList/" rel="prev" title="2016LearningList">
+      <i class="fa fa-chevron-left"></i> 2016LearningList
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/08/12/2016/LinuxShell%E8%84%9A%E6%9C%AC%E6%94%BB%E7%95%A5/" rel="next" title="LinuxShell脚本攻略">
+      LinuxShell脚本攻略 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#主要内容"><span class="nav-number">1.</span> <span class="nav-text">主要内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#虚拟机概述"><span class="nav-number">2.</span> <span class="nav-text">虚拟机概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM虚拟机"><span class="nav-number">2.0.1.</span> <span class="nav-text">JVM虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dalvik虚拟机"><span class="nav-number">2.0.2.</span> <span class="nav-text">Dalvik虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dalvik虚拟机的初始化"><span class="nav-number">2.0.3.</span> <span class="nav-text">Dalvik虚拟机的初始化</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="imesong"
+      src="http://gravatar.com/imesong">
+  <p class="site-author-name" itemprop="name">imesong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">imesong</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            var url = item.url;
+            var time = item.time;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=HF0T5f1jM9mXdNyrgXgjXBo8-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'HF0T5f1jM9mXdNyrgXgjXBo8-gzGzoHsz',
+            'X-LC-Key': 'LG3cTm6B7zWLcYGzWVVc2kBX',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'HF0T5f1jM9mXdNyrgXgjXBo8-gzGzoHsz',
+    appKey: 'LG3cTm6B7zWLcYGzWVVc2kBX',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>
