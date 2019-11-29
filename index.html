@@ -197,113 +197,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://imesong.com/2017/02/04/2017/Android%E5%8F%8D%E7%BC%96%E8%AF%91%E5%AE%9E%E6%88%98-%E5%B0%8F%E7%B1%B3%E6%A1%8C%E9%9D%A2%E7%9A%84%E9%80%86%E5%90%91%E8%AE%B0%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://secure.gravatar.com/avatar/bd2525e0ecc6d8022339c7dce27065c0">
-      <meta itemprop="name" content="imesong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="imesong">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/02/04/2017/Android%E5%8F%8D%E7%BC%96%E8%AF%91%E5%AE%9E%E6%88%98-%E5%B0%8F%E7%B1%B3%E6%A1%8C%E9%9D%A2%E7%9A%84%E9%80%86%E5%90%91%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">Android反编译－小米桌面逆向过程记录</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2017-02-04 14:57:05" itemprop="dateCreated datePublished" datetime="2017-02-04T14:57:05+08:00">2017-02-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2017-04-19 12:53:44" itemprop="dateModified" datetime="2017-04-19T12:53:44+08:00">2017-04-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/2017/02/04/2017/Android%E5%8F%8D%E7%BC%96%E8%AF%91%E5%AE%9E%E6%88%98-%E5%B0%8F%E7%B1%B3%E6%A1%8C%E9%9D%A2%E7%9A%84%E9%80%86%E5%90%91%E8%AE%B0%E5%BD%95/" class="post-meta-item leancloud_visitors" data-flag-title="Android反编译－小米桌面逆向过程记录" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2017/02/04/2017/Android%E5%8F%8D%E7%BC%96%E8%AF%91%E5%AE%9E%E6%88%98-%E5%B0%8F%E7%B1%B3%E6%A1%8C%E9%9D%A2%E7%9A%84%E9%80%86%E5%90%91%E8%AE%B0%E5%BD%95/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2017/02/04/2017/Android%E5%8F%8D%E7%BC%96%E8%AF%91%E5%AE%9E%E6%88%98-%E5%B0%8F%E7%B1%B3%E6%A1%8C%E9%9D%A2%E7%9A%84%E9%80%86%E5%90%91%E8%AE%B0%E5%BD%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>本文中提到的方法，思路以及资料，仅供学习交流。</p>
-</blockquote>
-<h3 id="场景介绍"><a href="#场景介绍" class="headerlink" title="场景介绍"></a>场景介绍</h3><p>分析小米桌面的起因，是由于负责的两个项目，都有在桌面创建快捷方式的需求，两份功能代码基本完全一致，可是，在一款红米2，MIUI7的手机上，A产品可以正常申请权限，创建快捷方式，B产品却不可以。在测试过程中发现，如果把B产品包名修改一下，创建快捷方式的功能就是正常的。由此我们怀疑，在创建快捷方式控制的地方，我们的B产品被拉进了黑名单，不要问我为什么会被拉黑，因为我是无辜的。大致场景就是这个样子。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/02/04/2017/Android%E5%8F%8D%E7%BC%96%E8%AF%91%E5%AE%9E%E6%88%98-%E5%B0%8F%E7%B1%B3%E6%A1%8C%E9%9D%A2%E7%9A%84%E9%80%86%E5%90%91%E8%AE%B0%E5%BD%95/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://imesong.com/2016/08/12/2016/LinuxShell%E8%84%9A%E6%9C%AC%E6%94%BB%E7%95%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -827,114 +720,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://imesong.com/2016/04/05/2016/Android%E5%8F%8D%E7%BC%96%E8%AF%91%E5%AE%9E%E6%88%98%EF%BC%8D%E6%8F%AD%E7%A7%98%E7%8C%8E%E8%B1%B9%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://secure.gravatar.com/avatar/bd2525e0ecc6d8022339c7dce27065c0">
-      <meta itemprop="name" content="imesong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="imesong">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/04/05/2016/Android%E5%8F%8D%E7%BC%96%E8%AF%91%E5%AE%9E%E6%88%98%EF%BC%8D%E6%8F%AD%E7%A7%98%E7%8C%8E%E8%B1%B9%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91/" class="post-title-link" itemprop="url">Android反编译－揭秘猎豹设置默认浏览器逻辑</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2016-04-05 17:41:05" itemprop="dateCreated datePublished" datetime="2016-04-05T17:41:05+08:00">2016-04-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2017-04-19 12:36:26" itemprop="dateModified" datetime="2017-04-19T12:36:26+08:00">2017-04-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-            </span>
-
-          
-            <span id="/2016/04/05/2016/Android%E5%8F%8D%E7%BC%96%E8%AF%91%E5%AE%9E%E6%88%98%EF%BC%8D%E6%8F%AD%E7%A7%98%E7%8C%8E%E8%B1%B9%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91/" class="post-meta-item leancloud_visitors" data-flag-title="Android反编译－揭秘猎豹设置默认浏览器逻辑" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2016/04/05/2016/Android%E5%8F%8D%E7%BC%96%E8%AF%91%E5%AE%9E%E6%88%98%EF%BC%8D%E6%8F%AD%E7%A7%98%E7%8C%8E%E8%B1%B9%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2016/04/05/2016/Android%E5%8F%8D%E7%BC%96%E8%AF%91%E5%AE%9E%E6%88%98%EF%BC%8D%E6%8F%AD%E7%A7%98%E7%8C%8E%E8%B1%B9%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>设置默认浏览器是浏览器类软件的基本功能之一，通过设置默认浏览器，提高用户主动打开自家产品的机会。但是由于国内不同Rom差异很大，想要把这个功能做好，却也不易。本文主要分享，如何通过竞品分析的角度，解决我们在开发过程中遇到的问题。</p>
-</blockquote>
-<h3 id="设置默认浏览器"><a href="#设置默认浏览器" class="headerlink" title="设置默认浏览器"></a>设置默认浏览器</h3><p>设置默认浏览器的主要有两大流派，分别是<strong><a href="http://blog.csdn.net/ifangler/article/details/39549319" target="_blank" rel="noopener">官方提供法</a></strong>和<strong><a href="http://blog.csdn.net/leilu2008/article/details/8774112" target="_blank" rel="noopener">越轨提权法</a></strong></p>
-<p>UC浏览器提供的那种思路，没有尝试，主要觉得对权限要求太高，兼容性无法保障，需要对容错有很多考虑。官方提供的方法中，原生Rom是没有问题的，但是通过测试发现，现在的主流设备上，华为，三星，小米，乐视个别型号上都无法设置成功。通过分析竞品，QQ，UC，猎豹都可以设置成功。这个就引起了我的好奇，他们是如何做到的，这里主要探索猎豹浏览器的做法。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/04/05/2016/Android%E5%8F%8D%E7%BC%96%E8%AF%91%E5%AE%9E%E6%88%98%EF%BC%8D%E6%8F%AD%E7%A7%98%E7%8C%8E%E8%B1%B9%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://imesong.com/2016/04/05/2016/Android-%E5%9C%A8%E7%BA%BF%E6%8D%A2%E8%82%A4%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1189,7 +974,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1198,7 +983,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
