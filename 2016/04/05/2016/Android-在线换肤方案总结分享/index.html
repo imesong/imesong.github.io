@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="imesong" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://imesong.com').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="本文主要是在公司内部的一次分享会内容，基于 Android－Skin－Loader开源库，实现一套完整的在线换肤方案。同时，也参考了很多网上总结的换肤思路，后面会给出主要的参考资料。">
+<meta name="keywords" content="Android,View,Resources,换肤">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 在线换肤方案总结分享">
+<meta property="og:url" content="http:&#x2F;&#x2F;imesong.com&#x2F;2016&#x2F;04&#x2F;05&#x2F;2016&#x2F;Android-%E5%9C%A8%E7%BA%BF%E6%8D%A2%E8%82%A4%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB&#x2F;index.html">
+<meta property="og:site_name" content="imesong">
+<meta property="og:description" content="本文主要是在公司内部的一次分享会内容，基于 Android－Skin－Loader开源库，实现一套完整的在线换肤方案。同时，也参考了很多网上总结的换肤思路，后面会给出主要的参考资料。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xrkqt.com1.z0.glb.clouddn.com&#x2F;image%2F2016%2Fthemedemo.gif">
+<meta property="og:image" content="http:&#x2F;&#x2F;androiddoc.qiniudn.com&#x2F;images&#x2F;build.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;7xrkqt.com1.z0.glb.clouddn.com&#x2F;blogimage&#x2F;2016&#x2F;QQ20160406-0.png-blogpic">
+<meta property="og:updated_time" content="2019-12-06T13:43:08.442Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;7xrkqt.com1.z0.glb.clouddn.com&#x2F;image%2F2016%2Fthemedemo.gif">
+
+<link rel="canonical" href="http://imesong.com/2016/04/05/2016/Android-%E5%9C%A8%E7%BA%BF%E6%8D%A2%E8%82%A4%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Android 在线换肤方案总结分享 | imesong</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9e900bf6e455a1e02b134a8284caa9e1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">imesong</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">我们的征途是星辰大海</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://imesong.com/2016/04/05/2016/Android-%E5%9C%A8%E7%BA%BF%E6%8D%A2%E8%82%A4%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://secure.gravatar.com/avatar/bd2525e0ecc6d8022339c7dce27065c0">
+      <meta itemprop="name" content="imesong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="imesong">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Android 在线换肤方案总结分享
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-04-05 16:48:52" itemprop="dateCreated datePublished" datetime="2016-04-05T16:48:52+08:00">2016-04-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-06 21:43:08" itemprop="dateModified" datetime="2019-12-06T21:43:08+08:00">2019-12-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2016/04/05/2016/Android-%E5%9C%A8%E7%BA%BF%E6%8D%A2%E8%82%A4%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/" class="post-meta-item leancloud_visitors" data-flag-title="Android 在线换肤方案总结分享" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2016/04/05/2016/Android-%E5%9C%A8%E7%BA%BF%E6%8D%A2%E8%82%A4%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2016/04/05/2016/Android-%E5%9C%A8%E7%BA%BF%E6%8D%A2%E8%82%A4%E6%96%B9%E6%A1%88%E6%80%BB%E7%BB%93%E5%88%86%E4%BA%AB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>本文主要是在公司内部的一次分享会内容，基于 Android－Skin－Loader开源库，实现一套完整的在线换肤方案。同时，也参考了很多网上总结的换肤思路，后面会给出主要的参考资料。</p>
+</blockquote>
+<a id="more"></a>
+
+<p><strong>我们先看下Demo效果图</strong></p>
+<p><img src="http://7xrkqt.com1.z0.glb.clouddn.com/image%2F2016%2Fthemedemo.gif" alt="Demo效果图"></p>
+<h3 id="为什么要做在线换肤？"><a href="#为什么要做在线换肤？" class="headerlink" title="为什么要做在线换肤？"></a>为什么要做在线换肤？</h3><h4 id="皮肤模块独立，减小-Apk-包大小"><a href="#皮肤模块独立，减小-Apk-包大小" class="headerlink" title="皮肤模块独立，减小 Apk 包大小"></a>皮肤模块独立，减小 Apk 包大小</h4><p>资源文件在App大小中有很大的比重，特别是工具类的App，用户有使用多套皮肤的需求，如果多套皮肤资源全部在 App 中，会极大的增加 App 的大小，不利于用户下载以及渠道推广。</p>
+<h4 id="技术方案通用，不局限于具体的-App"><a href="#技术方案通用，不局限于具体的-App" class="headerlink" title="技术方案通用，不局限于具体的 App"></a>技术方案通用，不局限于具体的 App</h4><p>现在公司有十几款移动端产品，但是还没有App使用在线换肤或者使用类似插件式的换肤方案，如果能调研出一套完整的在线换肤方案，公司的各个 App 都可以使用。</p>
+<h4 id="服务端控制皮肤包，动态更新，满足运营需求"><a href="#服务端控制皮肤包，动态更新，满足运营需求" class="headerlink" title="服务端控制皮肤包，动态更新，满足运营需求"></a>服务端控制皮肤包，动态更新，满足运营需求</h4><p>皮肤包资源放在服务端，动态更新，可以满足运营需求，发布不同主题皮肤资源包，避免通过发布版本迭代更新。</p>
+<h4 id="降低维护成本"><a href="#降低维护成本" class="headerlink" title="降低维护成本"></a>降低维护成本</h4><p>通过把皮肤模块独立出来，减少主工程的逻辑，精简主工程代码，降低维护成本。</p>
+<h3 id="在线换肤的难点在哪里？"><a href="#在线换肤的难点在哪里？" class="headerlink" title="在线换肤的难点在哪里？"></a>在线换肤的难点在哪里？</h3><p>调研一个技术方案，有难点，有重点。当我们把这些重点难点攻克，方案的雏形基本就完成了。</p>
+<h4 id="如何加载皮肤资源文件"><a href="#如何加载皮肤资源文件" class="headerlink" title="如何加载皮肤资源文件"></a>如何加载皮肤资源文件</h4><p>在线换肤，皮肤资源肯定不会在Apk内部，要怎么加载外部的皮肤资源呢？下载到本地，如何加载外部的资源文件呢？<br>我们先看下 Apk 的打包流程。</p>
+<p><img src="http://androiddoc.qiniudn.com/images/build.png" alt="Android打包流程"></p>
+<p>这里流程中，有两个关键点<br><strong>1.R文件的生成</strong><br>R文件是一个Java文件，通过R文件我们就可以找到对应的资源。R文件就像一张映射表，帮助我们找到资源文件。<br><strong>2.资源文件的打包生成</strong></p>
+<p>资源文件经过压缩打包，生成 resources 文件，通过R文件找到里面保存的对映的资源文件<br>在 App 内部，我们一般通过下面代码，获取资源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">context.getResource.getString(R.string.hello);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">context.getResource.getColor(R.color.black);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">context.getResource.getDrawable(R.drawable.splash);</span></pre></td></tr></table></figure>
+<p>这个时获取 App 内部的资源，能我们家在皮肤资源什么思路吗？加载外部资源的 Resources 能通过类似的思路吗？<br>我们查看下 Resources 类的源码，发现 Resources 的构造函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;**</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">     * Create a new Resources object on top of an existing set of assets in an</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">     * AssetManager.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">     *</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">     * @param assets Previously created AssetManager.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">     * @param metrics Current display metrics to consider when</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">     *                selecting&#x2F;computing resource values.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">     * @param config Desired device configuration to consider when</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">     *               selecting&#x2F;computing resource values (optional).</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">     *&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    public Resources(AssetManager assets, DisplayMetrics metrics, Configuration config) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">        this(assets, metrics, config, CompatibilityInfo.DEFAULT_COMPATIBILITY_INFO);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr></table></figure>
+<p>这里关键是第一个参数如何获取，第二和第三个参数可以通过 Activity 获取到。<br>我们再去看下 AssetManager 的代码，同时会发现下面的这个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;**</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">     * Add an additional set of assets to the asset manager.  This can be</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">     * either a directory or ZIP file.  Not for use by applications.  Returns</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">     * the cookie of the added asset, or 0 on failure.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">     * &#123;@hide&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">     *&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    public final int addAssetPath(String path) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        synchronized (this) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">            int res &#x3D; addAssetPathNative(path);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">            makeStringBlocks(mStringBlocks);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">            return res;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr></table></figure>
+
+<p>AssetManager 可以加载一个zip 格式的压缩包，而 Apk 文件不就是一个 压缩包吗。我们通过反射的方法，拿到 AssetManager，加载 Apk 内部的资源，获取到 Resources 对象，这样再想办法，把 R文件里面保存的ID获取到，这样既可以拿到对应的资源文件了。理论上我们的思路时成立的。<br>我们看下，如何通过代码获取 Resources 对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">AssetManager assetManager &#x3D; AssetManager.class.newInstance();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Method addAssetPath &#x3D; assetManager.getClass().getMethod(&quot;addAssetPath&quot;, String.class);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">addAssetPath.invoke(assetManager, skinPkgPath);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">Resources superRes &#x3D; context.getResources();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">Resources skinResource &#x3D; new Resources(assetManager,superRes.getDisplayMetrics(),superRes.getConfiguration());</span></pre></td></tr></table></figure>
+<h4 id="标记需要换肤的-View"><a href="#标记需要换肤的-View" class="headerlink" title="标记需要换肤的 View"></a>标记需要换肤的 View</h4><p>找到资源文件之后，我们要接着标记需要换肤的 View 。<br><strong>找到需要换肤的 View</strong><br>怎么寻找哪些是我们要关注的 View 呢？ 我们还是重 View 的创建时机寻找机会。我们添加一个布局文件时，会使用 LayoutInflater的 Inflater方法，我们看下这个方法是怎么讲一个View添加到Activity 中的。<br>LayoutInflater 中有个接口 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">public interface Factory &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">       &#x2F;**</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        * Hook you can supply that is called when inflating from a LayoutInflater.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        * You can use this to customize the tag names available in your XML</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        * layout files.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        * </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        * &lt;p&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        * Note that it is good practice to prefix these custom names with your</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">        * package (i.e., com.coolcompany.apps) to avoid conflicts with system</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        * names.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        * </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">        * @param name Tag name to be inflated.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">        * @param context The context the view is being created in.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        * @param attrs Inflation attributes as specified in XML file.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">        * </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        * @return View Newly created view. Return null for the default</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">        *         behavior.</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">        *&#x2F;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">       public View onCreateView(String name, Context context, AttributeSet attrs);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">   &#125;</span></pre></td></tr></table></figure>
+<p>根据这里的注释描述，我们可以自己实现这个接口，在 <strong>onCreateView 方法中选择我们需要标记的View</strong>，根据 AttributeSet 值，过滤不需要关注的View。<br><strong>标记 View 与对应的资源</strong><br>我们在 View 创建时，通过过滤 Attribute 属性，找到我们要标记的 View ，下面我们就把这些View的属性记下来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">for (int i &#x3D; 0; i &lt; attrs.getAttributeCount(); i++)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">            String attrName &#x3D; attrs.getAttributeName(i);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">            String attrValue &#x3D; attrs.getAttributeValue(i);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">            if(!AttrFactory.isSupportedAttr(attrName))&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">                continue;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">            &#125;  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">            if(attrValue.startsWith(&quot;@&quot;))&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">                try &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">                    int id &#x3D; Integer.parseInt(attrValue.substring(1));</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">                    String entryName &#x3D; context.getResources().getResourceEntryName(id);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">                    String typeName &#x3D; context.getResources().getResourceTypeName(id);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">                    SkinAttr mSkinAttr &#x3D; AttrFactory.get(attrName, id, entryName, typeName);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">                    if (mSkinAttr !&#x3D; null) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">                        viewAttrs.add(mSkinAttr);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">                    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">                &#125; catch (NumberFormatException e) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">                    e.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">                &#125; catch (NotFoundException e) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">                    e.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">                &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr></table></figure>
+
+<p>然后把这些 View 和属性值，一起封装保存起来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">if(!ListUtils.isEmpty(viewAttrs))&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">            SkinItem skinItem &#x3D; new SkinItem();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">            skinItem.view &#x3D; view;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">            skinItem.attrs &#x3D; viewAttrs;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">            mSkinItems.add(skinItem);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">            if(SkinManager.getInstance().isExternalSkin())&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">                skinItem.apply();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr></table></figure>
+<h4 id="及时更新-UI"><a href="#及时更新-UI" class="headerlink" title="及时更新 UI"></a>及时更新 UI</h4><p>由于我们把需要更新的View 以及属性值都保存起来了，更新的时候只要把他们取出来遍历一遍即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">@Override</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    public void onThemeUpdate() &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        if(!isResponseOnSkinChanging)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">            return;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        mSkinInflaterFactory.applySkin();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;applySkin 的具体实现</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">public void applySkin()&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        if(ListUtils.isEmpty(mSkinItems))&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">            return;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">        &#125;   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">        for(SkinItem si : mSkinItems)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">            if(si.view &#x3D;&#x3D; null)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">                continue;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">            si.apply();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr></table></figure>
+
+<h4 id="制作皮肤包"><a href="#制作皮肤包" class="headerlink" title="制作皮肤包"></a>制作皮肤包</h4><p>皮肤包制作相对简单<br><strong>1.创建独立 model，包名自定义</strong><br><strong>2.添加资源文件到 model 中,不需要 java 代码</strong><br><strong>3.运行 build.gradle 脚本，生成 xxx.skin 皮肤包</strong></p>
+<h4 id="制定一套完整的在线换肤方案"><a href="#制定一套完整的在线换肤方案" class="headerlink" title="制定一套完整的在线换肤方案"></a>制定一套完整的在线换肤方案</h4><p>到这里之后，还是没看到在线换肤方案啊～说好的在线换肤方案呢？<br><strong>1.将制作好的皮肤包上传到服务端后台</strong><br><strong>2.客户端根据接口数据，处理皮肤加载逻辑</strong></p>
+<h4 id="模块依赖关系"><a href="#模块依赖关系" class="headerlink" title="模块依赖关系"></a>模块依赖关系</h4><p><img src="http://7xrkqt.com1.z0.glb.clouddn.com/blogimage/2016/QQ20160406-0.png-blogpic" alt="三个模块的依赖关系"></p>
+<p>换肤方案的介绍基本完成，下面是一些参考资料和资源</p>
+<p><strong><a href="http://7xsnut.com2.z0.glb.clouddn.com/resource/2016/Android%E5%9C%A8%E7%BA%BF%E6%8D%A2%E8%82%A4%E6%96%B9%E6%A1%88%E5%88%86%E4%BA%AB.pptx" target="_blank" rel="noopener">分享ppt文件</a></strong></p>
+<p><strong><a href="https://github.com/imesong/themePlugin" target="_blank" rel="noopener">Demo源码</a></strong></p>
+<p><strong><a href="http://7xsnut.com2.z0.glb.clouddn.com/resource/2016/%E6%8D%A2%E8%82%A4%E6%96%B9%E6%A1%88.xmind" target="_blank" rel="noopener">参考开源资料xmind文件下载</a></strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Android/" rel="tag"># Android</a>
+              <a href="/tags/View/" rel="tag"># View</a>
+              <a href="/tags/Resources/" rel="tag"># Resources</a>
+              <a href="/tags/%E6%8D%A2%E8%82%A4/" rel="tag"># 换肤</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2015/12/31/2015summary/" rel="prev" title="我对这个世界仍有期许">
+      <i class="fa fa-chevron-left"></i> 我对这个世界仍有期许
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2016/04/07/2016/Android-Smali-%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/" rel="next" title="Android Smali 语法学习">
+      Android Smali 语法学习 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要做在线换肤？"><span class="nav-number">1.</span> <span class="nav-text">为什么要做在线换肤？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#皮肤模块独立，减小-Apk-包大小"><span class="nav-number">1.1.</span> <span class="nav-text">皮肤模块独立，减小 Apk 包大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#技术方案通用，不局限于具体的-App"><span class="nav-number">1.2.</span> <span class="nav-text">技术方案通用，不局限于具体的 App</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务端控制皮肤包，动态更新，满足运营需求"><span class="nav-number">1.3.</span> <span class="nav-text">服务端控制皮肤包，动态更新，满足运营需求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#降低维护成本"><span class="nav-number">1.4.</span> <span class="nav-text">降低维护成本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在线换肤的难点在哪里？"><span class="nav-number">2.</span> <span class="nav-text">在线换肤的难点在哪里？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何加载皮肤资源文件"><span class="nav-number">2.1.</span> <span class="nav-text">如何加载皮肤资源文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标记需要换肤的-View"><span class="nav-number">2.2.</span> <span class="nav-text">标记需要换肤的 View</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#及时更新-UI"><span class="nav-number">2.3.</span> <span class="nav-text">及时更新 UI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#制作皮肤包"><span class="nav-number">2.4.</span> <span class="nav-text">制作皮肤包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#制定一套完整的在线换肤方案"><span class="nav-number">2.5.</span> <span class="nav-text">制定一套完整的在线换肤方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块依赖关系"><span class="nav-number">2.6.</span> <span class="nav-text">模块依赖关系</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="imesong"
+      src="https://secure.gravatar.com/avatar/bd2525e0ecc6d8022339c7dce27065c0">
+  <p class="site-author-name" itemprop="name">imesong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/imesong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;imesong" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">imesong</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            var url = item.url;
+            var time = item.time;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=HF0T5f1jM9mXdNyrgXgjXBo8-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'HF0T5f1jM9mXdNyrgXgjXBo8-gzGzoHsz',
+            'X-LC-Key': 'LG3cTm6B7zWLcYGzWVVc2kBX',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'HF0T5f1jM9mXdNyrgXgjXBo8-gzGzoHsz',
+    appKey: 'LG3cTm6B7zWLcYGzWVVc2kBX',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>
