@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="imesong" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://imesong.com').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="这是一篇旧文，之前参考网上的开源系统，帮助朋友梳理了一份客服系统的PRD，希望能帮他理清客服工作中存在的一些问题，对未来如何增效降本提供一些参考。但，实际上也没有没啥作用。这里，将它钉在“耻辱柱”上。  系统介绍WeGo智能客服系统，是一个全渠道融合的客户支持服务平台，聚合8 大客服渠道，帮助各种行业各种规模的企业建立完整客服体系。通过将邮件、短信、电话语音、WebIM 在线客服、微信、微博、H">
+<meta name="keywords" content="2018,项目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WeGo智能客服">
+<meta property="og:url" content="http:&#x2F;&#x2F;imesong.com&#x2F;2018&#x2F;03&#x2F;06&#x2F;WeGo%E6%99%BA%E8%83%BD%E5%AE%A2%E6%9C%8D%E7%B3%BB%E7%BB%9F&#x2F;index.html">
+<meta property="og:site_name" content="imesong">
+<meta property="og:description" content="这是一篇旧文，之前参考网上的开源系统，帮助朋友梳理了一份客服系统的PRD，希望能帮他理清客服工作中存在的一些问题，对未来如何增效降本提供一些参考。但，实际上也没有没啥作用。这里，将它钉在“耻辱柱”上。  系统介绍WeGo智能客服系统，是一个全渠道融合的客户支持服务平台，聚合8 大客服渠道，帮助各种行业各种规模的企业建立完整客服体系。通过将邮件、短信、电话语音、WebIM 在线客服、微信、微博、H">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;7vx3opc4yl31qao4h3hv3da8&#x2F;qudao.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;cix1xg4oiu4c9mstk1rkwu6i&#x2F;shujufenxi.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;fz42b72f18vimdjl358re9kb&#x2F;yewuzhicheng.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;ht2qscw1et3qpriujesbuftw&#x2F;%E7%94%A8%E6%88%B7%E8%A1%A8.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;8htmr0fd4wozmwpcfy3xdj1w&#x2F;%E7%94%A8%E6%88%B7%E5%9B%BE.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;pbq9lwjooxr7nihtd5o37k36&#x2F;image_1c9rl3crqv8uu0m1fuv1kq81t169.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;5n8gjbzm3tqfhlgr8mltp38q&#x2F;image_1c9rl76up1cafgmc1smt8e4n89m.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;0l9r6bkwy7uaz86xg77mrxg7&#x2F;image_1c9rl7u7819np9tjbmq1i4n1jhi13.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;vaq0qprsmsys1g87olzd67hf&#x2F;image_1c9rlqebv1e1uqbf86g5j2sp31g.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;i22fze09icakf6t7teu00uqx&#x2F;image_1c9rlt3tmbc11v8nn6k85p1fo71t.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;du6x3p1i9afspz9ed19n0am0&#x2F;image_1c9rlu6ge1ub613hedmejgg1ufj2a.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;3suvw6abihynq77br9uyxhld&#x2F;image_1c9rm4lvk118fmfnlls2vmvsg2n.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;eo3ta53z8au4qrp8mq887y9e&#x2F;image_1c9rmba60qge1pt2dpnqs1a5o34.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;s6k8u0ojwkk3wcbdrjs7e500&#x2F;image_1c9rmok6r1ko11artqov4017ul3h.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;w0v15ari7io9laoaeh5shwjt&#x2F;image_1c9rn2a99r5p15id1rda1gplb3u.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;yn7povsa8vnewplkx7s6como&#x2F;image_1c9rn79471v5p16ln44n15bi1bfp4b.png">
+<meta property="og:updated_time" content="2019-12-09T12:27:40.136Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;imesong&#x2F;7vx3opc4yl31qao4h3hv3da8&#x2F;qudao.png">
+
+<link rel="canonical" href="http://imesong.com/2018/03/06/WeGo%E6%99%BA%E8%83%BD%E5%AE%A2%E6%9C%8D%E7%B3%BB%E7%BB%9F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>WeGo智能客服 | imesong</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9e900bf6e455a1e02b134a8284caa9e1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">imesong</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">我们的征途是星辰大海</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://imesong.com/2018/03/06/WeGo%E6%99%BA%E8%83%BD%E5%AE%A2%E6%9C%8D%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://secure.gravatar.com/avatar/bd2525e0ecc6d8022339c7dce27065c0">
+      <meta itemprop="name" content="imesong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="imesong">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          WeGo智能客服
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-03-06 20:29:13" itemprop="dateCreated datePublished" datetime="2018-03-06T20:29:13+08:00">2018-03-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-09 20:27:40" itemprop="dateModified" datetime="2019-12-09T20:27:40+08:00">2019-12-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Document/" itemprop="url" rel="index">
+                    <span itemprop="name">Document</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/03/06/WeGo%E6%99%BA%E8%83%BD%E5%AE%A2%E6%9C%8D%E7%B3%BB%E7%BB%9F/" class="post-meta-item leancloud_visitors" data-flag-title="WeGo智能客服" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2018/03/06/WeGo%E6%99%BA%E8%83%BD%E5%AE%A2%E6%9C%8D%E7%B3%BB%E7%BB%9F/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/03/06/WeGo%E6%99%BA%E8%83%BD%E5%AE%A2%E6%9C%8D%E7%B3%BB%E7%BB%9F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>这是一篇旧文，之前参考网上的开源系统，帮助朋友梳理了一份客服系统的PRD，希望能帮他理清客服工作中存在的一些问题，对未来如何增效降本提供一些参考。<br>但，实际上也没有没啥作用。这里，将它钉在“耻辱柱”上。</p>
+</blockquote>
+<h2 id="系统介绍"><a href="#系统介绍" class="headerlink" title="系统介绍"></a>系统介绍</h2><p>WeGo智能客服系统，是一个全渠道融合的客户支持服务平台，聚合8 大客服渠道，帮助各种行业各种规模的企业建立完整客服体系。通过将邮件、短信、电话语音、WebIM 在线客服、微信、微博、H5 页 面、APP 接口8个渠道来源的客户服务请求与对话汇聚在一个管理平台，用统一的方式来响应和支撑客户服务。</p>
+<p>为了方便和用户在线沟通和提供客户服务，WeGo服系统提供了一个智能的聊天平台。在该平台中，用户可以和智能聊天平台进行简单问题的交流，在处理一些用户简单问题基础上，智能聊天平台一方面可以让在线客服坐席人员了解用户的问题所在，另一方面就是，在用户与智能平台交流中，可以减轻客服的压力，为后台客服争取更多的时 间。在此系统中，智能平台可以帮助后台客服解决大部分基础的简单问题，提高客服效率，降低人工客服成本。</p>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>本节描述软件产品需求规格说明书(SRS)</p>
+<ol>
+<li>定义软件总体要求，为用户和软件开发人员之间相互了解的基础。</li>
+<li>提供性能要求、初步设计和对用户影响的信息，作为软件人员进行软件结构设计和编码的基础。</li>
+<li>作为软件总体测试的依据。</li>
+</ol>
+<ul>
+<li>概要描述需求范围</li>
+<li>概要描述项目设计思路</li>
+<li>为详细需求分析和设计提供依据和参考</li>
+<li>通过细致的概要设计，全面整合考虑，提高系统的统一性和健壮性</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="渠道融合，建立统一客服模式"><a href="#渠道融合，建立统一客服模式" class="headerlink" title="渠道融合，建立统一客服模式"></a>渠道融合，建立统一客服模式</h3><p><img src="http://static.zybuluo.com/imesong/7vx3opc4yl31qao4h3hv3da8/qudao.png" alt="qudao.png-35.3kB"></p>
+<ol>
+<li>WebIM 在线客服<br>让您的客服在一个节目和各个渠道来源的用户对话，实时沟通，并能够为对话<br>记录质检和创建业务请求方便后续跟进和处理</li>
+<li>社交媒体 QQ、微信<br>集成微信和微博渠道，将社交网络的服务请求集中到优客服，客服坐席统一响应和受理</li>
+<li>语音<br>接入企业的呼叫中心，让客服在一个管理界面接听呼入的电话并可以方便快捷的呼出，通过工单记录和后续跟进客户</li>
+<li>邮件短信<br>将发至客服邮箱的邮件转为服务请求，通过任务受理和追踪，并能够通过发送邮件或短信快速回复客户客户</li>
+</ol>
+<h3 id="业务支撑，提供快速服务请求"><a href="#业务支撑，提供快速服务请求" class="headerlink" title="业务支撑，提供快速服务请求"></a>业务支撑，提供快速服务请求</h3><ol>
+<li>简单易用的界面与交互<br>为客户和坐席人员提供友好的操作界面，方便通过标准方式进行高效沟通</li>
+<li>跨部门协同解决客户问题<br>连接您的所有职能人员，从销售客服到技术支持</li>
+<li>问题流转与变更全纪录<br>客户的所有交谈记录和问题工单处理事件都会完整记录，方便任何客服接手问题处理，有效解决客户问题</li>
+</ol>
+<h3 id="数据分析，深入了解客服业务状况"><a href="#数据分析，深入了解客服业务状况" class="headerlink" title="数据分析，深入了解客服业务状况"></a>数据分析，深入了解客服业务状况</h3><p><img src="http://static.zybuluo.com/imesong/cix1xg4oiu4c9mstk1rkwu6i/shujufenxi.png" alt="shujufenxi.png-36.6kB"></p>
+<ol>
+<li>全渠道数据概况一目了然<br>了解所有渠道的客户服务状况、来源比例，了解响应时间与服务时间，按不同维度统计</li>
+<li>优化客服坐席资源分配<br>按照不同的维度统计更细致的客户坐席服务变化趋势，查看每一天的坐席绩效</li>
+<li>客群分类，建立客户全景式图<br>集成企业内部客户数据，分析客户价值，创建客户标签</li>
+</ol>
+<p><img src="http://static.zybuluo.com/imesong/fz42b72f18vimdjl358re9kb/yewuzhicheng.png" alt="yewuzhicheng.png-33.9kB"></p>
+<h2 id="需求概述"><a href="#需求概述" class="headerlink" title="需求概述"></a>需求概述</h2><h3 id="用户定义"><a href="#用户定义" class="headerlink" title="用户定义"></a>用户定义</h3><p>系统总体用例可分为三大类，其分别为:<br>用户、客服(坐席)、系统管理员<br>各用例大致功能划分如下</p>
+<ol>
+<li>网站用户:用户访问、用户登录、用户对话、留言。</li>
+<li>客服(坐席):登录、信息回复、与网站用户对话、用户信息查看、关键字添<br>加、回复语添加。</li>
+<li>系统管理员:登录、用户信息管理、客服信息管理、留言板管理。<br><img src="http://static.zybuluo.com/imesong/ht2qscw1et3qpriujesbuftw/%E7%94%A8%E6%88%B7%E8%A1%A8.png" alt="用户表.png-57.2kB"><br>用户图</li>
+</ol>
+<p><img src="http://static.zybuluo.com/imesong/8htmr0fd4wozmwpcfy3xdj1w/%E7%94%A8%E6%88%B7%E5%9B%BE.png" alt="用户图.png-15.3kB"></p>
+<h3 id="业务流程"><a href="#业务流程" class="headerlink" title="业务流程"></a>业务流程</h3><p>在该系统中，系统所面对的是互联网/局域网用户，用户在公网/局域网使用中经常 会碰到一系列的问题，为了方便用户咨询或解决问题，为用户提供一个在线IM沟通解决方案，此系统中的客服(坐席)通过即时消息系统平台帮助用户解决简单问题。</p>
+<p>具体处理流程如图如下</p>
+<p><img src="http://static.zybuluo.com/imesong/pbq9lwjooxr7nihtd5o37k36/image_1c9rl3crqv8uu0m1fuv1kq81t169.png" alt="image_1c9rl3crqv8uu0m1fuv1kq81t169.png-76.7kB"></p>
+<h3 id="总体业务流程"><a href="#总体业务流程" class="headerlink" title="总体业务流程"></a>总体业务流程</h3><p>该系统主要功能模块划分为五个模块: </p>
+<ol>
+<li>访客入口模块</li>
+<li>访客邀请模块</li>
+<li>访客对话模块</li>
+<li>留言模块</li>
+<li>满意度调查模块</li>
+</ol>
+<p>该系统由以上五个模块组成，完成系统所相应的功能。</p>
+<p><img src="http://static.zybuluo.com/imesong/5n8gjbzm3tqfhlgr8mltp38q/image_1c9rl76up1cafgmc1smt8e4n89m.png" alt="image_1c9rl76up1cafgmc1smt8e4n89m.png-157kB"><br><img src="http://static.zybuluo.com/imesong/0l9r6bkwy7uaz86xg77mrxg7/image_1c9rl7u7819np9tjbmq1i4n1jhi13.png" alt="image_1c9rl7u7819np9tjbmq1i4n1jhi13.png-125kB"></p>
+<h3 id="客户端功能"><a href="#客户端功能" class="headerlink" title="客户端功能"></a>客户端功能</h3><h4 id="访客入口的安装"><a href="#访客入口的安装" class="headerlink" title="访客入口的安装"></a>访客入口的安装</h4><p>将WeGo客服的WebIM子系统代码安装到目标网站，安装的JS代码使用UTF-8编码.<br>在嵌入客户目标网站的时候，如果需要传入当前登陆用户的身份 信息，则需要调用相应的函数，配置的用户信息包括:用户 ID，用户姓名、用户的 邮箱地址、电话号码等。</p>
+<h4 id="功能清单"><a href="#功能清单" class="headerlink" title="功能清单"></a>功能清单</h4><table>
+<thead>
+<tr>
+<th>模块</th>
+<th>功能项</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>入口代码</td>
+<td>接入WeGo系统 WebIM功能</td>
+<td>通过JS将WebIM功能集成到目标网站</td>
+</tr>
+<tr>
+<td>用户参数传入</td>
+<td>将已登录的用户信息传入WebIM系统</td>
+<td>通过函数调用的方式将目标网站的用户信息传入WebIM系统，便于后台客服人员沟通</td>
+</tr>
+</tbody></table>
+<h4 id="访客入口参数设置"><a href="#访客入口参数设置" class="headerlink" title="访客入口参数设置"></a>访客入口参数设置</h4><h5 id="访客入口按钮样式"><a href="#访客入口按钮样式" class="headerlink" title="访客入口按钮样式"></a>访客入口按钮样式</h5><p>访客入口的样式设置参数有：<br>a) 按钮的外形样式<br>b) 按钮的颜色<br><strong>样式一</strong></p>
+<p><img src="http://static.zybuluo.com/imesong/vaq0qprsmsys1g87olzd67hf/image_1c9rlqebv1e1uqbf86g5j2sp31g.png" alt="image_1c9rlqebv1e1uqbf86g5j2sp31g.png-28.2kB"></p>
+<p><strong>样式二</strong><br><img src="http://static.zybuluo.com/imesong/i22fze09icakf6t7teu00uqx/image_1c9rlt3tmbc11v8nn6k85p1fo71t.png" alt="image_1c9rlt3tmbc11v8nn6k85p1fo71t.png-25.6kB"></p>
+<p><strong>样式三</strong><br><img src="http://static.zybuluo.com/imesong/du6x3p1i9afspz9ed19n0am0/image_1c9rlu6ge1ub613hedmejgg1ufj2a.png" alt="image_1c9rlu6ge1ub613hedmejgg1ufj2a.png-29.7kB"></p>
+<h5 id="访客入口按钮的位置"><a href="#访客入口按钮的位置" class="headerlink" title="访客入口按钮的位置"></a>访客入口按钮的位置</h5><ul>
+<li>位置(左上/左中/左下/右上/右中/右下) </li>
+<li>距离左侧间隔</li>
+<li>距离右侧间隔</li>
+<li>距离顶部间隔</li>
+<li>距离底部间隔</li>
+</ul>
+<h5 id="访客入口按钮的文字内容"><a href="#访客入口按钮的文字内容" class="headerlink" title="访客入口按钮的文字内容"></a>访客入口按钮的文字内容</h5><ul>
+<li>设置访客入口按钮上的文字内容</li>
+</ul>
+<h4 id="邀请框"><a href="#邀请框" class="headerlink" title="邀请框"></a>邀请框</h4><p>客户接入网站在目标网站上自动显示提示框(到达时间后自动弹出)也可以由坐席 通过查看当前在线用户列表，发送对话邀请。</p>
+<p><img src="http://static.zybuluo.com/imesong/3suvw6abihynq77br9uyxhld/image_1c9rm4lvk118fmfnlls2vmvsg2n.png" alt="image_1c9rm4lvk118fmfnlls2vmvsg2n.png-126.8kB"></p>
+<ol>
+<li>邀请框中文字需要设置的参数   <ul>
+<li>邀请框的文字内容</li>
+<li>邀请框的文字大小</li>
+<li>邀请框的文字字体</li>
+<li>邀请框的文字颜色 </li>
+</ul>
+</li>
+<li>邀请框的样式需要设置的参数<ul>
+<li>邀请框的宽度</li>
+<li>邀请框的高度</li>
+<li>邀请框的背景颜色   </li>
+<li>邀请框的样式</li>
+</ul>
+</li>
+<li>邀请框位置需要设置的参数<ul>
+<li>邀请框的位置(左上/左中/左下/右上/右中/右下)</li>
+<li>邀请框距离左侧间距</li>
+<li>邀请框距离右侧间隔</li>
+<li>邀请框距离顶部间隔</li>
+<li>邀请框距离底部间隔</li>
+</ul>
+</li>
+<li>邀请框弹出需要设置的参数<ul>
+<li>邀请框弹出形式:自动/人工</li>
+<li>邀请框自动弹出间隔时间</li>
+<li>是否重复邀请(拒绝邀请后是否再次弹出)</li>
+</ul>
+</li>
+</ol>
+<h4 id="访客对话窗口"><a href="#访客对话窗口" class="headerlink" title="访客对话窗口"></a>访客对话窗口</h4><p>如果用户接受邀请点击开始咨询或者点击在线咨询按钮，则弹出对话窗口。</p>
+<p><img src="http://static.zybuluo.com/imesong/eo3ta53z8au4qrp8mq887y9e/image_1c9rmba60qge1pt2dpnqs1a5o34.png" alt="image_1c9rmba60qge1pt2dpnqs1a5o34.png-65.1kB"></p>
+<ol>
+<li><p>访客对话框的样式需要设置的参数</p>
+<ul>
+<li>访客对话框的宽度</li>
+<li>访客对话框的高度</li>
+<li>访客对话框的背景颜色   </li>
+<li>○1 中 logo</li>
+<li>○1 中文本内容</li>
+</ul>
+</li>
+<li><p>访客对话框位置需要设置的参数</p>
+<ul>
+<li>访客对话框的位置(左上/左中/左下/右上/右中/右下)</li>
+<li>访客对话框距离左侧间隔，</li>
+<li>访客对话框距离右侧间隔</li>
+<li>访客对话框距离顶部间隔</li>
+<li>访客对话框距离底部间隔</li>
+</ul>
+</li>
+<li><p>访客对话框○2 中欢迎语文字需要设置的参数</p>
+<ul>
+<li>打开访客对话框即显示欢迎语</li>
+<li>欢迎语文字内容</li>
+<li>欢迎语文字大小</li>
+<li>欢迎语文字字体</li>
+<li>欢迎语文字颜色</li>
+<li>欢迎语部分背景颜色</li>
+<li>欢迎语部分到顶部距离</li>
+<li>欢迎语部分到左侧距离</li>
+<li>欢迎语部分到右侧距离</li>
+</ul>
+</li>
+<li><p>访客对话框○4 中编辑区文字的设置</p>
+<ul>
+<li>编辑区文字大小</li>
+<li>编辑区文字字体</li>
+<li>编辑区文字颜色</li>
+<li>编辑区文字是否加粗</li>
+<li>编辑区文字是否倾斜</li>
+<li>编辑区文字下划线</li>
+</ul>
+</li>
+<li><p>信息提示区需要设置的参数</p>
+<ul>
+<li>公司名称(位置:是否在右上角显示，是否在右下角显示)</li>
+<li>客服所属部门(位置:是否在右上角显示，是否在右下角显示)</li>
+<li>当前客服(位置:是否在右上角显示，是否在右下角显示)</li>
+<li>客服电话(位置:是否在右上角显示，是否在右下角显示)</li>
+<li>邮箱(位置:是否在右上角显示，是否在右下角显示)</li>
+<li>QQ，(位置:是否在右上角显示，是否在右下角显示)</li>
+<li>微信，(位置:是否在右上角显示，是否在右下角显示)</li>
+<li>微信二维码图片(自己上传)(位置:是否在右上角显示，是否在右下角显示)</li>
+<li>图片(logo)(位置:是否在右上角显示，是否在右下角显示)</li>
+<li>备注:富文本(位置:是否在右上角显示，是否在右下角显示)</li>
+</ul>
+</li>
+<li><p>对话信息需要设置的参数<br>打开对话框，(分配中:正在连接客服请稍候)如果坐席分配失败，则提示当前排队信息;如果分配成功，则自动发送当前服务的坐席工号等的提示用语。显示区域 为○2 ○3 之间的时间位置。</p>
+</li>
+</ol>
+<ul>
+<li>坐席工号</li>
+<li>提示用语内容</li>
+<li>当前排队人数</li>
+<li>分配状态<br>对话过程中，如果用户长时间无操作，则询问用户是否还在线，如果用户长时间无回复，断开和坐席的连接，关闭对话并提示满意度调查界面。</li>
+<li>无操作**时间后询问</li>
+<li>询问后等待**时间</li>
+<li>自动询问的内容</li>
+<li>关闭前提示信息<br><img src="http://static.zybuluo.com/imesong/s6k8u0ojwkk3wcbdrjs7e500/image_1c9rmok6r1ko11artqov4017ul3h.png" alt="image_1c9rmok6r1ko11artqov4017ul3h.png-53.4kB"></li>
+</ul>
+<ol start="7">
+<li>○5 中功能区域显示功能   </li>
+</ol>
+<ul>
+<li>文本</li>
+<li>表情</li>
+<li>是否允许发送图片</li>
+<li>图片格式</li>
+<li>是否允许上传文件</li>
+<li>允许上传文件的最大值   </li>
+<li>是否允许发送视频</li>
+<li>是否允许发送音频</li>
+<li>是否允许发送链接</li>
+</ul>
+<h4 id="留言窗口"><a href="#留言窗口" class="headerlink" title="留言窗口"></a>留言窗口</h4><p>如果用户接受邀请点击开始咨询或者点击在线咨询按钮，但当前无坐席在线或不在 工作时间段提示用户留言<br><img src="http://static.zybuluo.com/imesong/w0v15ari7io9laoaeh5shwjt/image_1c9rn2a99r5p15id1rda1gplb3u.png" alt="image_1c9rn2a99r5p15id1rda1gplb3u.png-50.3kB"></p>
+<ol>
+<li>留言窗口的样式需要设置的参数</li>
+</ol>
+<ul>
+<li>留言窗口的宽度</li>
+<li>留言窗口的高度</li>
+<li>留言窗口的背景颜色</li>
+</ul>
+<ol start="2">
+<li>留言窗口位置需要设置的参数<ul>
+<li>留言窗口的位置(左上/左中/左下/右上/右中/右下)</li>
+<li>留言窗口距离左侧间隔，</li>
+<li>留言窗口距离右侧间隔</li>
+<li>留言窗口距离顶部间隔</li>
+<li>留言窗口距离底部间隔</li>
+</ul>
+</li>
+<li>客户留言信息记录需要设置的参数<ul>
+<li>客户姓名(是否显示，是否必填)</li>
+<li>回复方式:电话/邮件</li>
+<li>电话号码</li>
+<li>客户邮箱</li>
+<li>留言主题</li>
+<li>留言内容</li>
+<li>留言时间 关闭之后显示提示信息，感谢…留言</li>
+</ul>
+</li>
+</ol>
+<h4 id="满意度窗口"><a href="#满意度窗口" class="headerlink" title="满意度窗口"></a>满意度窗口</h4><p>点击关闭对话窗口时弹出满意度窗口，配置是否启用满意度调查</p>
+<p><img src="http://static.zybuluo.com/imesong/yn7povsa8vnewplkx7s6como/image_1c9rn79471v5p16ln44n15bi1bfp4b.png" alt="image_1c9rn79471v5p16ln44n15bi1bfp4b.png-26.5kB"></p>
+<p>满意度调查需要记录的参数</p>
+<ul>
+<li>是否启用满意度调查</li>
+<li>评价:非常满意、满意、一般、不满意、非常不满意</li>
+<li>描述/备注</li>
+<li>关闭/感谢评价</li>
+<li>感谢语内容(富文本)</li>
+<li>关联对话(id)</li>
+<li>服务坐席(id)</li>
+<li>当前客户(id)</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/2018/" rel="tag"># 2018</a>
+              <a href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag"># 项目</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/09/19/2017LearningList/" rel="prev" title="2017LearningList">
+      <i class="fa fa-chevron-left"></i> 2017LearningList
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/09/19/2018LearningList/" rel="next" title="2018LearningList">
+      2018LearningList <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统介绍"><span class="nav-number">1.</span> <span class="nav-text">系统介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">2.</span> <span class="nav-text">目标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#渠道融合，建立统一客服模式"><span class="nav-number">2.1.</span> <span class="nav-text">渠道融合，建立统一客服模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#业务支撑，提供快速服务请求"><span class="nav-number">2.2.</span> <span class="nav-text">业务支撑，提供快速服务请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据分析，深入了解客服业务状况"><span class="nav-number">2.3.</span> <span class="nav-text">数据分析，深入了解客服业务状况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求概述"><span class="nav-number">3.</span> <span class="nav-text">需求概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户定义"><span class="nav-number">3.1.</span> <span class="nav-text">用户定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#业务流程"><span class="nav-number">3.2.</span> <span class="nav-text">业务流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总体业务流程"><span class="nav-number">3.3.</span> <span class="nav-text">总体业务流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端功能"><span class="nav-number">3.4.</span> <span class="nav-text">客户端功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#访客入口的安装"><span class="nav-number">3.4.1.</span> <span class="nav-text">访客入口的安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#功能清单"><span class="nav-number">3.4.2.</span> <span class="nav-text">功能清单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#访客入口参数设置"><span class="nav-number">3.4.3.</span> <span class="nav-text">访客入口参数设置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#访客入口按钮样式"><span class="nav-number">3.4.3.1.</span> <span class="nav-text">访客入口按钮样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#访客入口按钮的位置"><span class="nav-number">3.4.3.2.</span> <span class="nav-text">访客入口按钮的位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#访客入口按钮的文字内容"><span class="nav-number">3.4.3.3.</span> <span class="nav-text">访客入口按钮的文字内容</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#邀请框"><span class="nav-number">3.4.4.</span> <span class="nav-text">邀请框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#访客对话窗口"><span class="nav-number">3.4.5.</span> <span class="nav-text">访客对话窗口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#留言窗口"><span class="nav-number">3.4.6.</span> <span class="nav-text">留言窗口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#满意度窗口"><span class="nav-number">3.4.7.</span> <span class="nav-text">满意度窗口</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="imesong"
+      src="https://secure.gravatar.com/avatar/bd2525e0ecc6d8022339c7dce27065c0">
+  <p class="site-author-name" itemprop="name">imesong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/imesong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;imesong" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">imesong</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            var url = item.url;
+            var time = item.time;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=HF0T5f1jM9mXdNyrgXgjXBo8-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': 'HF0T5f1jM9mXdNyrgXgjXBo8-gzGzoHsz',
+            'X-LC-Key': 'LG3cTm6B7zWLcYGzWVVc2kBX',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'HF0T5f1jM9mXdNyrgXgjXBo8-gzGzoHsz',
+    appKey: 'LG3cTm6B7zWLcYGzWVVc2kBX',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>
