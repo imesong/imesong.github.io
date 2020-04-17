@@ -454,7 +454,7 @@
         });
     }
 
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"HF0T5f1jM9mXdNyrgXgjXBo8-gzGzoHsz","app_key":"LG3cTm6B7zWLcYGzWVVc2kBX","server_url":null,"security":true};
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"HF0T5f1jM9mXdNyrgXgjXBo8-gzGzoHsz","app_key":"LG3cTm6B7zWLcYGzWVVc2kBX","server_url":"https://blog.imesong.com","security":true};
     function fetchData(api_server) {
       var Counter = (method, url, data) => {
         return fetch(`${api_server}/1.1${url}`, {
@@ -559,7 +559,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       lang       : 'zh-cn' || 'zh-cn',
       path       : location.pathname,
       recordIP   : false,
-      serverURLs : ''
+      serverURLs : 'https://blog.imesong.com'
     });
   }, window.Valine);
 });
