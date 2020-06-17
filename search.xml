@@ -43,7 +43,7 @@
 <h4 id="重新打包编译，覆盖源文件"><a href="#重新打包编译，覆盖源文件" class="headerlink" title="重新打包编译，覆盖源文件"></a>重新打包编译，覆盖源文件</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">asar pack app app.asar</span><br></pre></td></tr></table></figure>
 
 <p>将 app.asar 放回 Contents/Resources 目录中，覆盖掉源文件，重启 StarUML</p>
-<p><img src="http://img.imesong.com/avatar.jpg" alt="StarUML"></p>
+<p><img src="http://img.imesong.com/staruml-crack.jpg" alt="StarUML"></p>
 <blockquote>
 <p>声明：本文章中提供的方法和软件，仅供个人学习研究使用，禁止用于商业用途，如有需要，<a href="http://staruml.io/" target="_blank" rel="noopener">请购买正版</a></p>
 </blockquote>
