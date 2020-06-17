@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://imesong.com/"/>
-  <updated>2020-04-09T03:26:01.182Z</updated>
+  <updated>2020-06-17T05:37:27.863Z</updated>
   <id>http://imesong.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>StarUML上手指南</title>
+    <link href="http://imesong.com/2020/06/17/StarUML%E4%B8%8A%E6%89%8B%E6%8C%87/"/>
+    <id>http://imesong.com/2020/06/17/StarUML%E4%B8%8A%E6%89%8B%E6%8C%87/</id>
+    <published>2020-06-17T05:00:55.000Z</published>
+    <updated>2020-06-17T05:37:27.863Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="StarUML-上手指南"><a href="#StarUML-上手指南" class="headerlink" title="StarUML 上手指南"></a>StarUML 上手指南</h1><blockquote><p>StarUML 使用 node.js 编写，源代码通过asar 工具打包而成，我们可以通过 asar 工具修改代码实现破解的目的。</p></blockquote><h3 id="破解版本直达电梯"><a href="#破解版本直达电梯" class="headerlink" title="破解版本直达电梯"></a>破解版本直达电梯</h3><p>如果不想动手，MacOS平台可以下载破解后的版本，直接安装使用即可。其他平台请参考教程自己动手。<br><a href="https://pan.baidu.com/s/1Kn5BTk348VilRGxXyR49CQ" target="_blank" rel="noopener">MacOS 版本v3.2.2 20202年中最新版本 开箱即用</a> 密码: 83g2</p><a id="more"></a><h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="安装node-和-npm"><a href="#安装node-和-npm" class="headerlink" title="安装node 和 npm"></a>安装node 和 npm</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br><span class="line"><span class="meta">#</span><span class="bash">安装之后查看版本信息</span></span><br><span class="line">node --version</span><br></pre></td></tr></table></figure><p> <a href="https://www.runoob.com/nodejs/nodejs-install-setup.html" target="_blank" rel="noopener">详细安装教程参考</a></p><h4 id="安装asar"><a href="#安装asar" class="headerlink" title="安装asar"></a>安装asar</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g asar</span><br><span class="line"><span class="meta">#</span><span class="bash">安装成功后查看版本信息</span></span><br><span class="line">asar --version</span><br></pre></td></tr></table></figure><h3 id="破解StarUML"><a href="#破解StarUML" class="headerlink" title="破解StarUML"></a>破解StarUML</h3><h4 id="提取Contents-Resources-app-asar"><a href="#提取Contents-Resources-app-asar" class="headerlink" title="提取Contents/Resources/app.asar"></a>提取Contents/Resources/app.asar</h4><p>下载的StarUML，右键显示包内容<br>进入Contents/Resources/<br>把app.asar复制出来</p><h4 id="解压app-asar"><a href="#解压app-asar" class="headerlink" title="解压app.asar"></a>解压app.asar</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">asar extract app.asar app</span><br></pre></td></tr></table></figure><h4 id="修改app-src-engine-license-manager-js"><a href="#修改app-src-engine-license-manager-js" class="headerlink" title="修改app/src/engine/license-manager.js"></a>修改app/src/engine/license-manager.js</h4><p>找到checkLicenseValidity函数<br>将false改成true，并注释或删掉下面一行<br>函数在125行，需要修改的是129和130行，修改后效果如下。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">125   checkLicenseValidity () &#123;</span><br><span class="line">126     this.validate().then(() &#x3D;&gt; &#123;</span><br><span class="line">127       setStatus(this, true)</span><br><span class="line">128     &#125;, () &#x3D;&gt; &#123;</span><br><span class="line">129       setStatus(this, true)</span><br><span class="line">130      &#x2F;&#x2F; UnregisteredDialog.showDialog()</span><br><span class="line">131     &#125;)</span><br><span class="line">132   &#125;</span><br><span class="line">133</span><br></pre></td></tr></table></figure><h4 id="重新打包编译，覆盖源文件"><a href="#重新打包编译，覆盖源文件" class="headerlink" title="重新打包编译，覆盖源文件"></a>重新打包编译，覆盖源文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">asar pack app app.asar</span><br></pre></td></tr></table></figure><p>将 app.asar 放回 Contents/Resources 目录中，覆盖掉源文件，重启 StarUML</p><p><img src="media/15923210471543/15923662183012.jpg" alt="StarUML"></p><blockquote><p>声明：本文章中提供的方法和软件，仅供个人学习研究使用，禁止用于商业用途，如有需要，<a href="http://staruml.io/" target="_blank" rel="noopener">请购买正版</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;StarUML-上手指南&quot;&gt;&lt;a href=&quot;#StarUML-上手指南&quot; class=&quot;headerlink&quot; title=&quot;StarUML 上手指南&quot;&gt;&lt;/a&gt;StarUML 上手指南&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;StarUML 使用 node.js 编写，源代码通过asar 工具打包而成，我们可以通过 asar 工具修改代码实现破解的目的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;破解版本直达电梯&quot;&gt;&lt;a href=&quot;#破解版本直达电梯&quot; class=&quot;headerlink&quot; title=&quot;破解版本直达电梯&quot;&gt;&lt;/a&gt;破解版本直达电梯&lt;/h3&gt;&lt;p&gt;如果不想动手，MacOS平台可以下载破解后的版本，直接安装使用即可。其他平台请参考教程自己动手。&lt;br&gt;&lt;a href=&quot;https://pan.baidu.com/s/1Kn5BTk348VilRGxXyR49CQ&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MacOS 版本v3.2.2 20202年中最新版本 开箱即用&lt;/a&gt; 密码: 83g2&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="uml" scheme="http://imesong.com/tags/uml/"/>
+    
+      <category term="staruml" scheme="http://imesong.com/tags/staruml/"/>
+    
+  </entry>
   
   <entry>
     <title>10x-engineer</title>
