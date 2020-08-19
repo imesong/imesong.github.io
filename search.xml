@@ -872,7 +872,7 @@
 <td>30</td>
 </tr>
 </tbody></table>
-<p><a href="https://zh.wikipedia.org/wiki/Android" target="_blank" rel="noopener">以上数据来之 wiki</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/Android" target="_blank" rel="noopener">以上数据来自 wiki</a></p>
 <p>自己从事 Android 开发工作已经 7 年的时间，计划系统的梳理移动开发领域的知识体系，形成自己的职业发展路线图，在自我总结的同时，也能够给其他人一些参考。</p>
 <p>先放一份正在整理的一张知识框架的思维导图</p>
 <h3 id="Android-知识体系概览"><a href="#Android-知识体系概览" class="headerlink" title="Android 知识体系概览"></a>Android 知识体系概览</h3><p><img src="http://img.imesong.com/2020/04/Android%20teck%20framwork.png" alt="Android 知识体系"></p>
@@ -880,6 +880,7 @@
 ]]></content>
       <tags>
         <tag>android</tag>
+        <tag>2020</tag>
       </tags>
   </entry>
 </search>
