@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://imesong.com/"/>
-  <updated>2020-08-20T03:05:09.722Z</updated>
+  <updated>2020-08-20T03:08:06.627Z</updated>
   <id>http://imesong.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>1-1-Android基础知识-大纲介绍</title>
-    <link href="http://imesong.com/2020/08/19/1-1Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-    <id>http://imesong.com/2020/08/19/1-1Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</id>
+    <title>1-0-Android基础知识-大纲介绍</title>
+    <link href="http://imesong.com/2020/08/19/1-0Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    <id>http://imesong.com/2020/08/19/1-0Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</id>
     <published>2020-08-19T11:04:35.000Z</published>
-    <updated>2020-08-20T03:05:09.722Z</updated>
+    <updated>2020-08-20T03:08:06.627Z</updated>
     
     <content type="html"><![CDATA[<p>Android 基础知识泛指工作经验在 3-5 年左右，应该熟练掌握的内容，涵盖了 <a href="https://developer.android.com/guide" target="_blank" rel="noopener">Android 官方的开发文档</a>中 core topic 的所有内容,掌握这些之后，能够独立开发一款高质量的应用。</p><h3 id="基础知识大纲"><a href="#基础知识大纲" class="headerlink" title="基础知识大纲"></a>基础知识大纲</h3><ol><li>Activity</li><li>Service</li><li>Broadcast</li><li>ContentProvider</li><li>Context</li><li>Intent</li><li>Fragment</li><li>官方UI组件的理解和应用</li><li>Android 消息机制</li><li>Android 事件处理机制</li><li>自定义 View</li><li>第三方库基础库的理解和应用</li><li>数据存储</li><li>App 主题、资源</li><li>多线程</li><li>多进程</li></ol><a id="more"></a><h3 id="大纲解析"><a href="#大纲解析" class="headerlink" title="大纲解析"></a>大纲解析</h3><p>基础知识大纲的组织，主要参考 Android 官方开发文档主题的呈现顺序，同时结合个人在多年的项目开发中的实践情况，从最基础的四大组件，到自定义 View，第三开源库的分析学习，逐层递进。重点内容放在官方的四大组件的理解和应用上，同时会记录四大组件在项目使用中，容易忽视的的兼容性问题。</p><p>先看下大纲的思维导图</p><p> <img src="http://img.imesong.com/2020/04/Android%E5%9F%BA%E7%A1%80.png" alt="Android 基础大纲"></p><p>后面有数字的子项，是因为篇幅原因，相关的子项折叠起来了，在具体的内容分析时，都会涉及。</p>]]></content>
     
