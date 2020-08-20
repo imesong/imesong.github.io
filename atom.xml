@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://imesong.com/"/>
-  <updated>2020-08-19T09:18:25.937Z</updated>
+  <updated>2020-08-20T03:05:09.722Z</updated>
   <id>http://imesong.com/</id>
   
   <author>
@@ -17,11 +17,52 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Android知识体系-启程</title>
-    <link href="http://imesong.com/2020/08/19/Android%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/"/>
-    <id>http://imesong.com/2020/08/19/Android%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/</id>
+    <title>1-1-Android基础知识-大纲介绍</title>
+    <link href="http://imesong.com/2020/08/19/1-1Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    <id>http://imesong.com/2020/08/19/1-1Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</id>
+    <published>2020-08-19T11:04:35.000Z</published>
+    <updated>2020-08-20T03:05:09.722Z</updated>
+    
+    <content type="html"><![CDATA[<p>Android 基础知识泛指工作经验在 3-5 年左右，应该熟练掌握的内容，涵盖了 <a href="https://developer.android.com/guide" target="_blank" rel="noopener">Android 官方的开发文档</a>中 core topic 的所有内容,掌握这些之后，能够独立开发一款高质量的应用。</p><h3 id="基础知识大纲"><a href="#基础知识大纲" class="headerlink" title="基础知识大纲"></a>基础知识大纲</h3><ol><li>Activity</li><li>Service</li><li>Broadcast</li><li>ContentProvider</li><li>Context</li><li>Intent</li><li>Fragment</li><li>官方UI组件的理解和应用</li><li>Android 消息机制</li><li>Android 事件处理机制</li><li>自定义 View</li><li>第三方库基础库的理解和应用</li><li>数据存储</li><li>App 主题、资源</li><li>多线程</li><li>多进程</li></ol><a id="more"></a><h3 id="大纲解析"><a href="#大纲解析" class="headerlink" title="大纲解析"></a>大纲解析</h3><p>基础知识大纲的组织，主要参考 Android 官方开发文档主题的呈现顺序，同时结合个人在多年的项目开发中的实践情况，从最基础的四大组件，到自定义 View，第三开源库的分析学习，逐层递进。重点内容放在官方的四大组件的理解和应用上，同时会记录四大组件在项目使用中，容易忽视的的兼容性问题。</p><p>先看下大纲的思维导图</p><p> <img src="http://img.imesong.com/2020/04/Android%E5%9F%BA%E7%A1%80.png" alt="Android 基础大纲"></p><p>后面有数字的子项，是因为篇幅原因，相关的子项折叠起来了，在具体的内容分析时，都会涉及。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Android 基础知识泛指工作经验在 3-5 年左右，应该熟练掌握的内容，涵盖了 &lt;a href=&quot;https://developer.android.com/guide&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Android 官方的开发文档&lt;/a&gt;中 core topic 的所有内容,掌握这些之后，能够独立开发一款高质量的应用。&lt;/p&gt;
+&lt;h3 id=&quot;基础知识大纲&quot;&gt;&lt;a href=&quot;#基础知识大纲&quot; class=&quot;headerlink&quot; title=&quot;基础知识大纲&quot;&gt;&lt;/a&gt;基础知识大纲&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Activity&lt;/li&gt;
+&lt;li&gt;Service&lt;/li&gt;
+&lt;li&gt;Broadcast&lt;/li&gt;
+&lt;li&gt;ContentProvider&lt;/li&gt;
+&lt;li&gt;Context&lt;/li&gt;
+&lt;li&gt;Intent&lt;/li&gt;
+&lt;li&gt;Fragment&lt;/li&gt;
+&lt;li&gt;官方UI组件的理解和应用&lt;/li&gt;
+&lt;li&gt;Android 消息机制&lt;/li&gt;
+&lt;li&gt;Android 事件处理机制&lt;/li&gt;
+&lt;li&gt;自定义 View&lt;/li&gt;
+&lt;li&gt;第三方库基础库的理解和应用&lt;/li&gt;
+&lt;li&gt;数据存储&lt;/li&gt;
+&lt;li&gt;App 主题、资源&lt;/li&gt;
+&lt;li&gt;多线程&lt;/li&gt;
+&lt;li&gt;多进程&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="android" scheme="http://imesong.com/tags/android/"/>
+    
+      <category term="2020" scheme="http://imesong.com/tags/2020/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>00-Android知识体系-启程</title>
+    <link href="http://imesong.com/2020/08/19/00-Android%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/"/>
+    <id>http://imesong.com/2020/08/19/00-Android%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/</id>
     <published>2020-08-19T07:54:45.000Z</published>
-    <updated>2020-08-19T09:18:25.937Z</updated>
+    <updated>2020-08-19T11:18:56.591Z</updated>
     
     <content type="html"><![CDATA[<h3 id="关于知识体系的定位"><a href="#关于知识体系的定位" class="headerlink" title="关于知识体系的定位"></a>关于知识体系的定位</h3><ol><li>首先是给自己的看的，看过往，明得失。通过对过往的复盘，进一步帮助自己明晰当下的定位，能够对自我有一个更加全面认知（不仅仅是技术）。</li><li>尽量能够让大家都能看懂，但不做承诺。该知识体系会有很明显的个人烙印，在整个系统工程完成后，会再整理一份通用版（不承诺一定会有）。</li></ol><h3 id="知识体系大纲"><a href="#知识体系大纲" class="headerlink" title="知识体系大纲"></a>知识体系大纲</h3><ol><li>Android 基础知识</li><li>Android 高级知识</li><li>Java 基础知识</li><li>Java 高级知识</li><li>架构设计</li><li>跨平台</li><li>工程效率</li><li>安全</li><li>数据结构与算法</li><li>项目管理</li><li>团队管理</li><li>面试题精选</li></ol><a id="more"></a><h3 id="Android-历史版本"><a href="#Android-历史版本" class="headerlink" title="Android 历史版本"></a>Android 历史版本</h3><p>Android 系统 从 2008 年发布以来，到今天（2020 年 8 月）已经更新 18 个大版本，相关的技术体系和专业技能的要求，已经发生了很大变化</p><table><thead><tr><th>名称</th><th>版本号</th><th>发行日期</th><th>API 等级</th></tr></thead><tbody><tr><td>Android1.0</td><td>1.0</td><td>2008 年 9 月 23 日</td><td>1</td></tr><tr><td>Android1.1</td><td>1.1</td><td>2009 年 2 月 9 日</td><td>2</td></tr><tr><td>Android Cupcake<span class="Apple-tab-span" style="white-space:pre"></span></td><td>1.5</td><td>2009 年 4 月 27 日</td><td>3</td></tr><tr><td>Android Donut</td><td>1.6</td><td>2009 年 9 月 15 日</td><td>4</td></tr><tr><td>Android Eclair</td><td>2.0-2.1</td><td>2009 年 10 月 26 日</td><td>5-7</td></tr><tr><td>Android Froyo</td><td>2.2-2.2.3</td><td>2010 年 5 月 20 日</td><td>8</td></tr><tr><td>Android Gingerbread<span class="Apple-tab-span" style="white-space:pre"></span></td><td>2.3-2.3.7</td><td>2010 年 12 月 6 日</td><td>9-10</td></tr><tr><td>Android Honeycomb</td><td>3.0-3.2.6</td><td>2011年 2 月 22 日</td><td>11-13</td></tr><tr><td>Android Ice Cream Sandwich</td><td>4.0-4.0.4</td><td>2011 年 10 月 18 日</td><td>14-15</td></tr><tr><td>Android Jelly Bean</td><td>4.1-4.3.1</td><td>2012 年 7 月 9 日</td><td>16-18</td></tr><tr><td>Android KitKat</td><td>4.4-4.4.4</td><td>2013 年 10 月 31 日</td><td>19-20</td></tr><tr><td>Android Lollipop</td><td>5.0-5.1.1</td><td>2014 年 11 月 12 日</td><td>21-22</td></tr><tr><td>Android Marshmallow</td><td>6.0-6.0.1</td><td>2015 年 10 月 5 日</td><td>23</td></tr><tr><td>Android Nougat</td><td>7.0-7.1.2</td><td>2016 年 8 月 22 日</td><td>24-25</td></tr><tr><td>Android Oreo</td><td>8.0-8.1</td><td>2017 年 8 月 21 日</td><td>26-27</td></tr><tr><td>Android Pie<span class="Apple-tab-span" style="white-space:pre"></span></td><td>9</td><td>2018 年 8 月 6 日</td><td>28</td></tr><tr><td>Android 10</td><td>10</td><td>2019 年 9 月 3 日</td><td>29</td></tr><tr><td>Android 11</td><td>11</td><td>2020 年 2 月 19 日</td><td>30</td></tr></tbody></table><p><a href="https://zh.wikipedia.org/wiki/Android" target="_blank" rel="noopener">以上数据来自 wiki</a></p><p>自己从事 Android 开发工作已经 7 年的时间，计划系统的梳理移动开发领域的知识体系，形成自己的职业发展路线图，在自我总结的同时，也能够给其他人一些参考。</p><p>先放一份正在整理的一张知识框架的思维导图</p><h3 id="Android-知识体系概览"><a href="#Android-知识体系概览" class="headerlink" title="Android 知识体系概览"></a>Android 知识体系概览</h3><p><img src="http://img.imesong.com/2020/04/Android%20teck%20framwork.png" alt="Android 知识体系"></p><p>这是一份未完成的框架，当前包含 12 个一级主题，几百个子主题，计划用半年左右的时间完成（截止目标暂定 2021 年 3月10 日）。</p>]]></content>
     
