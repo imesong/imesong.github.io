@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"imesong.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="[TOC] 为什么会有Activity？安卓应用开发的时候，首先接触到的就是四大组件之一 Activity，可曾深入思考一下，为什么会有 Activity，安卓系统设计这个组件的目的是什么呢？  Activity 是系统与用户交互的载体，由于用户的行为不可预期性，导致 Activity 的状态比较复杂，管理起来也比较麻烦，衍生出一套解决方案 安卓系统中的很多应用，没有可见的界面，可以没有 Acti">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1-1Android基础知识-Activity">
+<meta property="og:url" content="http://imesong.com/2020/08/20/1-1Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Activity/index.html">
+<meta property="og:site_name" content="imesong">
+<meta property="og:description" content="[TOC] 为什么会有Activity？安卓应用开发的时候，首先接触到的就是四大组件之一 Activity，可曾深入思考一下，为什么会有 Activity，安卓系统设计这个组件的目的是什么呢？  Activity 是系统与用户交互的载体，由于用户的行为不可预期性，导致 Activity 的状态比较复杂，管理起来也比较麻烦，衍生出一套解决方案 安卓系统中的很多应用，没有可见的界面，可以没有 Acti">
+<meta property="og:image" content="http://img.imesong.com/2020/08/Activity%20%E4%BB%BB%E5%8A%A1%E6%A0%88.png">
+<meta property="og:image" content="http://img.imesong.com/2020/08/diagram_multiple_instances.png">
+<meta property="article:published_time" content="2020-08-20T03:15:14.000Z">
+<meta property="article:modified_time" content="2020-08-21T04:40:57.024Z">
+<meta property="article:author" content="imesong">
+<meta property="article:tag" content="android">
+<meta property="article:tag" content="2020">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img.imesong.com/2020/08/Activity%20%E4%BB%BB%E5%8A%A1%E6%A0%88.png">
+
+<link rel="canonical" href="http://imesong.com/2020/08/20/1-1Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Activity/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>1-1Android基础知识-Activity | imesong</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163257292-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-163257292-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9e900bf6e455a1e02b134a8284caa9e1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="imesong" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">imesong</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">我们的征途是星辰大海</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://imesong.com/2020/08/20/1-1Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Activity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s.gravatar.com/avatar/bd2525e0ecc6d8022339c7dce27065c0?s=200">
+      <meta itemprop="name" content="imesong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="imesong">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          1-1Android基础知识-Activity
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-08-20 11:15:14" itemprop="dateCreated datePublished" datetime="2020-08-20T11:15:14+08:00">2020-08-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-08-21 12:40:57" itemprop="dateModified" datetime="2020-08-21T12:40:57+08:00">2020-08-21</time>
+              </span>
+
+          
+            <span id="/2020/08/20/1-1Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Activity/" class="post-meta-item leancloud_visitors" data-flag-title="1-1Android基础知识-Activity" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/08/20/1-1Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Activity/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/20/1-1Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Activity/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>8.2k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>7 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>[TOC]</p>
+<h3 id="为什么会有Activity？"><a href="#为什么会有Activity？" class="headerlink" title="为什么会有Activity？"></a>为什么会有Activity？</h3><p>安卓应用开发的时候，首先接触到的就是四大组件之一 Activity，可曾深入思考一下，为什么会有 Activity，安卓系统设计这个组件的目的是什么呢？</p>
+<ol>
+<li>Activity 是系统与用户交互的载体，由于用户的行为不可预期性，导致 Activity 的状态比较复杂，管理起来也比较麻烦，衍生出一套解决方案</li>
+<li>安卓系统中的很多应用，没有可见的界面，可以没有 Activity。Activity 很重要，但并非不可缺少。</li>
+</ol>
+<a id="more"></a>
+
+
+
+
+<h3 id="Activity-的生命周期"><a href="#Activity-的生命周期" class="headerlink" title="Activity 的生命周期"></a>Activity 的生命周期</h3><p>关键方法</p>
+<ul>
+<li>onCreate </li>
+<li>onStart</li>
+<li>onResume </li>
+<li>onPause </li>
+<li>onStop </li>
+<li>onDestory </li>
+</ul>
+<p>![](<a href="http://img.imesong.com/2020/08/Activity" target="_blank" rel="noopener">http://img.imesong.com/2020/08/Activity</a> 生命周期.png)</p>
+<p>生命周期回调中的方法，不可以做耗时的操作，尤其是onResume和onPause,这两个方法在 Activity 的状态管理中，会频繁的调用。</p>
+<h3 id="典型场景下的生命周期回调"><a href="#典型场景下的生命周期回调" class="headerlink" title="典型场景下的生命周期回调"></a>典型场景下的生命周期回调</h3><h4 id="A-—-gt-B-—-gt-A"><a href="#A-—-gt-B-—-gt-A" class="headerlink" title="A —&gt; B —&gt; A"></a>A —&gt; B —&gt; A</h4><p>标准模式下，A 启动 B， B 再返回 A 页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">D&#x2F;LifeCycle: A1 oncreate</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br><span class="line">D&#x2F;LifeCycle: A1 onPause</span><br><span class="line">D&#x2F;LifeCycle: A2 OnCreate</span><br><span class="line">D&#x2F;LifeCycle: A2 onStart</span><br><span class="line">D&#x2F;LifeCycle: A2 onResume</span><br><span class="line">D&#x2F;LifeCycle: A1 onStop</span><br><span class="line">D&#x2F;LifeCycle: A2 onPause</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br><span class="line">D&#x2F;LifeCycle: A2 onDestroy</span><br></pre></td></tr></table></figure>
+
+<h4 id="A-页面启动后，旋转屏幕"><a href="#A-页面启动后，旋转屏幕" class="headerlink" title="A 页面启动后，旋转屏幕"></a>A 页面启动后，旋转屏幕</h4><p>默认配置下，旋转屏幕</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">D&#x2F;LifeCycle: A1 oncreate</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br><span class="line">D&#x2F;LifeCycle: A1 onPause</span><br><span class="line">D&#x2F;LifeCycle: A1 onStop</span><br><span class="line">D&#x2F;LifeCycle: A1 onDestroy</span><br><span class="line">D&#x2F;LifeCycle: A1 oncreate</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onRestoreInstanceState</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br></pre></td></tr></table></figure>
+<p>A 页面中还有一些关键方法，同时也添加了日志，但是并没有输出</p>
+<ul>
+<li>onConfigChange</li>
+<li>onSaveInstanceState</li>
+</ul>
+<p>但这两个方法并没有被调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) &#123;</span><br><span class="line">    super.onRestoreInstanceState(savedInstanceState);</span><br><span class="line">    Log.d(&quot;LifeCycle&quot;,&quot;A1 onRestoreInstanceState&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) &#123;</span><br><span class="line">    super.onSaveInstanceState(outState, outPersistentState);</span><br><span class="line">    Log.d(&quot;LifeCycle&quot;,&quot;A1 onSaveInstanceState&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public void onConfigurationChanged(@NonNull Configuration newConfig) &#123;</span><br><span class="line">    super.onConfigurationChanged(newConfig);</span><br><span class="line">    Log.d(&quot;LifeCycle&quot;,&quot;A1 onConfigureChange&quot;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="关于生命周期的两个扩展问题"><a href="#关于生命周期的两个扩展问题" class="headerlink" title="关于生命周期的两个扩展问题"></a>关于生命周期的两个扩展问题</h3><ol>
+<li>什么情况下，A 页面会调用 onPause ，但不会调用 onStop 方法</li>
+<li>onCreate 方法中的 Bundle 和 onRestoreInstanceState 中 Bundle 一样吗？能重复获取吗？</li>
+</ol>
+<h3 id="Activity-启动模式和任务栈管理"><a href="#Activity-启动模式和任务栈管理" class="headerlink" title="Activity 启动模式和任务栈管理"></a>Activity 启动模式和任务栈管理</h3><ul>
+<li>standard</li>
+<li>singleTask</li>
+<li>singleTop</li>
+<li>singleInstance</li>
+</ul>
+<p>如果对这个不了解，可以先阅读官方文档 <a href="https://developer.android.com/guide/components/activities/tasks-and-back-stack" target="_blank" rel="noopener">Tasks and back stack</a>,官方的讲解非常的清晰易懂，同时配有插图辅助理解。</p>
+<p>以下内容摘自官方文档，配合简要说明。</p>
+<p><strong>standard</strong> </p>
+<blockquote>
+<p>Default. The system creates a new instance of the activity in the task from which it was started and routes the intent to it. The activity can be instantiated multiple times, each instance can belong to different tasks, and one task can have multiple instances.</p>
+</blockquote>
+<p>关键点：默认会初始化多次，每个任务栈可以有多个实例</p>
+<p><img src="http://img.imesong.com/2020/08/Activity%20%E4%BB%BB%E5%8A%A1%E6%A0%88.png" alt="standard"></p>
+<p><img src="http://img.imesong.com/2020/08/diagram_multiple_instances.png" alt="标准模式下的多实例"></p>
+<p><strong>singleTop</strong> </p>
+<blockquote>
+<p>If an instance of the activity already exists at the top of the current task, the system routes the intent to that instance through a call to its onNewIntent() method, rather than creating a new instance of the activity. The activity can be instantiated multiple times, each instance can belong to different tasks, and one task can have multiple instances (but only if the activity at the top of the back stack is not an existing instance of the activity).<br>For example, suppose a task’s back stack consists of root activity A with activities B, C, and D on top (the stack is A-B-C-D; D is on top). An intent arrives for an activity of type D. If D has the default “standard” launch mode, a new instance of the class is launched and the stack becomes A-B-C-D-D. However, if D’s launch mode is “singleTop”, the existing instance of D receives the intent through <strong>onNewIntent()</strong>, because it’s at the top of the stack—the stack remains A-B-C-D. However, if an intent arrives for an activity of type B, then a new instance of B is added to the stack, even if its launch mode is “singleTop”.</p>
+</blockquote>
+<p>关键点：栈顶的如果是即将要启动的 Activity，会直接启动当前 Activity，同时调用 <strong>onNewIntent（）</strong> 方法，而不是 onCreate 方法</p>
+<p> <strong>singleTask</strong></p>
+<blockquote>
+<p>The system creates a new task and instantiates the activity at the root of the new task. However, if an instance of the activity already exists in a separate task, the system routes the intent to the existing instance through a call to its onNewIntent() method, rather than creating a new instance. Only one instance of the activity can exist at a time.</p>
+</blockquote>
+<p> 关键点：首次创建该 Activity时，新建一个 task；非首次，共用之前的，同时回调 <strong>onNewIntent()</strong> 方法</p>
+<p> 同时 singleTask 下，Activity 的生命周期回调也会有所不同</p>
+<p> A—&gt;B—&gt;A 日志如下</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">D&#x2F;LifeCycle: A1 oncreate</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br><span class="line">D&#x2F;LifeCycle: A1 onPause</span><br><span class="line"></span><br><span class="line">D&#x2F;LifeCycle: A2 OnCreate</span><br><span class="line">D&#x2F;LifeCycle: A2 onStart</span><br><span class="line">D&#x2F;LifeCycle: A2 onResume</span><br><span class="line">D&#x2F;LifeCycle: A1 onStop</span><br><span class="line"></span><br><span class="line">D&#x2F;LifeCycle: A2 onPause</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onNewIntent</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br><span class="line">D&#x2F;LifeCycle: A2 onDestroy</span><br></pre></td></tr></table></figure>
+
+<p> 再次启动 A 的时候，B 直接回调了 onDestory 方法，返回栈被清空。</p>
+<p> <strong>singleInstance</strong></p>
+<blockquote>
+<p>Same as “singleTask”, except that the system doesn’t launch any other activities into the task holding the instance. The activity is always the single and only member of its task; any activities started by this one open in a separate task.</p>
+</blockquote>
+<p> 关键点：独占任务栈</p>
+<p> A–&gt;B–&gt;A –&gt;返回–&gt;返回<br> 生命周期的日志如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">D&#x2F;LifeCycle: A1 oncreate</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br><span class="line">D&#x2F;LifeCycle: A1 onPause</span><br><span class="line"></span><br><span class="line">D&#x2F;LifeCycle: A2 OnCreate</span><br><span class="line">D&#x2F;LifeCycle: A2 onStart</span><br><span class="line">D&#x2F;LifeCycle: A2 onResume</span><br><span class="line">D&#x2F;LifeCycle: A1 onStop</span><br><span class="line"></span><br><span class="line">D&#x2F;LifeCycle: A2 onPause</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onNewIntent</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br><span class="line"></span><br><span class="line">D&#x2F;LifeCycle: A1 onPause</span><br><span class="line">D&#x2F;LifeCycle: A2 onStart</span><br><span class="line">D&#x2F;LifeCycle: A2 onResume</span><br><span class="line"></span><br><span class="line">D&#x2F;LifeCycle: A1 onStop</span><br><span class="line">D&#x2F;LifeCycle: A1 onDestroy</span><br><span class="line">D&#x2F;LifeCycle: A2 onPause</span><br><span class="line">D&#x2F;LifeCycle: A2 onDestroy</span><br></pre></td></tr></table></figure>
+
+<p>B 再次启动 A 后，之前的任务栈被共用，A 在一个新的任务栈中。</p>
+<h3 id="Intent-FLAG"><a href="#Intent-FLAG" class="headerlink" title="Intent FLAG"></a>Intent FLAG</h3><ul>
+<li>FLAG_ACTIVITY_NEW_TASK</li>
+<li>FLAG_ACTIVITY_SINGLE_TOP</li>
+<li>FLAG_ACTIVITY_CLEAR_TOP</li>
+</ul>
+<p>如果同时在 manifest 和 Intent FLAG 定义，最终会以 Intent FLAG 中定义的为准。</p>
+<p><strong>FLAG_ACTIVITY_NEW_TASK</strong></p>
+<blockquote>
+<p>This produces the same behavior as the “singleTask” launchMode value</p>
+</blockquote>
+<p>关键点：和 singleTask 效果一样。</p>
+<p><strong>FLAG_ACTIVITY_SINGLE_TOP</strong></p>
+<blockquote>
+<p>This produces the same behavior as the “singleTop” launchMode value</p>
+</blockquote>
+<p>关键点：和 singleTop 效果一样。</p>
+<p><strong>FLAG_ACTIVITY_CLEAR_TOP</strong></p>
+<blockquote>
+<p>If the activity being started is already running in the current task, then instead of launching a new instance of that activity, all of the other activities on top of it are destroyed and this intent is delivered to the resumed instance of the activity (now on top), through onNewIntent()).</p>
+<p>FLAG_ACTIVITY_CLEAR_TOP is most often used in conjunction with FLAG_ACTIVITY_NEW_TASK. When used together, these flags are a way of locating an existing activity in another task and putting it in a position where it can respond to the intent.</p>
+</blockquote>
+<p>关键点：如果已经在当前任务栈，会清空上面的页面，把自己提升到栈顶，同时回调 onNewIntent(),一般和FLAG_ACTIVITY_NEW_TASK共用，与singleTask 有点类似。</p>
+<h3 id="TaskAffinity"><a href="#TaskAffinity" class="headerlink" title="TaskAffinity"></a>TaskAffinity</h3><p>taskAffinity 是为了更好的管理 Activity 和任务栈的关系 。默认情况下，同一个 App 的所有的 Activity 都在一个 task 中（标准模式）。但如果有多个 task，当启动一个 Activity 时，优先选择哪一个 task 呢？可以通过 taskAffinity 来定制。并且不同的 App，也可以共享同一个 Affinity。一个 App 中，也可以有多个不同的 taskAffinity。</p>
+<p>再复杂一些的任务栈管理方案，在项目中也很少会用到了。</p>
+<h3 id="Activity-的数据恢复和状态恢复"><a href="#Activity-的数据恢复和状态恢复" class="headerlink" title="Activity 的数据恢复和状态恢复"></a>Activity 的数据恢复和状态恢复</h3><p>什么情况下需要数据和状态恢复呢？</p>
+<ol>
+<li>异常退出，因内存等原因，被系统回收，再次回到前台时，能够恢复离开时的状态</li>
+<li>异常中断，比如看新闻时，被一个电话打断，接完电话再回来时，希望继续刚才阅读的位置继续。</li>
+</ol>
+<p>和状态恢复相关的关键方法有两个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) &#123;</span><br><span class="line">    super.onSaveInstanceState(outState, outPersistentState);</span><br><span class="line">    Log.d(&quot;LifeCycle&quot;,&quot;A2 onSaveInstanceState&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) &#123;</span><br><span class="line">    super.onRestoreInstanceState(savedInstanceState);</span><br><span class="line">    Log.d(&quot;LifeCycle&quot;,&quot;A2 onRestoreInstanceState&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实际验证下来，这两个方法的调用都不正常，在不同版本、不同手机上会有差异，可靠性无法保障。</p>
+<h3 id="横竖屏切换时，Activity-生命周期的变化"><a href="#横竖屏切换时，Activity-生命周期的变化" class="headerlink" title="横竖屏切换时，Activity 生命周期的变化"></a>横竖屏切换时，Activity 生命周期的变化</h3><p>在这里，<a href="#A页面启动后，旋转屏幕">典型场景下 Activity 生命周期变化</a> 中，已经说明了默认情况下(不设置 Activity 的 android:configChanges 属性)，旋转屏幕Activity 生命周期的变化。还有另外一个场景，做一些系统配置后，生命周期的回调会发生改变。</p>
+<p>再看一下 设置 android:configChanges= “orientation” 属性后，生命周期的变化</p>
+<p>A 启动–&gt;旋转–&gt;旋转–&gt;退出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">D&#x2F;LifeCycle: A1 oncreate</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br><span class="line"></span><br><span class="line">D&#x2F;LifeCycle: A1 onPause</span><br><span class="line">D&#x2F;LifeCycle: A1 onStop</span><br><span class="line">D&#x2F;LifeCycle: A1 onDestroy</span><br><span class="line">D&#x2F;LifeCycle: A1 oncreate</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onRestoreInstanceState</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br><span class="line"></span><br><span class="line">D&#x2F;LifeCycle: A1 onPause</span><br><span class="line">D&#x2F;LifeCycle: A1 onStop</span><br><span class="line">D&#x2F;LifeCycle: A1 onDestroy</span><br><span class="line">D&#x2F;LifeCycle: A1 oncreate</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onRestoreInstanceState</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br><span class="line"></span><br><span class="line">D&#x2F;LifeCycle: A1 onPause</span><br><span class="line">D&#x2F;LifeCycle: A1 onStop</span><br><span class="line">D&#x2F;LifeCycle: A1 onDestroy</span><br></pre></td></tr></table></figure>
+
+<p>属性配置为 android:configChanges= “orientation|screenSize” 后，生命周期的变化</p>
+<p>A 启动–&gt;旋转–&gt;旋转–&gt;退出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">D&#x2F;LifeCycle: A2 OnCreate</span><br><span class="line">D&#x2F;LifeCycle: A2 onStart</span><br><span class="line">D&#x2F;LifeCycle: A2 onResume</span><br><span class="line"></span><br><span class="line">D&#x2F;LifeCycle: A2 onConfigureChange</span><br><span class="line"></span><br><span class="line">D&#x2F;LifeCycle: A2 onConfigureChange</span><br><span class="line"></span><br><span class="line">D&#x2F;LifeCycle: A2 onPause</span><br><span class="line">D&#x2F;LifeCycle: A2 onDestroy</span><br></pre></td></tr></table></figure>
+
+<p>所以，在使用的时候，需要把 screenSize 和 orientation 配合使用。</p>
+<h3 id="Activity-的扩展问题-TODO"><a href="#Activity-的扩展问题-TODO" class="headerlink" title="Activity 的扩展问题 - TODO"></a>Activity 的扩展问题 - TODO</h3><p>Activity 这个主题下，遗留的 7 个扩展问题，这些问题的解答，会在<br><a href="1">Android 高级</a> 完成后再来解决，每个扩展问题，都可以单独一个章节阐述，也是我们在项目开发中，知道深入思考的问题。</p>
+<ul>
+<li><a href="2">影响 Activity 启动速度的因素有哪些？如何优化 Activity 的启动速度？</a></li>
+<li><a href="3">微信、支付宝支付界面的启动方案如何设计，有哪些借鉴意义？</a></li>
+<li><a href="5">Activity 的数据恢复的其他方案有哪些（至少 3 种），这些方案各有哪些优劣？</a></li>
+<li><a href="5">LifeCycle 如何观察 Activity 的声明周期？使用了何种设计模式，阐述下核心的设计流程</a></li>
+<li><a href="6">四种启动模式，各自典型的应用场景有哪些，如果自己设计管理 Activity 的任务栈，有哪些思路可以参考？</a></li>
+<li><a href="7">从 Activity 关键生命周期方法中，如何统计一个 Activity 的用户使用时长，在做的时候，应该注意哪些问题？</a></li>
+<li><a href="8">Activity 、Window和 View 之间的关系</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="imesong WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="imesong Alipay">
+        <p>Alipay</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/android/" rel="tag"># android</a>
+              <a href="/tags/2020/" rel="tag"># 2020</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/19/1-0Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="prev" title="1-0-Android基础知识-大纲介绍">
+      <i class="fa fa-chevron-left"></i> 1-0-Android基础知识-大纲介绍
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么会有Activity？"><span class="nav-number">1.</span> <span class="nav-text">为什么会有Activity？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity-的生命周期"><span class="nav-number">2.</span> <span class="nav-text">Activity 的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#典型场景下的生命周期回调"><span class="nav-number">3.</span> <span class="nav-text">典型场景下的生命周期回调</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-—-gt-B-—-gt-A"><span class="nav-number">3.1.</span> <span class="nav-text">A —&gt; B —&gt; A</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A-页面启动后，旋转屏幕"><span class="nav-number">3.2.</span> <span class="nav-text">A 页面启动后，旋转屏幕</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于生命周期的两个扩展问题"><span class="nav-number">4.</span> <span class="nav-text">关于生命周期的两个扩展问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity-启动模式和任务栈管理"><span class="nav-number">5.</span> <span class="nav-text">Activity 启动模式和任务栈管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intent-FLAG"><span class="nav-number">6.</span> <span class="nav-text">Intent FLAG</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TaskAffinity"><span class="nav-number">7.</span> <span class="nav-text">TaskAffinity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity-的数据恢复和状态恢复"><span class="nav-number">8.</span> <span class="nav-text">Activity 的数据恢复和状态恢复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#横竖屏切换时，Activity-生命周期的变化"><span class="nav-number">9.</span> <span class="nav-text">横竖屏切换时，Activity 生命周期的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity-的扩展问题-TODO"><span class="nav-number">10.</span> <span class="nav-text">Activity 的扩展问题 - TODO</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="imesong"
+      src="https://s.gravatar.com/avatar/bd2525e0ecc6d8022339c7dce27065c0?s=200">
+  <p class="site-author-name" itemprop="name">imesong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/imesong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;imesong" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:imesong@126.com" title="E-Mail → mailto:imesong@126.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">沪ICP备20001304号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">imesong</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">20k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">19 mins.</span>
+</div>
+
+<!--
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+-->
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"HF0T5f1jM9mXdNyrgXgjXBo8-gzGzoHsz","app_key":"LG3cTm6B7zWLcYGzWVVc2kBX","server_url":"https://blog.imesong.com","security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'HF0T5f1jM9mXdNyrgXgjXBo8-gzGzoHsz',
+      appKey     : 'LG3cTm6B7zWLcYGzWVVc2kBX',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://blog.imesong.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
