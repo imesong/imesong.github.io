@@ -26,15 +26,16 @@
 <meta property="og:url" content="http://imesong.com/2020/08/20/1-1Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Activity/index.html">
 <meta property="og:site_name" content="imesong">
 <meta property="og:description" content="为什么会有Activity？安卓应用开发的时候，首先接触到的就是四大组件之一 Activity，可曾深入思考一下，为什么会有 Activity，安卓系统设计这个组件的目的是什么呢？  Activity 是系统与用户交互的载体，由于用户的行为不可预期性，导致 Activity 的状态比较复杂，管理起来也比较麻烦，衍生出一套解决方案 安卓系统中的很多应用，没有可见的界面，可以没有 Activity。A">
+<meta property="og:image" content="http://img.imesong.com/2020/08/Activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png">
 <meta property="og:image" content="http://img.imesong.com/2020/08/Activity%20%E4%BB%BB%E5%8A%A1%E6%A0%88.png">
 <meta property="og:image" content="http://img.imesong.com/2020/08/diagram_multiple_instances.png">
 <meta property="article:published_time" content="2020-08-20T03:15:14.000Z">
-<meta property="article:modified_time" content="2020-08-21T04:44:23.871Z">
+<meta property="article:modified_time" content="2020-08-21T04:47:05.382Z">
 <meta property="article:author" content="imesong">
 <meta property="article:tag" content="android">
 <meta property="article:tag" content="2020">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://img.imesong.com/2020/08/Activity%20%E4%BB%BB%E5%8A%A1%E6%A0%88.png">
+<meta name="twitter:image" content="http://img.imesong.com/2020/08/Activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png">
 
 <link rel="canonical" href="http://imesong.com/2020/08/20/1-1Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Activity/">
 
@@ -242,7 +243,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-21 12:44:23" itemprop="dateModified" datetime="2020-08-21T12:44:23+08:00">2020-08-21</time>
+                <time title="Modified: 2020-08-21 12:47:05" itemprop="dateModified" datetime="2020-08-21T12:47:05+08:00">2020-08-21</time>
               </span>
 
           
@@ -310,7 +311,7 @@
 <li>onStop </li>
 <li>onDestory </li>
 </ul>
-<p>![Android 生命周期](<a href="http://img.imesong.com/2020/08/Activity" target="_blank" rel="noopener">http://img.imesong.com/2020/08/Activity</a> 生命周期.png)</p>
+<p><img src="http://img.imesong.com/2020/08/Activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" alt="Android 生命周期"></p>
 <p>生命周期回调中的方法，不可以做耗时的操作，尤其是onResume和onPause,这两个方法在 Activity 的状态管理中，会频繁的调用。</p>
 <h3 id="典型场景下的生命周期回调"><a href="#典型场景下的生命周期回调" class="headerlink" title="典型场景下的生命周期回调"></a>典型场景下的生命周期回调</h3><h4 id="A-—-gt-B-—-gt-A"><a href="#A-—-gt-B-—-gt-A" class="headerlink" title="A —&gt; B —&gt; A"></a>A —&gt; B —&gt; A</h4><p>标准模式下，A 启动 B， B 再返回 A 页面</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">D&#x2F;LifeCycle: A1 oncreate</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br><span class="line">D&#x2F;LifeCycle: A1 onPause</span><br><span class="line">D&#x2F;LifeCycle: A2 OnCreate</span><br><span class="line">D&#x2F;LifeCycle: A2 onStart</span><br><span class="line">D&#x2F;LifeCycle: A2 onResume</span><br><span class="line">D&#x2F;LifeCycle: A1 onStop</span><br><span class="line">D&#x2F;LifeCycle: A2 onPause</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br><span class="line">D&#x2F;LifeCycle: A2 onDestroy</span><br></pre></td></tr></table></figure>
@@ -599,7 +600,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">19 mins.</span>
+    <span title="Reading time total">18 mins.</span>
 </div>
 
 <!--

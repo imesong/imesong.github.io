@@ -485,7 +485,7 @@
 <li>onStop </li>
 <li>onDestory </li>
 </ul>
-<p>![Android 生命周期](<a href="http://img.imesong.com/2020/08/Activity" target="_blank" rel="noopener">http://img.imesong.com/2020/08/Activity</a> 生命周期.png)</p>
+<p><img src="http://img.imesong.com/2020/08/Activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" alt="Android 生命周期"></p>
 <p>生命周期回调中的方法，不可以做耗时的操作，尤其是onResume和onPause,这两个方法在 Activity 的状态管理中，会频繁的调用。</p>
 <h3 id="典型场景下的生命周期回调"><a href="#典型场景下的生命周期回调" class="headerlink" title="典型场景下的生命周期回调"></a>典型场景下的生命周期回调</h3><h4 id="A-—-gt-B-—-gt-A"><a href="#A-—-gt-B-—-gt-A" class="headerlink" title="A —&gt; B —&gt; A"></a>A —&gt; B —&gt; A</h4><p>标准模式下，A 启动 B， B 再返回 A 页面</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">D&#x2F;LifeCycle: A1 oncreate</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br><span class="line">D&#x2F;LifeCycle: A1 onPause</span><br><span class="line">D&#x2F;LifeCycle: A2 OnCreate</span><br><span class="line">D&#x2F;LifeCycle: A2 onStart</span><br><span class="line">D&#x2F;LifeCycle: A2 onResume</span><br><span class="line">D&#x2F;LifeCycle: A1 onStop</span><br><span class="line">D&#x2F;LifeCycle: A2 onPause</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br><span class="line">D&#x2F;LifeCycle: A2 onDestroy</span><br></pre></td></tr></table></figure>
