@@ -26,16 +26,16 @@
 <meta property="og:url" content="http://imesong.com/2020/08/20/1-1Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Activity/index.html">
 <meta property="og:site_name" content="imesong">
 <meta property="og:description" content="为什么会有Activity？安卓应用开发的时候，首先接触到的就是四大组件之一 Activity，可曾深入思考一下，为什么会有 Activity，安卓系统设计这个组件的目的是什么呢？  Activity 是系统与用户交互的载体，由于用户的行为不可预期性，导致 Activity 的状态比较复杂，管理起来也比较麻烦，衍生出一套解决方案 安卓系统中的很多应用，没有可见的界面，可以没有 Activity。A">
-<meta property="og:image" content="http://img.imesong.com/2020/08/Activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png">
+<meta property="og:image" content="http://img.imesong.com/2020/08/Activity-life-cycle.png">
 <meta property="og:image" content="http://img.imesong.com/2020/08/Activity%20%E4%BB%BB%E5%8A%A1%E6%A0%88.png">
 <meta property="og:image" content="http://img.imesong.com/2020/08/diagram_multiple_instances.png">
 <meta property="article:published_time" content="2020-08-20T03:15:14.000Z">
-<meta property="article:modified_time" content="2020-08-21T04:47:05.382Z">
+<meta property="article:modified_time" content="2020-08-21T05:05:29.202Z">
 <meta property="article:author" content="imesong">
 <meta property="article:tag" content="android">
 <meta property="article:tag" content="2020">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://img.imesong.com/2020/08/Activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png">
+<meta name="twitter:image" content="http://img.imesong.com/2020/08/Activity-life-cycle.png">
 
 <link rel="canonical" href="http://imesong.com/2020/08/20/1-1Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Activity/">
 
@@ -243,7 +243,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-21 12:47:05" itemprop="dateModified" datetime="2020-08-21T12:47:05+08:00">2020-08-21</time>
+                <time title="Modified: 2020-08-21 13:05:29" itemprop="dateModified" datetime="2020-08-21T13:05:29+08:00">2020-08-21</time>
               </span>
 
           
@@ -311,7 +311,7 @@
 <li>onStop </li>
 <li>onDestory </li>
 </ul>
-<p><img src="http://img.imesong.com/2020/08/Activity%20%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" alt="Android 生命周期"></p>
+<p><img src="http://img.imesong.com/2020/08/Activity-life-cycle.png" alt="Android生命周期"></p>
 <p>生命周期回调中的方法，不可以做耗时的操作，尤其是onResume和onPause,这两个方法在 Activity 的状态管理中，会频繁的调用。</p>
 <h3 id="典型场景下的生命周期回调"><a href="#典型场景下的生命周期回调" class="headerlink" title="典型场景下的生命周期回调"></a>典型场景下的生命周期回调</h3><h4 id="A-—-gt-B-—-gt-A"><a href="#A-—-gt-B-—-gt-A" class="headerlink" title="A —&gt; B —&gt; A"></a>A —&gt; B —&gt; A</h4><p>标准模式下，A 启动 B， B 再返回 A 页面</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">D&#x2F;LifeCycle: A1 oncreate</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br><span class="line">D&#x2F;LifeCycle: A1 onPause</span><br><span class="line">D&#x2F;LifeCycle: A2 OnCreate</span><br><span class="line">D&#x2F;LifeCycle: A2 onStart</span><br><span class="line">D&#x2F;LifeCycle: A2 onResume</span><br><span class="line">D&#x2F;LifeCycle: A1 onStop</span><br><span class="line">D&#x2F;LifeCycle: A2 onPause</span><br><span class="line">D&#x2F;LifeCycle: A1 onStart</span><br><span class="line">D&#x2F;LifeCycle: A1 onResume</span><br><span class="line">D&#x2F;LifeCycle: A2 onDestroy</span><br></pre></td></tr></table></figure>
@@ -336,7 +336,7 @@
 <li>singleTop</li>
 <li>singleInstance</li>
 </ul>
-<p>如果对这个不了解，可以先阅读官方文档 <a href="https://developer.android.com/guide/components/activities/tasks-and-back-stack" target="_blank" rel="noopener">Tasks and back stack</a>,官方的讲解非常的清晰易懂，同时配有插图辅助理解。</p>
+<p>如果对这个不了解，可以先阅读官方文档 <strong>Tasks and back stack</strong>,官方的讲解非常的清晰易懂，同时配有插图辅助理解。</p>
 <p>以下内容摘自官方文档，配合简要说明。</p>
 <p><strong>standard</strong> </p>
 <blockquote>
@@ -416,7 +416,7 @@
 <ul>
 <li><a href="2">影响 Activity 启动速度的因素有哪些？如何优化 Activity 的启动速度？</a></li>
 <li><a href="3">微信、支付宝支付界面的启动方案如何设计，有哪些借鉴意义？</a></li>
-<li><a href="5">Activity 的数据恢复的其他方案有哪些（至少 3 种），这些方案各有哪些优劣？</a></li>
+<li><a href="4">Activity 的数据恢复的其他方案有哪些（至少 3 种），这些方案各有哪些优劣？</a></li>
 <li><a href="5">LifeCycle 如何观察 Activity 的声明周期？使用了何种设计模式，阐述下核心的设计流程</a></li>
 <li><a href="6">四种启动模式，各自典型的应用场景有哪些，如果自己设计管理 Activity 的任务栈，有哪些思路可以参考？</a></li>
 <li><a href="7">从 Activity 关键生命周期方法中，如何统计一个 Activity 的用户使用时长，在做的时候，应该注意哪些问题？</a></li>
@@ -464,7 +464,10 @@
     <a href="/2020/08/19/1-0Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="prev" title="1-0-Android基础知识-大纲介绍">
       <i class="fa fa-chevron-left"></i> 1-0-Android基础知识-大纲介绍
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/24/%E7%83%88%E6%97%A5%E4%B8%8B%E7%9A%84%E4%B8%80%E6%8A%8A%E7%81%AB/" rel="next" title="烈日下的一把火">
+      烈日下的一把火 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -540,14 +543,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -594,13 +597,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">20k</span>
+    <span title="Symbols count total">22k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">18 mins.</span>
+    <span title="Reading time total">20 mins.</span>
 </div>
 
 <!--
