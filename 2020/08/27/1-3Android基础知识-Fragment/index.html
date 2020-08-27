@@ -23,14 +23,14 @@
   <meta name="description" content="Fragment 设计初衷Fragment 在 android 3.0 版本增加，先看下官方怎么定义的   Android introduced fragments in Android 3.0 (API level 11), primarily to support more dynamic and flexible UI designs on large screens, such as ta">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1-3Android基础知识-Fragment">
-<meta property="og:url" content="http://imesong.com/2020/08/21/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/index.html">
+<meta property="og:url" content="http://imesong.com/2020/08/27/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/index.html">
 <meta property="og:site_name" content="imesong">
 <meta property="og:description" content="Fragment 设计初衷Fragment 在 android 3.0 版本增加，先看下官方怎么定义的   Android introduced fragments in Android 3.0 (API level 11), primarily to support more dynamic and flexible UI designs on large screens, such as ta">
 <meta property="og:image" content="http://img.imesong.com/2020/08/fragment_lifecycle.png">
 <meta property="og:image" content="http://img.imesong.com/2020/08/activity_fragment_lifecycle.png">
 <meta property="og:image" content="http://img.imesong.com/2020/08/Fragment.png">
-<meta property="article:published_time" content="2020-08-21T08:28:22.000Z">
-<meta property="article:modified_time" content="2020-08-27T09:57:40.269Z">
+<meta property="article:published_time" content="2020-08-27T08:28:22.000Z">
+<meta property="article:modified_time" content="2020-08-27T10:01:44.463Z">
 <meta property="article:author" content="imesong">
 <meta property="article:tag" content="android">
 <meta property="article:tag" content="2020">
@@ -38,7 +38,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://img.imesong.com/2020/08/fragment_lifecycle.png">
 
-<link rel="canonical" href="http://imesong.com/2020/08/21/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/">
+<link rel="canonical" href="http://imesong.com/2020/08/27/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/">
 
 
 <script id="page-configurations">
@@ -214,7 +214,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://imesong.com/2020/08/21/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/">
+    <link itemprop="mainEntityOfPage" href="http://imesong.com/2020/08/27/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s.gravatar.com/avatar/bd2525e0ecc6d8022339c7dce27065c0?s=200">
@@ -236,19 +236,13 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-08-21 16:28:22" itemprop="dateCreated datePublished" datetime="2020-08-21T16:28:22+08:00">2020-08-21</time>
+              <time title="Created: 2020-08-27 16:28:22 / Modified: 18:01:44" itemprop="dateCreated datePublished" datetime="2020-08-27T16:28:22+08:00">2020-08-27</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-27 17:57:40" itemprop="dateModified" datetime="2020-08-27T17:57:40+08:00">2020-08-27</time>
-              </span>
 
           
-            <span id="/2020/08/21/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/" class="post-meta-item leancloud_visitors" data-flag-title="1-3Android基础知识-Fragment" title="Views">
+            <span id="/2020/08/27/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/" class="post-meta-item leancloud_visitors" data-flag-title="1-3Android基础知识-Fragment" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -263,8 +257,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/08/21/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/21/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/08/27/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/27/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -390,13 +384,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/08/20/1-1Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Activity/" rel="prev" title="1-1-Android基础知识-Activity">
-      <i class="fa fa-chevron-left"></i> 1-1-Android基础知识-Activity
+    <a href="/2020/08/24/%E7%83%88%E6%97%A5%E4%B8%8B%E7%9A%84%E4%B8%80%E6%8A%8A%E7%81%AB/" rel="prev" title="烈日下的一把火">
+      <i class="fa fa-chevron-left"></i> 烈日下的一把火
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/08/24/%E7%83%88%E6%97%A5%E4%B8%8B%E7%9A%84%E4%B8%80%E6%8A%8A%E7%81%AB/" rel="next" title="烈日下的一把火">
-      烈日下的一把火 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     

@@ -1130,7 +1130,7 @@
   </entry>
   <entry>
     <title>1-3Android基础知识-Fragment</title>
-    <url>/2020/08/21/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/</url>
+    <url>/2020/08/27/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/</url>
     <content><![CDATA[<h3 id="Fragment-设计初衷"><a href="#Fragment-设计初衷" class="headerlink" title="Fragment 设计初衷"></a>Fragment 设计初衷</h3><p>Fragment 在 android 3.0 版本增加，先看下官方怎么定义的</p>
 <blockquote>
 </blockquote>
