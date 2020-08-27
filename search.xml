@@ -152,6 +152,7 @@
       <tags>
         <tag>android</tag>
         <tag>2020</tag>
+        <tag>技术体系</tag>
       </tags>
   </entry>
   <entry>
@@ -186,6 +187,7 @@
       <tags>
         <tag>android</tag>
         <tag>2020</tag>
+        <tag>技术体系</tag>
       </tags>
   </entry>
   <entry>
@@ -600,6 +602,7 @@
       <tags>
         <tag>android</tag>
         <tag>2020</tag>
+        <tag>技术体系</tag>
       </tags>
   </entry>
   <entry>
@@ -1123,6 +1126,73 @@
         <tag>2020</tag>
         <tag>tips</tag>
         <tag>管理箴言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1-3Android基础知识-Fragment</title>
+    <url>/2020/08/21/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/</url>
+    <content><![CDATA[<h3 id="Fragment-设计初衷"><a href="#Fragment-设计初衷" class="headerlink" title="Fragment 设计初衷"></a>Fragment 设计初衷</h3><p>Fragment 在 android 3.0 版本增加，先看下官方怎么定义的</p>
+<blockquote>
+</blockquote>
+<p>Android introduced fragments in Android 3.0 (API level 11), primarily to support more dynamic and flexible UI designs on large screens, such as tablets. Because a tablet’s screen is much larger than that of a handset, there’s more room to combine and interchange UI components. Fragments allow such designs without the need for you to manage complex changes to the view hierarchy. By dividing the layout of an activity into fragments, you become able to modify the activity’s appearance at runtime and preserve those changes in a back stack that’s managed by the activity</p>
+<p>目的：解决大屏适配的问题，可以更加灵活的处理 UI 交互，同时支持与 Activity 的比较复杂的交互方式。</p>
+<a id="more"></a>
+
+
+<h3 id="关键生命周期"><a href="#关键生命周期" class="headerlink" title="关键生命周期"></a>关键生命周期</h3><p>Fragment 组件本身有严格的生命周期回调，同时与所在的 host Activity 有关。</p>
+<p><img src="http://img.imesong.com/2020/08/fragment_lifecycle.png" alt="Fragment life cycle"></p>
+<ul>
+<li>onCreate</li>
+<li>onCreateView</li>
+<li>onResume</li>
+</ul>
+<p>Fragment 作为一个 View，被添加到 ViewGroup 中。</p>
+<h3 id="Fragment-添加方式"><a href="#Fragment-添加方式" class="headerlink" title="Fragment 添加方式"></a>Fragment 添加方式</h3><ul>
+<li>静态添加</li>
+<li>动态加载</li>
+</ul>
+<ol>
+<li>静态添加，在 xml 文件中，固定好 Fragment 的 路径和对应的 Fragment 类，加载项目了的时候自动解析。</li>
+<li>动态加载，在运行期间决定，具体需要加载哪个 Fragment，同时可以根据不同的状态，对要加载的 Fragment 传入不同的参数。</li>
+</ol>
+<p>推荐使用动态加载的方案，更加灵活。</p>
+<h3 id="Fragment-管理相关的类"><a href="#Fragment-管理相关的类" class="headerlink" title="Fragment 管理相关的类"></a>Fragment 管理相关的类</h3><ul>
+<li><p>FragmentManager</p>
+</li>
+<li><p>FragmentTransaction</p>
+</li>
+</ul>
+<p>FragmentManager 负责管理 Activity 中的Fragment，通过 getSupportFragmentManager 方法获取。</p>
+<ul>
+<li>查找当前 Activity 管理的 Fragment，findFragmentById、findFragmentbyTag 等。</li>
+<li>管理 Fragment 状态与返回栈的关系，通过 popBackStack()或 addOnBackStackChangedListener()</li>
+</ul>
+<p>FragmentTransaction 直接操作 Fragment，可以 add、remove、replace 操作，最后通过 commit 提交，提交的时候，可以选择是否将该操作添加到返回栈中 addToBackStack 。BackStack的管理有 Activity 负责，这里可以与 Fragment 的状态关联。<br>看一下 替换 Fragment 的代码示例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; Create new fragment and transaction</span><br><span class="line">Fragment newFragment &#x3D; new ExampleFragment();</span><br><span class="line">FragmentTransaction transaction &#x3D; getSupportFragmentManager().beginTransaction();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Replace whatever is in the fragment_container view with this fragment,</span><br><span class="line">&#x2F;&#x2F; and add the transaction to the back stack</span><br><span class="line">transaction.replace(R.id.fragment_container, newFragment);</span><br><span class="line">transaction.addToBackStack(null);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Commit the transaction</span><br><span class="line">transaction.commit();</span><br></pre></td></tr></table></figure>
+
+<h3 id="Fragment-与-Activity-Fragment-数据交互"><a href="#Fragment-与-Activity-Fragment-数据交互" class="headerlink" title="Fragment 与 Activity/Fragment 数据交互"></a>Fragment 与 Activity/Fragment 数据交互</h3><p>Fragment 本身是 host Activity 的一个成员，Activity 可以通过 FragmentManager，找到对应的 Fragment 引用，有实例化后的引用，可以通过定义接口方法交互。</p>
+<ol>
+<li>FragmentA 中定义接口</li>
+<li>Activity 中实现接口</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public static class FragmentA extends ListFragment &#123;</span><br><span class="line">    ...</span><br><span class="line">    &#x2F;&#x2F; Container Activity must implement this interface</span><br><span class="line">    public interface OnArticleSelectedListener &#123;</span><br><span class="line">        public void onArticleSelected(Uri articleUri);</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> OnArticleSelectedListener listener;</span><br><span class="line">    ...</span><br><span class="line">    @Override</span><br><span class="line">    public void onAttach(Context context) &#123;</span><br><span class="line">        super.onAttach(context);</span><br><span class="line">        try &#123;</span><br><span class="line">            listener &#x3D; (OnArticleSelectedListener) context;</span><br><span class="line">        &#125; catch (ClassCastException e) &#123;</span><br><span class="line">            throw new ClassCastException(context.toString() + &quot; must implement OnArticleSelectedListener&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line"> @Override</span><br><span class="line">    public void onListItemClick(ListView l, View v, int position, long id) &#123;</span><br><span class="line">        &#x2F;&#x2F; Append the clicked item&#39;s row ID with the content provider Uri</span><br><span class="line">        Uri noteUri &#x3D; ContentUris.withAppendedId(ArticleColumns.CONTENT_URI, id);</span><br><span class="line">        &#x2F;&#x2F; Send the event and Uri to the host activity</span><br><span class="line">        listener.onArticleSelected(noteUri);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样被点击的新闻 Uri 就传递给了 hostActivity。</p>
+<h3 id="Activity-与Fragment-生命周期"><a href="#Activity-与Fragment-生命周期" class="headerlink" title="Activity 与Fragment 生命周期"></a>Activity 与Fragment 生命周期</h3><p>Activity 与 Fragment 生命周期的回调，有严格的对应关系。</p>
+<p>先看图<br><img src="http://img.imesong.com/2020/08/activity_fragment_lifecycle.png" alt="Activity 与 Fragment 生命周期关系"></p>
+<ol>
+<li>Activity 的 onCreate，对应着 Fragment 的 onCreate、onCreateView、onActivityCreated</li>
+<li>Activity 创建成功，进入 onResume 状态，同步 Fragment 进入 onResume 状态</li>
+<li>Activity 暂停时，Fragment 进入暂停状态</li>
+<li>Activity 被销毁是，Fragment 的 view 先回调 onDestroy 方法，再回调 onDetach。</li>
+</ol>
+<p>最后，用一张图总结一下</p>
+<p><img src="http://img.imesong.com/2020/08/Fragment.png" alt=""></p>
+]]></content>
+      <tags>
+        <tag>android</tag>
+        <tag>2020</tag>
+        <tag>技术体系</tag>
       </tags>
   </entry>
 </search>
