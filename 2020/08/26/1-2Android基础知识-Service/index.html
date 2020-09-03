@@ -20,20 +20,27 @@
     var CONFIG = {"hostname":"imesong.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="本文内容主要来自 三节课 逻辑写作课程的学习笔记，选取部分章节。  逻辑 怎么理解？ 首先有观点，明确且唯一，用事实和论点去支持佐证，论点和事实按照一定的顺序展开。结构分明，条理清晰，重点突出。 写作是职场中的一项重要技能，在平常的日报、周报及月报，还有阶段性的工作汇报与总结，都需要用到写作的技能。在对外提交正式的书面邮件时，如何准确、简洁、严谨的传递出信息，体现了个人的综合能力。 写作的时候，">
+  <meta name="description" content="这次把安卓剩余的三个组件Service、BroadcastReceiver、ContentProvider放在一起，也是因为，剩余三个组件的复杂程度、使用频率不及Activity。 不说话，先看图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="逻辑写作笔记">
-<meta property="og:url" content="http://imesong.com/2020/07/25/%E9%80%BB%E8%BE%91%E5%86%99%E4%BD%9C%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="1-2Android基础知识-Service、Broadcast、ContentProvider">
+<meta property="og:url" content="http://imesong.com/2020/08/26/1-2Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Service/index.html">
 <meta property="og:site_name" content="imesong">
-<meta property="og:description" content="本文内容主要来自 三节课 逻辑写作课程的学习笔记，选取部分章节。  逻辑 怎么理解？ 首先有观点，明确且唯一，用事实和论点去支持佐证，论点和事实按照一定的顺序展开。结构分明，条理清晰，重点突出。 写作是职场中的一项重要技能，在平常的日报、周报及月报，还有阶段性的工作汇报与总结，都需要用到写作的技能。在对外提交正式的书面邮件时，如何准确、简洁、严谨的传递出信息，体现了个人的综合能力。 写作的时候，">
-<meta property="article:published_time" content="2020-07-25T06:02:40.000Z">
-<meta property="article:modified_time" content="2020-07-28T14:23:05.990Z">
+<meta property="og:description" content="这次把安卓剩余的三个组件Service、BroadcastReceiver、ContentProvider放在一起，也是因为，剩余三个组件的复杂程度、使用频率不及Activity。 不说话，先看图">
+<meta property="og:image" content="http://img.imesong.com/2020/08/services_kg.png">
+<meta property="og:image" content="http://img.imesong.com/2020/08/BroadcastReceiver.png">
+<meta property="og:image" content="http://img.imesong.com/2020/08/service_lifecycle.png">
+<meta property="og:image" content="http://img.imesong.com/2020/08/content-provider-migration.png">
+<meta property="og:image" content="http://img.imesong.com/2020/08/content-provider-interaction.png">
+<meta property="article:published_time" content="2020-08-26T10:28:01.000Z">
+<meta property="article:modified_time" content="2020-09-03T07:45:42.519Z">
 <meta property="article:author" content="imesong">
+<meta property="article:tag" content="android">
 <meta property="article:tag" content="2020">
-<meta property="article:tag" content="写作">
+<meta property="article:tag" content="技术体系">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://img.imesong.com/2020/08/services_kg.png">
 
-<link rel="canonical" href="http://imesong.com/2020/07/25/%E9%80%BB%E8%BE%91%E5%86%99%E4%BD%9C%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="http://imesong.com/2020/08/26/1-2Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Service/">
 
 
 <script id="page-configurations">
@@ -46,7 +53,7 @@
   };
 </script>
 
-  <title>逻辑写作笔记 | imesong</title>
+  <title>1-2Android基础知识-Service、Broadcast、ContentProvider | imesong</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163257292-1"></script>
     <script>
@@ -209,7 +216,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://imesong.com/2020/07/25/%E9%80%BB%E8%BE%91%E5%86%99%E4%BD%9C%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://imesong.com/2020/08/26/1-2Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Service/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s.gravatar.com/avatar/bd2525e0ecc6d8022339c7dce27065c0?s=200">
@@ -222,7 +229,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          逻辑写作笔记
+          1-2Android基础知识-Service、Broadcast、ContentProvider
         </h1>
 
         <div class="post-meta">
@@ -232,18 +239,18 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-07-25 14:02:40" itemprop="dateCreated datePublished" datetime="2020-07-25T14:02:40+08:00">2020-07-25</time>
+              <time title="Created: 2020-08-26 18:28:01" itemprop="dateCreated datePublished" datetime="2020-08-26T18:28:01+08:00">2020-08-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-07-28 22:23:05" itemprop="dateModified" datetime="2020-07-28T22:23:05+08:00">2020-07-28</time>
+                <time title="Modified: 2020-09-03 15:45:42" itemprop="dateModified" datetime="2020-09-03T15:45:42+08:00">2020-09-03</time>
               </span>
 
           
-            <span id="/2020/07/25/%E9%80%BB%E8%BE%91%E5%86%99%E4%BD%9C%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="逻辑写作笔记" title="Views">
+            <span id="/2020/08/26/1-2Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Service/" class="post-meta-item leancloud_visitors" data-flag-title="1-2Android基础知识-Service、Broadcast、ContentProvider" title="Views">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -258,8 +265,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2020/07/25/%E9%80%BB%E8%BE%91%E5%86%99%E4%BD%9C%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/25/%E9%80%BB%E8%BE%91%E5%86%99%E4%BD%9C%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/08/26/1-2Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Service/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/26/1-2Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Service/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -269,14 +276,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>944</span>
+              <span>2.6k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -288,49 +295,90 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p>本文内容主要来自 三节课 逻辑写作课程的学习笔记，选取部分章节。</p>
-</blockquote>
-<p><strong>逻辑</strong> 怎么理解？</p>
-<p>首先有观点，明确且唯一，用事实和论点去支持佐证，论点和事实按照一定的顺序展开。<br>结构分明，条理清晰，重点突出。</p>
-<p>写作是职场中的一项重要技能，在平常的日报、周报及月报，还有阶段性的工作汇报与总结，都需要用到写作的技能。在对外提交正式的书面邮件时，如何准确、简洁、严谨的传递出信息，体现了个人的综合能力。</p>
-<p>写作的时候，要能够在阅读者的角度考虑</p>
-<ul>
-<li>内容是否通俗易懂</li>
-<li>重点是否突出，简洁明了</li>
-<li>是否有太多行业术语</li>
-</ul>
-<p>逻辑写作主要从 <strong>观点、案例、总结</strong> 三个方面阐述，如何进行有逻辑的创作</p>
+        <p>这次把安卓剩余的三个组件Service、BroadcastReceiver、ContentProvider放在一起，也是因为，剩余三个组件的复杂程度、使用频率不及Activity。</p>
+<p>不说话，先看图<br><img src="http://img.imesong.com/2020/08/services_kg.png" alt="Service tips"></p>
+<p><img src="http://img.imesong.com/2020/08/BroadcastReceiver.png" alt="BroadcastReceiver"></p>
 <a id="more"></a>
+<h3 id="Service-定义"><a href="#Service-定义" class="headerlink" title="Service 定义"></a>Service 定义</h3><p>Service 是可以在后台长期执行而没有用户交互的基础组件。Service 运行在主线程，不可以做耗时的操作。Thread 泛指新建的子线程，不能更新 UI。</p>
+<h3 id="Service-生命周期"><a href="#Service-生命周期" class="headerlink" title="Service 生命周期"></a>Service 生命周期</h3><p>Service 的生命周期，预期方式关联。启动方式有主动启动、绑定启动两种。看下两种启动方式的流程图</p>
+<p><img src="http://img.imesong.com/2020/08/service_lifecycle.png" alt="Service lifecycle"></p>
+<p>Service 流程中的核心的方法如下</p>
+<ul>
+<li>onCreate</li>
+<li>onStartCommand</li>
+<li>onBind</li>
+<li>onDestory</li>
+</ul>
+<h3 id="Service-的优先级"><a href="#Service-的优先级" class="headerlink" title="Service 的优先级"></a>Service 的优先级</h3><p>Service 按照使用场景，可以区分foreground、background、bind 三种类型，不同类型的优先级不同。优先级越低，在系统资源紧张时，越容易被系统回收掉。</p>
+<p>优先级顺序：foreground &gt; bind &gt; background</p>
+<p>在 androidmanifest 中，也可以配置 service 的优先级 android:priority = “xxxx”,xxxx可以配置为整数，数字越大，优先级越高，最高值为 1000。</p>
+<h3 id="JobScheduleService"><a href="#JobScheduleService" class="headerlink" title="JobScheduleService"></a>JobScheduleService</h3><p>JobIntentService 是 Android 8.0 新增的 Service 子类，替代 IntentService。8.0 系统以后，禁止在后台直接创建 Service，但可以创建 JobIntentService。官方的定义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Helper for processing work that has been enqueued for a job&#x2F;service. </span><br><span class="line">When running on Android O or later, the work will be dispatched as a job via JobScheduler.enqueue. </span><br><span class="line">When running on older versions of the platform, it will use Context.startService.</span><br></pre></td></tr></table></figure>
+<p>解释：JobIntentService 用于处理被加入到队列的 job/service 任务的一个辅助工具。当运行在 Android O 或更高版本时，任务将作为 job 通过 JobScheduler.enqueue() 进行分发；当运行在较老版本的平台上时，任务仍旧会使用 Context.startService() 执行</p>
+<p>Android 8.0 及以上版本 JobIntentService 和 JobService 做的事情是相同的，都是等着 JobScheduler 分配任务来执行。</p>
+<p>不同点在于，JobService 使用的 handler 使用的是主线程的 Looper，因此需要在 onStartJob() 方法中手动创建 AsyncTask 去执行耗时任务，而 JobIntentService 则帮我们处理这一过程，使用它只需要写需要做的任务逻辑即可，不用担心阻塞主线程的问题。另外，向 JobScheduler 传递任务操作也更简单了，不需要在指定 JobInfo 中的参数，直接 enqueueWork() 方法就可以了。这有点像 Service 和 IntentService 的关系。</p>
+<h3 id="BroadcastReceiver"><a href="#BroadcastReceiver" class="headerlink" title="BroadcastReceiver"></a>BroadcastReceiver</h3><p>广播的定义很好理解，有发送方，有接收方，可以用于在不同的 App ，同一个 App 不同的组件、进程间通信。按发送方，广播可以分为以下四种类型</p>
+<ul>
+<li>普通广播</li>
+<li>有序广播</li>
+<li>本地广播</li>
+<li>系统广播</li>
+</ul>
+<p>按照注册方式，又可以区分为两种</p>
+<ul>
+<li>静态注册</li>
+<li>动态注册</li>
+</ul>
+<h3 id="发送和接收流程"><a href="#发送和接收流程" class="headerlink" title="发送和接收流程"></a>发送和接收流程</h3><ol>
+<li>广播接收者（BroadcastReceiver）通过 Binder 机制，向 AMS 注册成为广播接收者。</li>
+<li>广播的发送者，通过 Binder 机制，向 AMS 发送广播。</li>
+<li>AMS查找符合条件（IntentFilter、Permission）的 BroadcastReceiver，将广播发送到相应的Receiver 的队列中</li>
+<li>消息循环执行拿到此广播，回调 BroadcastReceiver 的 onReceiver 方法</li>
+</ol>
+<h3 id="本地广播-amp-普通广播"><a href="#本地广播-amp-普通广播" class="headerlink" title="本地广播 &amp; 普通广播"></a>本地广播 &amp; 普通广播</h3><p>相比普通广播，本地广播更加安全、高效。本地广播的发送，只在 App 自身内传播，不必担心隐私泄露的问题，其他 App 也无法发送该广播，故不用担心安全漏洞。本地广播内部通过 Handler 实现，不牵涉跨进程通信，效率更高。</p>
+<h3 id="ContentProvider"><a href="#ContentProvider" class="headerlink" title="ContentProvider"></a>ContentProvider</h3><p>ContentProvider 是一个内容提供者，一般用于 App 间数据交互和共享。底层依然使用的 Binder 机制通信。</p>
+<p><img src="http://img.imesong.com/2020/08/content-provider-migration.png" alt=""></p>
+<h3 id="访问-ContentProvider"><a href="#访问-ContentProvider" class="headerlink" title="访问 ContentProvider"></a>访问 ContentProvider</h3><p>访问 ContentProvider 的流程大致如下</p>
+<p><img src="http://img.imesong.com/2020/08/content-provider-interaction.png" alt=""></p>
+<p>看下面的示例代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Queries the user dictionary and returns results</span><br><span class="line">cursor &#x3D; getContentResolver().query(</span><br><span class="line">    UserDictionary.Words.CONTENT_URI,   &#x2F;&#x2F; The content URI of the words table</span><br><span class="line">    projection,                        &#x2F;&#x2F; The columns to return for each row</span><br><span class="line">    selectionClause,                   &#x2F;&#x2F; Selection criteria</span><br><span class="line">    selectionArgs,                     &#x2F;&#x2F; Selection criteria</span><br><span class="line">    sortOrder);                        &#x2F;&#x2F; The sort order for the returned rows</span><br></pre></td></tr></table></figure>
 
-<h3 id="观点"><a href="#观点" class="headerlink" title="观点"></a>观点</h3><p>对一项事情的看法或判断，观点要鲜明，有明确清晰，重点突出。观点有以下几个特性</p>
-<ul>
-<li>观点是有限的</li>
-<li>观点可以包含事实</li>
-<li>观点可以包含多个论点</li>
-</ul>
-<h4 id="观点的有限性"><a href="#观点的有限性" class="headerlink" title="观点的有限性"></a>观点的有限性</h4><p>一篇文章的观点，最好不要超过3个。7个观点是上线，参考《奇妙的数字7+2》。</p>
-<h4 id="观点可以包含事实"><a href="#观点可以包含事实" class="headerlink" title="观点可以包含事实"></a>观点可以包含事实</h4><p>通过陈述事实的方式，表达观点。虽然事实是客观存在的，但通过对事实的选择，体现我们的观点。如：小明同学身高150，体重200斤。这是一个描述小明身高体重的事实描述，但接收到这个信息的人，都会觉得，小明是一个小胖子。通过描述事实的方式，传递一个有价值导向的观点。</p>
-<h4 id="观点可以包含多个论点"><a href="#观点可以包含多个论点" class="headerlink" title="观点可以包含多个论点"></a>观点可以包含多个论点</h4><p>用论点去论证观点，论点是观点的子集，是观点的一部分。</p>
-<p><strong>观点：小明同学是一个优秀的伙伴。</strong></p>
-<p>论点1：小明的技术能力很突出，大家有解决不了的问题，交给小明，他总是能够解决。<br>论点2：小明对公司的责任心很强，在放假期间，小明主动解决了客户反馈的问题，提高了我们公司的品牌和形象。<br>论点3：小明的学习能力强，小明刚进公司的时候，对数据分析的业务不了解，通过两个月的学习，已经胜任公司各个项目的分析要求，能够为项目的精细化运营提供有效的分析结论。</p>
-<p>上面的示例，从技术能力、责任心、学习能力三个论点，支撑小明是一个优秀的伙伴的观点。</p>
-<p>论点可以有子论点，论点的提炼原则可以使用<strong>MECE法则</strong></p>
-<ul>
-<li>相互独立</li>
-<li>完全穷尽<br>论点可以按照<strong>时间、程度、演绎</strong>的方式组织。</li>
-</ul>
-<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>案例可以有三种形式呈现</p>
-<ul>
-<li>故事</li>
-<li>数据</li>
-<li>论述性文字</li>
-</ul>
-<p>故事增加人的感性认知，可以打动人，情绪上感染人。<br>数据可以增加理性，逻辑更加严谨<br>论述性文字描述推理、思考的过程。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
-<li>回顾主题，让读者明白，文章讲述的是什么，你在表达什么</li>
-<li>升华主题，让读者意犹未尽。</li>
-</ul>
+<p>query 方法的参数，对比 SQL 语法，可以看下差异</p>
+<table>
+<thead>
+<tr>
+<th>query()  argument</th>
+<th>SELECT</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Uri</td>
+<td>FROM table_name</td>
+<td>Uri maps to the table in the provider named table_name</td>
+</tr>
+<tr>
+<td>projection</td>
+<td>col,col,col</td>
+<td>Projection is an array of columns</td>
+</tr>
+<tr>
+<td>selection</td>
+<td>WHERE col = value</td>
+<td>Selection specifies the criteria for selection rows</td>
+</tr>
+<tr>
+<td>selectionArgs</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sortOrder</td>
+<td>ORDER by col,col</td>
+<td>sortOrder specifies the order in which rows appear in the returned Cursor</td>
+</tr>
+</tbody></table>
+<p>可以理解为，ContentProvider 提供了一套更加方便、丰富的访问数据的方法，可以做到读写分离，更加安全可靠。</p>
 
     </div>
 
@@ -360,8 +408,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/android/" rel="tag"># android</a>
               <a href="/tags/2020/" rel="tag"># 2020</a>
-              <a href="/tags/%E5%86%99%E4%BD%9C/" rel="tag"># 写作</a>
+              <a href="/tags/%E6%8A%80%E6%9C%AF%E4%BD%93%E7%B3%BB/" rel="tag"># 技术体系</a>
           </div>
 
         
@@ -370,12 +419,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/06/17/StarUML%E4%B8%8A%E6%89%8B%E6%8C%87/" rel="prev" title="StarUML上手指南">
-      <i class="fa fa-chevron-left"></i> StarUML上手指南
+    <a href="/2020/08/24/%E7%83%88%E6%97%A5%E4%B8%8B%E7%9A%84%E4%B8%80%E6%8A%8A%E7%81%AB/" rel="prev" title="烈日下的一把火">
+      <i class="fa fa-chevron-left"></i> 烈日下的一把火
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/08/19/00-Android%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" rel="next" title="00-Android知识体系-启程">
-      00-Android知识体系-启程 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/08/27/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/" rel="next" title="1-3Android基础知识-Fragment">
+      1-3Android基础知识-Fragment <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -436,7 +485,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#观点"><span class="nav-number">1.</span> <span class="nav-text">观点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#观点的有限性"><span class="nav-number">1.1.</span> <span class="nav-text">观点的有限性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#观点可以包含事实"><span class="nav-number">1.2.</span> <span class="nav-text">观点可以包含事实</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#观点可以包含多个论点"><span class="nav-number">1.3.</span> <span class="nav-text">观点可以包含多个论点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例"><span class="nav-number">2.</span> <span class="nav-text">案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Service-定义"><span class="nav-number">1.</span> <span class="nav-text">Service 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service-生命周期"><span class="nav-number">2.</span> <span class="nav-text">Service 生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service-的优先级"><span class="nav-number">3.</span> <span class="nav-text">Service 的优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JobScheduleService"><span class="nav-number">4.</span> <span class="nav-text">JobScheduleService</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BroadcastReceiver"><span class="nav-number">5.</span> <span class="nav-text">BroadcastReceiver</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送和接收流程"><span class="nav-number">6.</span> <span class="nav-text">发送和接收流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地广播-amp-普通广播"><span class="nav-number">7.</span> <span class="nav-text">本地广播 &amp; 普通广播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ContentProvider"><span class="nav-number">8.</span> <span class="nav-text">ContentProvider</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问-ContentProvider"><span class="nav-number">9.</span> <span class="nav-text">访问 ContentProvider</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
