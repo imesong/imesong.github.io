@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"imesong.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.14.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"style":null,"show_result":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="http://imesong.com/2020/08/27/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://imesong.com/2020/08/27/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/","path":"2020/08/27/1-3Android基础知识-Fragment/","title":"1-3Android基础知识-Fragment"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>1-3Android基础知识-Fragment | imesong</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163257292-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-163257292-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?9e900bf6e455a1e02b134a8284caa9e1"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="imesong" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">imesong</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">我们的征途是星辰大海</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section">首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section">关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section">标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section">归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fragment-%E8%AE%BE%E8%AE%A1%E5%88%9D%E8%A1%B7"><span class="nav-number">1.</span> <span class="nav-text">Fragment 设计初衷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">2.</span> <span class="nav-text">关键生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fragment-%E6%B7%BB%E5%8A%A0%E6%96%B9%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">Fragment 添加方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fragment-%E7%AE%A1%E7%90%86%E7%9B%B8%E5%85%B3%E7%9A%84%E7%B1%BB"><span class="nav-number">4.</span> <span class="nav-text">Fragment 管理相关的类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fragment-%E4%B8%8E-Activity-x2F-Fragment-%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92"><span class="nav-number">5.</span> <span class="nav-text">Fragment 与 Activity&#x2F;Fragment 数据交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity-%E4%B8%8EFragment-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">6.</span> <span class="nav-text">Activity 与Fragment 生命周期</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="imesong"
+      src="/images/avatar-katong.png">
+  <p class="site-author-name" itemprop="name">imesong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/imesong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;imesong" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:imesong@126.com" title="E-Mail → mailto:imesong@126.com" rel="noopener me" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://imesong.com/2020/08/27/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-katong.png">
+      <meta itemprop="name" content="imesong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="imesong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="1-3Android基础知识-Fragment | imesong">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          1-3Android基础知识-Fragment
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-08-27 16:28:22" itemprop="dateCreated datePublished" datetime="2020-08-27T16:28:22+00:00">2020-08-27</time>
+    </span>
+
+  
+    <span id="/2020/08/27/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/" class="post-meta-item leancloud_visitors" data-flag-title="1-3Android基础知识-Fragment" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="Fragment-设计初衷"><a href="#Fragment-设计初衷" class="headerlink" title="Fragment 设计初衷"></a>Fragment 设计初衷</h3><p>Fragment 在 android 3.0 版本增加，先看下官方怎么定义的</p>
+<blockquote>
+</blockquote>
+<p>Android introduced fragments in Android 3.0 (API level 11), primarily to support more dynamic and flexible UI designs on large screens, such as tablets. Because a tablet’s screen is much larger than that of a handset, there’s more room to combine and interchange UI components. Fragments allow such designs without the need for you to manage complex changes to the view hierarchy. By dividing the layout of an activity into fragments, you become able to modify the activity’s appearance at runtime and preserve those changes in a back stack that’s managed by the activity</p>
+<p>目的：解决大屏适配的问题，可以更加灵活的处理 UI 交互，同时支持与 Activity 的比较复杂的交互方式。</p>
+<span id="more"></span>
+
+
+<h3 id="关键生命周期"><a href="#关键生命周期" class="headerlink" title="关键生命周期"></a>关键生命周期</h3><p>Fragment 组件本身有严格的生命周期回调，同时与所在的 host Activity 有关。</p>
+<p><img src="http://img.imesong.com/2020/08/fragment_lifecycle.png" alt="Fragment life cycle"></p>
+<ul>
+<li>onCreate</li>
+<li>onCreateView</li>
+<li>onResume</li>
+</ul>
+<p>Fragment 作为一个 View，被添加到 ViewGroup 中。</p>
+<h3 id="Fragment-添加方式"><a href="#Fragment-添加方式" class="headerlink" title="Fragment 添加方式"></a>Fragment 添加方式</h3><ul>
+<li>静态添加</li>
+<li>动态加载</li>
+</ul>
+<ol>
+<li>静态添加，在 xml 文件中，固定好 Fragment 的 路径和对应的 Fragment 类，加载项目了的时候自动解析。</li>
+<li>动态加载，在运行期间决定，具体需要加载哪个 Fragment，同时可以根据不同的状态，对要加载的 Fragment 传入不同的参数。</li>
+</ol>
+<p>推荐使用动态加载的方案，更加灵活。</p>
+<h3 id="Fragment-管理相关的类"><a href="#Fragment-管理相关的类" class="headerlink" title="Fragment 管理相关的类"></a>Fragment 管理相关的类</h3><ul>
+<li><p>FragmentManager</p>
+</li>
+<li><p>FragmentTransaction</p>
+</li>
+</ul>
+<p>FragmentManager 负责管理 Activity 中的Fragment，通过 getSupportFragmentManager 方法获取。</p>
+<ul>
+<li>查找当前 Activity 管理的 Fragment，findFragmentById、findFragmentbyTag 等。</li>
+<li>管理 Fragment 状态与返回栈的关系，通过 popBackStack()或 addOnBackStackChangedListener()</li>
+</ul>
+<p>FragmentTransaction 直接操作 Fragment，可以 add、remove、replace 操作，最后通过 commit 提交，提交的时候，可以选择是否将该操作添加到返回栈中 addToBackStack 。BackStack的管理有 Activity 负责，这里可以与 Fragment 的状态关联。<br>看一下 替换 Fragment 的代码示例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// Create new fragment and transaction</span><br><span class="line">Fragment newFragment = new ExampleFragment();</span><br><span class="line">FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();</span><br><span class="line"></span><br><span class="line">// Replace whatever is in the fragment_container view with this fragment,</span><br><span class="line">// and add the transaction to the back stack</span><br><span class="line">transaction.replace(R.id.fragment_container, newFragment);</span><br><span class="line">transaction.addToBackStack(null);</span><br><span class="line"></span><br><span class="line">// Commit the transaction</span><br><span class="line">transaction.commit();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Fragment-与-Activity-x2F-Fragment-数据交互"><a href="#Fragment-与-Activity-x2F-Fragment-数据交互" class="headerlink" title="Fragment 与 Activity&#x2F;Fragment 数据交互"></a>Fragment 与 Activity&#x2F;Fragment 数据交互</h3><p>Fragment 本身是 host Activity 的一个成员，Activity 可以通过 FragmentManager，找到对应的 Fragment 引用，有实例化后的引用，可以通过定义接口方法交互。</p>
+<ol>
+<li>FragmentA 中定义接口</li>
+<li>Activity 中实现接口</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public static class FragmentA extends ListFragment &#123;</span><br><span class="line">    ...</span><br><span class="line">    // Container Activity must implement this interface</span><br><span class="line">    public interface OnArticleSelectedListener &#123;</span><br><span class="line">        public void onArticleSelected(Uri articleUri);</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> OnArticleSelectedListener listener;</span><br><span class="line">    ...</span><br><span class="line">    @Override</span><br><span class="line">    public void onAttach(Context context) &#123;</span><br><span class="line">        super.onAttach(context);</span><br><span class="line">        try &#123;</span><br><span class="line">            listener = (OnArticleSelectedListener) context;</span><br><span class="line">        &#125; catch (ClassCastException e) &#123;</span><br><span class="line">            throw new ClassCastException(context.toString() + &quot; must implement OnArticleSelectedListener&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line"> @Override</span><br><span class="line">    public void onListItemClick(ListView l, View v, int position, long id) &#123;</span><br><span class="line">        // Append the clicked item&#x27;s row ID with the content provider Uri</span><br><span class="line">        Uri noteUri = ContentUris.withAppendedId(ArticleColumns.CONTENT_URI, id);</span><br><span class="line">        // Send the event and Uri to the host activity</span><br><span class="line">        listener.onArticleSelected(noteUri);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样被点击的新闻 Uri 就传递给了 hostActivity。</p>
+<h3 id="Activity-与Fragment-生命周期"><a href="#Activity-与Fragment-生命周期" class="headerlink" title="Activity 与Fragment 生命周期"></a>Activity 与Fragment 生命周期</h3><p>Activity 与 Fragment 生命周期的回调，有严格的对应关系。</p>
+<p>先看图<br><img src="http://img.imesong.com/2020/08/activity_fragment_lifecycle.png" alt="Activity 与 Fragment 生命周期关系"></p>
+<ol>
+<li>Activity 的 onCreate，对应着 Fragment 的 onCreate、onCreateView、onActivityCreated</li>
+<li>Activity 创建成功，进入 onResume 状态，同步 Fragment 进入 onResume 状态</li>
+<li>Activity 暂停时，Fragment 进入暂停状态</li>
+<li>Activity 被销毁是，Fragment 的 view 先回调 onDestroy 方法，再回调 onDetach。</li>
+</ol>
+<p>最后，用一张图总结一下</p>
+<p><img src="http://img.imesong.com/2020/08/Fragment.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="imesong 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="imesong 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/android/" rel="tag"># android</a>
+              <a href="/tags/%E6%8A%80%E6%9C%AF%E4%BD%93%E7%B3%BB/" rel="tag"># 技术体系</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/08/26/1-2Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Service/" rel="prev" title="1-2Android基础知识-Service、Broadcast、ContentProvider">
+                  <i class="fa fa-chevron-left"></i> 1-2Android基础知识-Service、Broadcast、ContentProvider
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/10/02/%E7%BB%88%E8%BA%AB%E5%B9%BC%E5%84%BF%E5%9B%AD/" rel="next" title="终身幼儿园">
+                  终身幼儿园 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">沪ICP备20001304号 </a>
+  </div>
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">imesong</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">58k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">52 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/imesong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"HF0T5f1jM9mXdNyrgXgjXBo8-gzGzoHsz","app_key":"LG3cTm6B7zWLcYGzWVVc2kBX","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+
+</body>
+</html>

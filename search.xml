@@ -1,0 +1,2702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>00-Android知识体系-启程</title>
+    <url>/2020/08/19/00-Android%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/</url>
+    <content><![CDATA[<h3 id="关于知识体系的定位"><a href="#关于知识体系的定位" class="headerlink" title="关于知识体系的定位"></a>关于知识体系的定位</h3><ol>
+<li>首先是给自己的看的，看过往，明得失。通过对过往的复盘，进一步帮助自己明晰当下的定位，能够对自我有一个更加全面认知（不仅仅是技术）。</li>
+<li>尽量能够让大家都能看懂，但不做承诺。该知识体系会有很明显的个人烙印，在整个系统工程完成后，会再整理一份通用版（不承诺一定会有）。</li>
+</ol>
+<h3 id="知识体系大纲"><a href="#知识体系大纲" class="headerlink" title="知识体系大纲"></a>知识体系大纲</h3><ol>
+<li>Android 基础知识</li>
+<li>Android 高级知识</li>
+<li>Java 基础知识</li>
+<li>Java 高级知识</li>
+<li>架构设计</li>
+<li>跨平台</li>
+<li>工程效率</li>
+<li>安全</li>
+<li>数据结构与算法</li>
+<li>项目管理</li>
+<li>团队管理</li>
+<li>面试题精选</li>
+</ol>
+<span id="more"></span>
+
+
+<h3 id="Android-历史版本"><a href="#Android-历史版本" class="headerlink" title="Android 历史版本"></a>Android 历史版本</h3><p>Android 系统 从 2008 年发布以来，到今天（2020 年 8 月）已经更新 18 个大版本，相关的技术体系和专业技能的要求，已经发生了很大变化</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>版本号</th>
+<th>发行日期</th>
+<th>API 等级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Android1.0</td>
+<td>1.0</td>
+<td>2008 年 9 月 23 日</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Android1.1</td>
+<td>1.1</td>
+<td>2009 年 2 月 9 日</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Android Cupcake<span class="Apple-tab-span" style="white-space:pre"></span></td>
+<td>1.5</td>
+<td>2009 年 4 月 27 日</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Android Donut</td>
+<td>1.6</td>
+<td>2009 年 9 月 15 日</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Android Eclair</td>
+<td>2.0-2.1</td>
+<td>2009 年 10 月 26 日</td>
+<td>5-7</td>
+</tr>
+<tr>
+<td>Android Froyo</td>
+<td>2.2-2.2.3</td>
+<td>2010 年 5 月 20 日</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Android Gingerbread<span class="Apple-tab-span" style="white-space:pre"></span></td>
+<td>2.3-2.3.7</td>
+<td>2010 年 12 月 6 日</td>
+<td>9-10</td>
+</tr>
+<tr>
+<td>Android Honeycomb</td>
+<td>3.0-3.2.6</td>
+<td>2011年 2 月 22 日</td>
+<td>11-13</td>
+</tr>
+<tr>
+<td>Android Ice Cream Sandwich</td>
+<td>4.0-4.0.4</td>
+<td>2011 年 10 月 18 日</td>
+<td>14-15</td>
+</tr>
+<tr>
+<td>Android Jelly Bean</td>
+<td>4.1-4.3.1</td>
+<td>2012 年 7 月 9 日</td>
+<td>16-18</td>
+</tr>
+<tr>
+<td>Android KitKat</td>
+<td>4.4-4.4.4</td>
+<td>2013 年 10 月 31 日</td>
+<td>19-20</td>
+</tr>
+<tr>
+<td>Android Lollipop</td>
+<td>5.0-5.1.1</td>
+<td>2014 年 11 月 12 日</td>
+<td>21-22</td>
+</tr>
+<tr>
+<td>Android Marshmallow</td>
+<td>6.0-6.0.1</td>
+<td>2015 年 10 月 5 日</td>
+<td>23</td>
+</tr>
+<tr>
+<td>Android Nougat</td>
+<td>7.0-7.1.2</td>
+<td>2016 年 8 月 22 日</td>
+<td>24-25</td>
+</tr>
+<tr>
+<td>Android Oreo</td>
+<td>8.0-8.1</td>
+<td>2017 年 8 月 21 日</td>
+<td>26-27</td>
+</tr>
+<tr>
+<td>Android Pie<span class="Apple-tab-span" style="white-space:pre"></span></td>
+<td>9</td>
+<td>2018 年 8 月 6 日</td>
+<td>28</td>
+</tr>
+<tr>
+<td>Android 10</td>
+<td>10</td>
+<td>2019 年 9 月 3 日</td>
+<td>29</td>
+</tr>
+<tr>
+<td>Android 11</td>
+<td>11</td>
+<td>2020 年 2 月 19 日</td>
+<td>30</td>
+</tr>
+</tbody></table>
+<p><a href="https://zh.wikipedia.org/wiki/Android">以上数据来自 wiki</a></p>
+<p>自己从事 Android 开发工作已经 7 年的时间，计划系统的梳理移动开发领域的知识体系，形成自己的职业发展路线图，在自我总结的同时，也能够给其他人一些参考。</p>
+<p>先放一份正在整理的一张知识框架的思维导图</p>
+<h3 id="Android-知识体系概览"><a href="#Android-知识体系概览" class="headerlink" title="Android 知识体系概览"></a>Android 知识体系概览</h3><p><img src="http://img.imesong.com/2020/04/Android%20teck%20framwork.png" alt="Android 知识体系"></p>
+<p>这是一份未完成的框架，当前包含 12 个一级主题，几百个子主题，计划用半年左右的时间完成（截止目标暂定 2021 年 3月10 日）。</p>
+]]></content>
+      <tags>
+        <tag>android</tag>
+        <tag>技术体系</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1-0-Android基础知识-大纲介绍</title>
+    <url>/2020/08/19/1-0Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<p>Android 基础知识泛指工作经验在 3-5 年左右，应该熟练掌握的内容，涵盖了 <a href="https://developer.android.com/guide">Android 官方的开发文档</a>中 core topic 的所有内容,掌握这些之后，能够独立开发一款高质量的应用。</p>
+<h3 id="基础知识大纲"><a href="#基础知识大纲" class="headerlink" title="基础知识大纲"></a>基础知识大纲</h3><ol>
+<li>Activity</li>
+<li>Service</li>
+<li>Broadcast</li>
+<li>ContentProvider</li>
+<li>Context</li>
+<li>Intent</li>
+<li>Fragment</li>
+<li>官方UI组件的理解和应用</li>
+<li>Android 消息机制</li>
+<li>Android 事件处理机制</li>
+<li>自定义 View</li>
+<li>第三方库基础库的理解和应用</li>
+<li>数据存储</li>
+<li>App 主题、资源</li>
+<li>多线程</li>
+<li>多进程</li>
+</ol>
+<span id="more"></span>
+
+<h3 id="大纲解析"><a href="#大纲解析" class="headerlink" title="大纲解析"></a>大纲解析</h3><p>基础知识大纲的组织，主要参考 Android 官方开发文档主题的呈现顺序，同时结合个人在多年的项目开发中的实践情况，从最基础的四大组件，到自定义 View，第三开源库的分析学习，逐层递进。重点内容放在官方的四大组件的理解和应用上，同时会记录四大组件在项目使用中，容易忽视的的兼容性问题。</p>
+<p>先看下大纲的思维导图</p>
+<p> <img src="http://img.imesong.com/2020/04/Android%E5%9F%BA%E7%A1%80.png" alt="Android 基础大纲"></p>
+<p>后面有数字的子项，是因为篇幅原因，相关的子项折叠起来了，在具体的内容分析时，都会涉及。</p>
+]]></content>
+      <tags>
+        <tag>android</tag>
+        <tag>技术体系</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1-1-Android基础知识-Activity</title>
+    <url>/2020/08/20/1-1Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Activity/</url>
+    <content><![CDATA[<h3 id="为什么会有Activity？"><a href="#为什么会有Activity？" class="headerlink" title="为什么会有Activity？"></a>为什么会有Activity？</h3><p>安卓应用开发的时候，首先接触到的就是四大组件之一 Activity，可曾深入思考一下，为什么会有 Activity，安卓系统设计这个组件的目的是什么呢？</p>
+<ol>
+<li>Activity 是系统与用户交互的载体，由于用户的行为不可预期性，导致 Activity 的状态比较复杂，管理起来也比较麻烦，衍生出一套解决方案</li>
+<li>安卓系统中的很多应用，没有可见的界面，可以没有 Activity。Activity 很重要，但并非不可缺少。</li>
+</ol>
+<span id="more"></span>
+
+
+
+
+<h3 id="Activity-的生命周期"><a href="#Activity-的生命周期" class="headerlink" title="Activity 的生命周期"></a>Activity 的生命周期</h3><p>关键方法</p>
+<ul>
+<li>onCreate</li>
+<li>onStart</li>
+<li>onResume</li>
+<li>onPause</li>
+<li>onStop</li>
+<li>onDestory</li>
+</ul>
+<p><img src="http://img.imesong.com/2020/08/Activity-life-cycle.png" alt="Android生命周期"></p>
+<p>生命周期回调中的方法，不可以做耗时的操作，尤其是onResume和onPause,这两个方法在 Activity 的状态管理中，会频繁的调用。</p>
+<h3 id="典型场景下的生命周期回调"><a href="#典型场景下的生命周期回调" class="headerlink" title="典型场景下的生命周期回调"></a>典型场景下的生命周期回调</h3><h4 id="A-—-gt-B-—-gt-A"><a href="#A-—-gt-B-—-gt-A" class="headerlink" title="A —&gt; B —&gt; A"></a>A —&gt; B —&gt; A</h4><p>标准模式下，A 启动 B， B 再返回 A 页面</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">D/LifeCycle: A1 oncreate</span><br><span class="line">D/LifeCycle: A1 onStart</span><br><span class="line">D/LifeCycle: A1 onResume</span><br><span class="line">D/LifeCycle: A1 onPause</span><br><span class="line">D/LifeCycle: A2 OnCreate</span><br><span class="line">D/LifeCycle: A2 onStart</span><br><span class="line">D/LifeCycle: A2 onResume</span><br><span class="line">D/LifeCycle: A1 onStop</span><br><span class="line">D/LifeCycle: A2 onPause</span><br><span class="line">D/LifeCycle: A1 onStart</span><br><span class="line">D/LifeCycle: A1 onResume</span><br><span class="line">D/LifeCycle: A2 onDestroy</span><br></pre></td></tr></table></figure>
+
+<h4 id="A-页面启动后，旋转屏幕"><a href="#A-页面启动后，旋转屏幕" class="headerlink" title="A 页面启动后，旋转屏幕"></a>A 页面启动后，旋转屏幕</h4><p>默认配置下，旋转屏幕</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">D/LifeCycle: A1 oncreate</span><br><span class="line">D/LifeCycle: A1 onStart</span><br><span class="line">D/LifeCycle: A1 onResume</span><br><span class="line">D/LifeCycle: A1 onPause</span><br><span class="line">D/LifeCycle: A1 onStop</span><br><span class="line">D/LifeCycle: A1 onDestroy</span><br><span class="line">D/LifeCycle: A1 oncreate</span><br><span class="line">D/LifeCycle: A1 onStart</span><br><span class="line">D/LifeCycle: A1 onRestoreInstanceState</span><br><span class="line">D/LifeCycle: A1 onResume</span><br></pre></td></tr></table></figure>
+<p>A 页面中还有一些关键方法，同时也添加了日志，但是并没有输出</p>
+<ul>
+<li>onConfigChange</li>
+<li>onSaveInstanceState</li>
+</ul>
+<p>但这两个方法并没有被调用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) &#123;</span><br><span class="line">    super.onRestoreInstanceState(savedInstanceState);</span><br><span class="line">    Log.d(&quot;LifeCycle&quot;,&quot;A1 onRestoreInstanceState&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) &#123;</span><br><span class="line">    super.onSaveInstanceState(outState, outPersistentState);</span><br><span class="line">    Log.d(&quot;LifeCycle&quot;,&quot;A1 onSaveInstanceState&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public void onConfigurationChanged(@NonNull Configuration newConfig) &#123;</span><br><span class="line">    super.onConfigurationChanged(newConfig);</span><br><span class="line">    Log.d(&quot;LifeCycle&quot;,&quot;A1 onConfigureChange&quot;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="关于生命周期的两个扩展问题"><a href="#关于生命周期的两个扩展问题" class="headerlink" title="关于生命周期的两个扩展问题"></a>关于生命周期的两个扩展问题</h3><ol>
+<li>什么情况下，A 页面会调用 onPause ，但不会调用 onStop 方法</li>
+<li>onCreate 方法中的 Bundle 和 onRestoreInstanceState 中 Bundle 一样吗？能重复获取吗？</li>
+</ol>
+<h3 id="Activity-启动模式和任务栈管理"><a href="#Activity-启动模式和任务栈管理" class="headerlink" title="Activity 启动模式和任务栈管理"></a>Activity 启动模式和任务栈管理</h3><ul>
+<li>standard</li>
+<li>singleTask</li>
+<li>singleTop</li>
+<li>singleInstance</li>
+</ul>
+<p>如果对这个不了解，可以先阅读官方文档 <strong>Tasks and back stack</strong>,官方的讲解非常的清晰易懂，同时配有插图辅助理解。</p>
+<p>以下内容摘自官方文档，配合简要说明。</p>
+<p><strong>standard</strong></p>
+<blockquote>
+<p>Default. The system creates a new instance of the activity in the task from which it was started and routes the intent to it. The activity can be instantiated multiple times, each instance can belong to different tasks, and one task can have multiple instances.</p>
+</blockquote>
+<p>关键点：默认会初始化多次，每个任务栈可以有多个实例</p>
+<p><img src="http://img.imesong.com/2020/08/Activity%20%E4%BB%BB%E5%8A%A1%E6%A0%88.png" alt="standard"></p>
+<p><img src="http://img.imesong.com/2020/08/diagram_multiple_instances.png" alt="标准模式下的多实例"></p>
+<p><strong>singleTop</strong></p>
+<blockquote>
+<p>If an instance of the activity already exists at the top of the current task, the system routes the intent to that instance through a call to its onNewIntent() method, rather than creating a new instance of the activity. The activity can be instantiated multiple times, each instance can belong to different tasks, and one task can have multiple instances (but only if the activity at the top of the back stack is not an existing instance of the activity).<br>For example, suppose a task’s back stack consists of root activity A with activities B, C, and D on top (the stack is A-B-C-D; D is on top). An intent arrives for an activity of type D. If D has the default “standard” launch mode, a new instance of the class is launched and the stack becomes A-B-C-D-D. However, if D’s launch mode is “singleTop”, the existing instance of D receives the intent through <strong>onNewIntent()</strong>, because it’s at the top of the stack—the stack remains A-B-C-D. However, if an intent arrives for an activity of type B, then a new instance of B is added to the stack, even if its launch mode is “singleTop”.</p>
+</blockquote>
+<p>关键点：栈顶的如果是即将要启动的 Activity，会直接启动当前 Activity，同时调用 <strong>onNewIntent（）</strong> 方法，而不是 onCreate 方法</p>
+<p> <strong>singleTask</strong></p>
+<blockquote>
+<p>The system creates a new task and instantiates the activity at the root of the new task. However, if an instance of the activity already exists in a separate task, the system routes the intent to the existing instance through a call to its onNewIntent() method, rather than creating a new instance. Only one instance of the activity can exist at a time.</p>
+</blockquote>
+<p> 关键点：首次创建该 Activity时，新建一个 task；非首次，共用之前的，同时回调 <strong>onNewIntent()</strong> 方法</p>
+<p> 同时 singleTask 下，Activity 的生命周期回调也会有所不同</p>
+<p> A—&gt;B—&gt;A 日志如下</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">D/LifeCycle: A1 oncreate</span><br><span class="line">D/LifeCycle: A1 onStart</span><br><span class="line">D/LifeCycle: A1 onResume</span><br><span class="line">D/LifeCycle: A1 onPause</span><br><span class="line"></span><br><span class="line">D/LifeCycle: A2 OnCreate</span><br><span class="line">D/LifeCycle: A2 onStart</span><br><span class="line">D/LifeCycle: A2 onResume</span><br><span class="line">D/LifeCycle: A1 onStop</span><br><span class="line"></span><br><span class="line">D/LifeCycle: A2 onPause</span><br><span class="line">D/LifeCycle: A1 onStart</span><br><span class="line">D/LifeCycle: A1 onNewIntent</span><br><span class="line">D/LifeCycle: A1 onResume</span><br><span class="line">D/LifeCycle: A2 onDestroy</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p> 再次启动 A 的时候，B 直接回调了 onDestory 方法，返回栈被清空。</p>
+<p> <strong>singleInstance</strong></p>
+<blockquote>
+<p>Same as “singleTask”, except that the system doesn’t launch any other activities into the task holding the instance. The activity is always the single and only member of its task; any activities started by this one open in a separate task.</p>
+</blockquote>
+<p> 关键点：独占任务栈</p>
+<p> A–&gt;B–&gt;A –&gt;返回–&gt;返回<br> 生命周期的日志如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">D/LifeCycle: A1 oncreate</span><br><span class="line">D/LifeCycle: A1 onStart</span><br><span class="line">D/LifeCycle: A1 onResume</span><br><span class="line">D/LifeCycle: A1 onPause</span><br><span class="line"></span><br><span class="line">D/LifeCycle: A2 OnCreate</span><br><span class="line">D/LifeCycle: A2 onStart</span><br><span class="line">D/LifeCycle: A2 onResume</span><br><span class="line">D/LifeCycle: A1 onStop</span><br><span class="line"></span><br><span class="line">D/LifeCycle: A2 onPause</span><br><span class="line">D/LifeCycle: A1 onStart</span><br><span class="line">D/LifeCycle: A1 onNewIntent</span><br><span class="line">D/LifeCycle: A1 onResume</span><br><span class="line"></span><br><span class="line">D/LifeCycle: A1 onPause</span><br><span class="line">D/LifeCycle: A2 onStart</span><br><span class="line">D/LifeCycle: A2 onResume</span><br><span class="line"></span><br><span class="line">D/LifeCycle: A1 onStop</span><br><span class="line">D/LifeCycle: A1 onDestroy</span><br><span class="line">D/LifeCycle: A2 onPause</span><br><span class="line">D/LifeCycle: A2 onDestroy</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>B 再次启动 A 后，之前的任务栈被共用，A 在一个新的任务栈中。</p>
+<h3 id="Intent-FLAG"><a href="#Intent-FLAG" class="headerlink" title="Intent FLAG"></a>Intent FLAG</h3><ul>
+<li>FLAG_ACTIVITY_NEW_TASK</li>
+<li>FLAG_ACTIVITY_SINGLE_TOP</li>
+<li>FLAG_ACTIVITY_CLEAR_TOP</li>
+</ul>
+<p>如果同时在 manifest 和 Intent FLAG 定义，最终会以 Intent FLAG 中定义的为准。</p>
+<p><strong>FLAG_ACTIVITY_NEW_TASK</strong></p>
+<blockquote>
+<p>This produces the same behavior as the “singleTask” launchMode value</p>
+</blockquote>
+<p>关键点：和 singleTask 效果一样。</p>
+<p><strong>FLAG_ACTIVITY_SINGLE_TOP</strong></p>
+<blockquote>
+<p>This produces the same behavior as the “singleTop” launchMode value</p>
+</blockquote>
+<p>关键点：和 singleTop 效果一样。</p>
+<p><strong>FLAG_ACTIVITY_CLEAR_TOP</strong></p>
+<blockquote>
+<p>If the activity being started is already running in the current task, then instead of launching a new instance of that activity, all of the other activities on top of it are destroyed and this intent is delivered to the resumed instance of the activity (now on top), through onNewIntent()).</p>
+<p>FLAG_ACTIVITY_CLEAR_TOP is most often used in conjunction with FLAG_ACTIVITY_NEW_TASK. When used together, these flags are a way of locating an existing activity in another task and putting it in a position where it can respond to the intent.</p>
+</blockquote>
+<p>关键点：如果已经在当前任务栈，会清空上面的页面，把自己提升到栈顶，同时回调 onNewIntent(),一般和FLAG_ACTIVITY_NEW_TASK共用，与singleTask 有点类似。</p>
+<h3 id="TaskAffinity"><a href="#TaskAffinity" class="headerlink" title="TaskAffinity"></a>TaskAffinity</h3><p>taskAffinity 是为了更好的管理 Activity 和任务栈的关系 。默认情况下，同一个 App 的所有的 Activity 都在一个 task 中（标准模式）。但如果有多个 task，当启动一个 Activity 时，优先选择哪一个 task 呢？可以通过 taskAffinity 来定制。并且不同的 App，也可以共享同一个 Affinity。一个 App 中，也可以有多个不同的 taskAffinity。</p>
+<p>再复杂一些的任务栈管理方案，在项目中也很少会用到了。</p>
+<h3 id="Activity-的数据恢复和状态恢复"><a href="#Activity-的数据恢复和状态恢复" class="headerlink" title="Activity 的数据恢复和状态恢复"></a>Activity 的数据恢复和状态恢复</h3><p>什么情况下需要数据和状态恢复呢？</p>
+<ol>
+<li>异常退出，因内存等原因，被系统回收，再次回到前台时，能够恢复离开时的状态</li>
+<li>异常中断，比如看新闻时，被一个电话打断，接完电话再回来时，希望继续刚才阅读的位置继续。</li>
+</ol>
+<p>和状态恢复相关的关键方法有两个</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">@Override</span><br><span class="line">public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) &#123;</span><br><span class="line">    super.onSaveInstanceState(outState, outPersistentState);</span><br><span class="line">    Log.d(&quot;LifeCycle&quot;,&quot;A2 onSaveInstanceState&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) &#123;</span><br><span class="line">    super.onRestoreInstanceState(savedInstanceState);</span><br><span class="line">    Log.d(&quot;LifeCycle&quot;,&quot;A2 onRestoreInstanceState&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>实际验证下来，这两个方法的调用都不正常，在不同版本、不同手机上会有差异，可靠性无法保障。</p>
+<h3 id="横竖屏切换时，Activity-生命周期的变化"><a href="#横竖屏切换时，Activity-生命周期的变化" class="headerlink" title="横竖屏切换时，Activity 生命周期的变化"></a>横竖屏切换时，Activity 生命周期的变化</h3><p>在这里，<a href="#A%E9%A1%B5%E9%9D%A2%E5%90%AF%E5%8A%A8%E5%90%8E%EF%BC%8C%E6%97%8B%E8%BD%AC%E5%B1%8F%E5%B9%95">典型场景下 Activity 生命周期变化</a> 中，已经说明了默认情况下(不设置 Activity 的 android:configChanges 属性)，旋转屏幕Activity 生命周期的变化。还有另外一个场景，做一些系统配置后，生命周期的回调会发生改变。</p>
+<p>再看一下 设置 android:configChanges&#x3D; “orientation” 属性后，生命周期的变化</p>
+<p>A 启动–&gt;旋转–&gt;旋转–&gt;退出</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">D/LifeCycle: A1 oncreate</span><br><span class="line">D/LifeCycle: A1 onStart</span><br><span class="line">D/LifeCycle: A1 onResume</span><br><span class="line"></span><br><span class="line">D/LifeCycle: A1 onPause</span><br><span class="line">D/LifeCycle: A1 onStop</span><br><span class="line">D/LifeCycle: A1 onDestroy</span><br><span class="line">D/LifeCycle: A1 oncreate</span><br><span class="line">D/LifeCycle: A1 onStart</span><br><span class="line">D/LifeCycle: A1 onRestoreInstanceState</span><br><span class="line">D/LifeCycle: A1 onResume</span><br><span class="line"></span><br><span class="line">D/LifeCycle: A1 onPause</span><br><span class="line">D/LifeCycle: A1 onStop</span><br><span class="line">D/LifeCycle: A1 onDestroy</span><br><span class="line">D/LifeCycle: A1 oncreate</span><br><span class="line">D/LifeCycle: A1 onStart</span><br><span class="line">D/LifeCycle: A1 onRestoreInstanceState</span><br><span class="line">D/LifeCycle: A1 onResume</span><br><span class="line"></span><br><span class="line">D/LifeCycle: A1 onPause</span><br><span class="line">D/LifeCycle: A1 onStop</span><br><span class="line">D/LifeCycle: A1 onDestroy</span><br></pre></td></tr></table></figure>
+
+<p>属性配置为 android:configChanges&#x3D; “orientation|screenSize” 后，生命周期的变化</p>
+<p>A 启动–&gt;旋转–&gt;旋转–&gt;退出</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">D/LifeCycle: A2 OnCreate</span><br><span class="line">D/LifeCycle: A2 onStart</span><br><span class="line">D/LifeCycle: A2 onResume</span><br><span class="line"></span><br><span class="line">D/LifeCycle: A2 onConfigureChange</span><br><span class="line"></span><br><span class="line">D/LifeCycle: A2 onConfigureChange</span><br><span class="line"></span><br><span class="line">D/LifeCycle: A2 onPause</span><br><span class="line">D/LifeCycle: A2 onDestroy</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>所以，在使用的时候，需要把 screenSize 和 orientation 配合使用。</p>
+<h3 id="Activity-的扩展问题-TODO"><a href="#Activity-的扩展问题-TODO" class="headerlink" title="Activity 的扩展问题 - TODO"></a>Activity 的扩展问题 - TODO</h3><p>Activity 这个主题下，遗留的 7 个扩展问题，这些问题的解答，会在<br><a href="1">Android 高级</a> 完成后再来解决，每个扩展问题，都可以单独一个章节阐述，也是我们在项目开发中，知道深入思考的问题。</p>
+<ul>
+<li><a href="2">影响 Activity 启动速度的因素有哪些？如何优化 Activity 的启动速度？</a></li>
+<li><a href="3">微信、支付宝支付界面的启动方案如何设计，有哪些借鉴意义？</a></li>
+<li><a href="4">Activity 的数据恢复的其他方案有哪些（至少 3 种），这些方案各有哪些优劣？</a></li>
+<li><a href="5">LifeCycle 如何观察 Activity 的声明周期？使用了何种设计模式，阐述下核心的设计流程</a></li>
+<li><a href="6">四种启动模式，各自典型的应用场景有哪些，如果自己设计管理 Activity 的任务栈，有哪些思路可以参考？</a></li>
+<li><a href="7">从 Activity 关键生命周期方法中，如何统计一个 Activity 的用户使用时长，在做的时候，应该注意哪些问题？</a></li>
+<li><a href="8">Activity 、Window和 View 之间的关系</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>android</tag>
+        <tag>技术体系</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1-2Android基础知识-Service、Broadcast、ContentProvider</title>
+    <url>/2020/08/26/1-2Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Service/</url>
+    <content><![CDATA[<p>这次把安卓剩余的三个组件Service、BroadcastReceiver、ContentProvider放在一起，也是因为，剩余三个组件的复杂程度、使用频率不及Activity。</p>
+<p>不说话，先看图<br><img src="http://img.imesong.com/2020/08/services_kg.png" alt="Service tips"></p>
+<p><img src="http://img.imesong.com/2020/08/BroadcastReceiver.png" alt="BroadcastReceiver"></p>
+<span id="more"></span>
+<h3 id="Service-定义"><a href="#Service-定义" class="headerlink" title="Service 定义"></a>Service 定义</h3><p>Service 是可以在后台长期执行而没有用户交互的基础组件。Service 运行在主线程，不可以做耗时的操作。Thread 泛指新建的子线程，不能更新 UI。</p>
+<h3 id="Service-生命周期"><a href="#Service-生命周期" class="headerlink" title="Service 生命周期"></a>Service 生命周期</h3><p>Service 的生命周期，预期方式关联。启动方式有主动启动、绑定启动两种。看下两种启动方式的流程图</p>
+<p><img src="http://img.imesong.com/2020/08/service_lifecycle.png" alt="Service lifecycle"></p>
+<p>Service 流程中的核心的方法如下</p>
+<ul>
+<li>onCreate</li>
+<li>onStartCommand</li>
+<li>onBind</li>
+<li>onDestory</li>
+</ul>
+<h3 id="Service-的优先级"><a href="#Service-的优先级" class="headerlink" title="Service 的优先级"></a>Service 的优先级</h3><p>Service 按照使用场景，可以区分foreground、background、bind 三种类型，不同类型的优先级不同。优先级越低，在系统资源紧张时，越容易被系统回收掉。</p>
+<p>优先级顺序：foreground &gt; bind &gt; background</p>
+<p>在 androidmanifest 中，也可以配置 service 的优先级 android:priority &#x3D; “xxxx”,xxxx可以配置为整数，数字越大，优先级越高，最高值为 1000。</p>
+<h3 id="JobScheduleService"><a href="#JobScheduleService" class="headerlink" title="JobScheduleService"></a>JobScheduleService</h3><p>JobIntentService 是 Android 8.0 新增的 Service 子类，替代 IntentService。8.0 系统以后，禁止在后台直接创建 Service，但可以创建 JobIntentService。官方的定义如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Helper for processing work that has been enqueued for a job/service.</span><br><span class="line">When running on Android O or later, the work will be dispatched as a job via JobScheduler.enqueue.</span><br><span class="line">When running on older versions of the platform, it will use Context.startService.</span><br></pre></td></tr></table></figure>
+<p>解释：JobIntentService 用于处理被加入到队列的 job&#x2F;service 任务的一个辅助工具。当运行在 Android O 或更高版本时，任务将作为 job 通过 JobScheduler.enqueue() 进行分发；当运行在较老版本的平台上时，任务仍旧会使用 Context.startService() 执行</p>
+<p>Android 8.0 及以上版本 JobIntentService 和 JobService 做的事情是相同的，都是等着 JobScheduler 分配任务来执行。</p>
+<p>不同点在于，JobService 使用的 handler 使用的是主线程的 Looper，因此需要在 onStartJob() 方法中手动创建 AsyncTask 去执行耗时任务，而 JobIntentService 则帮我们处理这一过程，使用它只需要写需要做的任务逻辑即可，不用担心阻塞主线程的问题。另外，向 JobScheduler 传递任务操作也更简单了，不需要在指定 JobInfo 中的参数，直接 enqueueWork() 方法就可以了。这有点像 Service 和 IntentService 的关系。</p>
+<h3 id="BroadcastReceiver"><a href="#BroadcastReceiver" class="headerlink" title="BroadcastReceiver"></a>BroadcastReceiver</h3><p>广播的定义很好理解，有发送方，有接收方，可以用于在不同的 App ，同一个 App 不同的组件、进程间通信。按发送方，广播可以分为以下四种类型</p>
+<ul>
+<li>普通广播</li>
+<li>有序广播</li>
+<li>本地广播</li>
+<li>系统广播</li>
+</ul>
+<p>按照注册方式，又可以区分为两种</p>
+<ul>
+<li>静态注册</li>
+<li>动态注册</li>
+</ul>
+<h3 id="发送和接收流程"><a href="#发送和接收流程" class="headerlink" title="发送和接收流程"></a>发送和接收流程</h3><ol>
+<li>广播接收者（BroadcastReceiver）通过 Binder 机制，向 AMS 注册成为广播接收者。</li>
+<li>广播的发送者，通过 Binder 机制，向 AMS 发送广播。</li>
+<li>AMS查找符合条件（IntentFilter、Permission）的 BroadcastReceiver，将广播发送到相应的Receiver 的队列中</li>
+<li>消息循环执行拿到此广播，回调 BroadcastReceiver 的 onReceiver 方法</li>
+</ol>
+<h3 id="本地广播-amp-普通广播"><a href="#本地广播-amp-普通广播" class="headerlink" title="本地广播 &amp; 普通广播"></a>本地广播 &amp; 普通广播</h3><p>相比普通广播，本地广播更加安全、高效。本地广播的发送，只在 App 自身内传播，不必担心隐私泄露的问题，其他 App 也无法发送该广播，故不用担心安全漏洞。本地广播内部通过 Handler 实现，不牵涉跨进程通信，效率更高。</p>
+<h3 id="ContentProvider"><a href="#ContentProvider" class="headerlink" title="ContentProvider"></a>ContentProvider</h3><p>ContentProvider 是一个内容提供者，一般用于 App 间数据交互和共享。底层依然使用的 Binder 机制通信。</p>
+<p><img src="http://img.imesong.com/2020/08/content-provider-migration.png"></p>
+<h3 id="访问-ContentProvider"><a href="#访问-ContentProvider" class="headerlink" title="访问 ContentProvider"></a>访问 ContentProvider</h3><p>访问 ContentProvider 的流程大致如下</p>
+<p><img src="http://img.imesong.com/2020/08/content-provider-interaction.png"></p>
+<p>看下面的示例代码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Queries the user dictionary and returns results</span><br><span class="line">cursor = getContentResolver().query(</span><br><span class="line">    UserDictionary.Words.CONTENT_URI,   // The content URI of the words table</span><br><span class="line">    projection,                        // The columns to return for each row</span><br><span class="line">    selectionClause,                   // Selection criteria</span><br><span class="line">    selectionArgs,                     // Selection criteria</span><br><span class="line">    sortOrder);                        // The sort order for the returned rows</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>query 方法的参数，对比 SQL 语法，可以看下差异</p>
+<table>
+<thead>
+<tr>
+<th>query()  argument</th>
+<th>SELECT</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Uri</td>
+<td>FROM table_name</td>
+<td>Uri maps to the table in the provider named table_name</td>
+</tr>
+<tr>
+<td>projection</td>
+<td>col,col,col</td>
+<td>Projection is an array of columns</td>
+</tr>
+<tr>
+<td>selection</td>
+<td>WHERE col &#x3D; value</td>
+<td>Selection specifies the criteria for selection rows</td>
+</tr>
+<tr>
+<td>selectionArgs</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sortOrder</td>
+<td>ORDER by col,col</td>
+<td>sortOrder specifies the order in which rows appear in the returned Cursor</td>
+</tr>
+</tbody></table>
+<p>可以理解为，ContentProvider 提供了一套更加方便、丰富的访问数据的方法，可以做到读写分离，更加安全可靠。</p>
+]]></content>
+      <tags>
+        <tag>android</tag>
+        <tag>技术体系</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1-3Android基础知识-Fragment</title>
+    <url>/2020/08/27/1-3Android%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-Fragment/</url>
+    <content><![CDATA[<h3 id="Fragment-设计初衷"><a href="#Fragment-设计初衷" class="headerlink" title="Fragment 设计初衷"></a>Fragment 设计初衷</h3><p>Fragment 在 android 3.0 版本增加，先看下官方怎么定义的</p>
+<blockquote>
+</blockquote>
+<p>Android introduced fragments in Android 3.0 (API level 11), primarily to support more dynamic and flexible UI designs on large screens, such as tablets. Because a tablet’s screen is much larger than that of a handset, there’s more room to combine and interchange UI components. Fragments allow such designs without the need for you to manage complex changes to the view hierarchy. By dividing the layout of an activity into fragments, you become able to modify the activity’s appearance at runtime and preserve those changes in a back stack that’s managed by the activity</p>
+<p>目的：解决大屏适配的问题，可以更加灵活的处理 UI 交互，同时支持与 Activity 的比较复杂的交互方式。</p>
+<span id="more"></span>
+
+
+<h3 id="关键生命周期"><a href="#关键生命周期" class="headerlink" title="关键生命周期"></a>关键生命周期</h3><p>Fragment 组件本身有严格的生命周期回调，同时与所在的 host Activity 有关。</p>
+<p><img src="http://img.imesong.com/2020/08/fragment_lifecycle.png" alt="Fragment life cycle"></p>
+<ul>
+<li>onCreate</li>
+<li>onCreateView</li>
+<li>onResume</li>
+</ul>
+<p>Fragment 作为一个 View，被添加到 ViewGroup 中。</p>
+<h3 id="Fragment-添加方式"><a href="#Fragment-添加方式" class="headerlink" title="Fragment 添加方式"></a>Fragment 添加方式</h3><ul>
+<li>静态添加</li>
+<li>动态加载</li>
+</ul>
+<ol>
+<li>静态添加，在 xml 文件中，固定好 Fragment 的 路径和对应的 Fragment 类，加载项目了的时候自动解析。</li>
+<li>动态加载，在运行期间决定，具体需要加载哪个 Fragment，同时可以根据不同的状态，对要加载的 Fragment 传入不同的参数。</li>
+</ol>
+<p>推荐使用动态加载的方案，更加灵活。</p>
+<h3 id="Fragment-管理相关的类"><a href="#Fragment-管理相关的类" class="headerlink" title="Fragment 管理相关的类"></a>Fragment 管理相关的类</h3><ul>
+<li><p>FragmentManager</p>
+</li>
+<li><p>FragmentTransaction</p>
+</li>
+</ul>
+<p>FragmentManager 负责管理 Activity 中的Fragment，通过 getSupportFragmentManager 方法获取。</p>
+<ul>
+<li>查找当前 Activity 管理的 Fragment，findFragmentById、findFragmentbyTag 等。</li>
+<li>管理 Fragment 状态与返回栈的关系，通过 popBackStack()或 addOnBackStackChangedListener()</li>
+</ul>
+<p>FragmentTransaction 直接操作 Fragment，可以 add、remove、replace 操作，最后通过 commit 提交，提交的时候，可以选择是否将该操作添加到返回栈中 addToBackStack 。BackStack的管理有 Activity 负责，这里可以与 Fragment 的状态关联。<br>看一下 替换 Fragment 的代码示例</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Create new fragment and transaction</span><br><span class="line">Fragment newFragment = new ExampleFragment();</span><br><span class="line">FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();</span><br><span class="line"></span><br><span class="line">// Replace whatever is in the fragment_container view with this fragment,</span><br><span class="line">// and add the transaction to the back stack</span><br><span class="line">transaction.replace(R.id.fragment_container, newFragment);</span><br><span class="line">transaction.addToBackStack(null);</span><br><span class="line"></span><br><span class="line">// Commit the transaction</span><br><span class="line">transaction.commit();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Fragment-与-Activity-x2F-Fragment-数据交互"><a href="#Fragment-与-Activity-x2F-Fragment-数据交互" class="headerlink" title="Fragment 与 Activity&#x2F;Fragment 数据交互"></a>Fragment 与 Activity&#x2F;Fragment 数据交互</h3><p>Fragment 本身是 host Activity 的一个成员，Activity 可以通过 FragmentManager，找到对应的 Fragment 引用，有实例化后的引用，可以通过定义接口方法交互。</p>
+<ol>
+<li>FragmentA 中定义接口</li>
+<li>Activity 中实现接口</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public static class FragmentA extends ListFragment &#123;</span><br><span class="line">    ...</span><br><span class="line">    // Container Activity must implement this interface</span><br><span class="line">    public interface OnArticleSelectedListener &#123;</span><br><span class="line">        public void onArticleSelected(Uri articleUri);</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> OnArticleSelectedListener listener;</span><br><span class="line">    ...</span><br><span class="line">    @Override</span><br><span class="line">    public void onAttach(Context context) &#123;</span><br><span class="line">        super.onAttach(context);</span><br><span class="line">        try &#123;</span><br><span class="line">            listener = (OnArticleSelectedListener) context;</span><br><span class="line">        &#125; catch (ClassCastException e) &#123;</span><br><span class="line">            throw new ClassCastException(context.toString() + &quot; must implement OnArticleSelectedListener&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line"> @Override</span><br><span class="line">    public void onListItemClick(ListView l, View v, int position, long id) &#123;</span><br><span class="line">        // Append the clicked item&#x27;s row ID with the content provider Uri</span><br><span class="line">        Uri noteUri = ContentUris.withAppendedId(ArticleColumns.CONTENT_URI, id);</span><br><span class="line">        // Send the event and Uri to the host activity</span><br><span class="line">        listener.onArticleSelected(noteUri);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样被点击的新闻 Uri 就传递给了 hostActivity。</p>
+<h3 id="Activity-与Fragment-生命周期"><a href="#Activity-与Fragment-生命周期" class="headerlink" title="Activity 与Fragment 生命周期"></a>Activity 与Fragment 生命周期</h3><p>Activity 与 Fragment 生命周期的回调，有严格的对应关系。</p>
+<p>先看图<br><img src="http://img.imesong.com/2020/08/activity_fragment_lifecycle.png" alt="Activity 与 Fragment 生命周期关系"></p>
+<ol>
+<li>Activity 的 onCreate，对应着 Fragment 的 onCreate、onCreateView、onActivityCreated</li>
+<li>Activity 创建成功，进入 onResume 状态，同步 Fragment 进入 onResume 状态</li>
+<li>Activity 暂停时，Fragment 进入暂停状态</li>
+<li>Activity 被销毁是，Fragment 的 view 先回调 onDestroy 方法，再回调 onDetach。</li>
+</ol>
+<p>最后，用一张图总结一下</p>
+<p><img src="http://img.imesong.com/2020/08/Fragment.png"></p>
+]]></content>
+      <tags>
+        <tag>android</tag>
+        <tag>技术体系</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>10x-engineer</title>
+    <url>/2020/04/01/10x-engineer/</url>
+    <content><![CDATA[<blockquote>
+<p>10x engineers <a href="htps://www.thoughtworks.com//radar">技术雷达</a><br>在过去的几个月中，10倍工程师一词受到了密切的关注。一个广泛传播的推文讨论在实质上建议公司应原谅反社会和破坏性的行为，以留住被认为个人产出巨大的工程师。幸运的是，许多人在社交媒体上都嘲笑了这个概念，但是“明星开发者”的刻板印象仍然普遍存在。根据我们的经验，伟大的工程师不是因为个人产出而是因为能在优秀的团队中合作而诞生。打造一支混合不同经验和背景，但成员才华横溢的团队，并为团队合作、学习和持续改进提供良好的助力，这会是更行之有效的方式。这些10倍团队行动起来更快，弹性也更强——而无需屈从错误的行为。</p>
+</blockquote>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><strong>本质复杂度</strong><br>Essential Complexity</p>
+<p><strong>偶然复杂度</strong><br>Accident Complexity</p>
+<p>选择正确的做事方法，减少偶然复杂度带来的工作量；</p>
+<p><strong>原则</strong></p>
+<ul>
+<li>以终为始</li>
+<li>任务分解</li>
+<li>沟通反馈</li>
+<li>自动化</li>
+</ul>
+<span id="more"></span>
+
+<h3 id="思考框架"><a href="#思考框架" class="headerlink" title="思考框架"></a>思考框架</h3><ul>
+<li>Where are we ?</li>
+<li>Where are we going ?</li>
+<li>How can we get there ?</li>
+</ul>
+<h3 id="以终为始"><a href="#以终为始" class="headerlink" title="以终为始"></a>以终为始</h3><p>如何让努力不白费？</p>
+<p>任何事情都要经过两次创造：一次是在脑中，是智力上的创造，然后才是付诸实践，也就是实际的构建</p>
+<p>对做软件的人来说，我们应该把”终”定位成做一个对用户有价值的软件，能够为别人带来价值，自己的价值才能体现出来。</p>
+<blockquote>
+<p>tips:设计一个以终为始的项目或示例</p>
+</blockquote>
+<h3 id="DoD-的价值"><a href="#DoD-的价值" class="headerlink" title="DoD 的价值"></a>DoD 的价值</h3><p>Definition of Done</p>
+<h3 id="User-Story"><a href="#User-Story" class="headerlink" title="User Story"></a>User Story</h3><p>使用情景演绎的方式，完善需求</p>
+<ul>
+<li>主题</li>
+<li>概述</li>
+<li>详述</li>
+<li>验收标准</li>
+</ul>
+<p>验收标准中，非常重要的是异常流程的描述，类似于测试用例中的异常逻辑验证。</p>
+<h3 id="持续集成"><a href="#持续集成" class="headerlink" title="持续集成"></a>持续集成</h3><p>研发需要交付的，不是一堆代码文件，而是可以运行的软件或系统。</p>
+<p><strong>虽然我们在同一个时代写代码做开发，但在技术实践层面，不同的团队却仿佛生活在不同的年代</strong></p>
+<h3 id="精益创业"><a href="#精益创业" class="headerlink" title="精益创业"></a>精益创业</h3><p>IT行业中大多数人的专业程度是不够的。我们必须要有自己的独立思考，多问几个为什么，尽可能减少掉到坑里之后再求救的次数。</p>
+<p>精益创业：面向不确定性创造新事物。精益创业提供给我们的是一个做产品的思考框架，我们能够接触到的大多数产品都可以放在这个框架内思考。</p>
+<p>build–measure–learn 循环</p>
+<p><strong>默认所有需求都不做，直到弄清楚为什么要做这件事。</strong></p>
+<h3 id="坑里坑外"><a href="#坑里坑外" class="headerlink" title="坑里坑外"></a>坑里坑外</h3><p>角色的差异:不同角色工作上的真正差异是上下文的不同。同样是写代码，有的人看到的是树木，有的人看到的是森林，能够从全局思考。</p>
+<p>手里有一把锤子，满世界都是钉子。</p>
+<p>花费很大力气去解决一个可能并不是问题的问题，常常是很多程序员的盲区。</p>
+<h3 id="演绎"><a href="#演绎" class="headerlink" title="演绎"></a>演绎</h3><p>最后一公里：如果想要达到目标，最后我们要做的是什么</p>
+<ul>
+<li>从结果入手，看看最终上线需要考虑哪些因素</li>
+<li>演绎出一个可以一步步执行的方案，用前面考虑到的因素作为衡量标准</li>
+<li>根据演绎出来的方案，总结要做的任务</li>
+</ul>
+<p>以终为始，但通往结果的路径更加重要。</p>
+<h3 id="量化"><a href="#量化" class="headerlink" title="量化"></a>量化</h3><p>洞见（Insight）:依赖于一个人在一个领域长期的沉淀和积累，其实是某种意义上的大数据。</p>
+<h3 id="Planning-amp-Prepare"><a href="#Planning-amp-Prepare" class="headerlink" title="Planning&amp;Prepare"></a>Planning&amp;Prepare</h3><p>设计自己的迭代0清单</p>
+<h3 id="任务分解"><a href="#任务分解" class="headerlink" title="任务分解"></a>任务分解</h3><p>银河系中，有多少与我们相近的文明。德雷克公式：<br>N&#x3D; R* x Fp x Ne x f1 x fi x l</p>
+<p>埃隆马斯克的火星探测计划：把一个人从地球送到火星，成本降低100万倍。</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>对每个程序员来说，只有在开发阶段把代码和测试都写好了，才有资格说，自己交付的是高质量的代码。</p>
+<p>冰淇淋蛋卷测试模型：<br>费时费力的测试模型</p>
+<ul>
+<li>手动回归测试</li>
+<li>自动化端到端测试</li>
+<li>集成测试</li>
+<li>单元测试</li>
+</ul>
+<p><a href="https://martinfowler.com/bliki/TestPyramid.html">测试金字塔</a></p>
+<ul>
+<li>UI</li>
+<li>服务</li>
+<li>单元</li>
+</ul>
+<p>越是底层的测试，牵扯的相关内容越少，而高层测试则涉及面更广。</p>
+<p><strong>多写单元测试</strong></p>
+<h3 id="TDD-测试驱动开发"><a href="#TDD-测试驱动开发" class="headerlink" title="TDD 测试驱动开发"></a>TDD 测试驱动开发</h3><p>测试驱动代码：一个static方法示例，如何测试一个static方法，OOP的思想下如何更好的完成。</p>
+<p>Test Driven Development</p>
+<p>Test Driven Design</p>
+<p>编写可测试的代码</p>
+<h3 id="大师级程序员秘籍"><a href="#大师级程序员秘籍" class="headerlink" title="大师级程序员秘籍"></a>大师级程序员秘籍</h3><ol>
+<li>TDD从而来？</li>
+<li>《解析极限编程》</li>
+<li>《测试驱动开发》</li>
+</ol>
+<p>将任务分解，越小越好。</p>
+<h3 id="任务分解练习"><a href="#任务分解练习" class="headerlink" title="任务分解练习"></a>任务分解练习</h3><p>需求：用户通过输入用户名、密码登陆。</p>
+<h3 id="优秀的测试代码"><a href="#优秀的测试代码" class="headerlink" title="优秀的测试代码"></a>优秀的测试代码</h3><p>一段旅程 A-TRIP</p>
+<ul>
+<li>Automagic</li>
+<li>Thorough</li>
+<li>Repeatable</li>
+<li>Independent</li>
+<li>Professional</li>
+</ul>
+<h3 id="砍需求"><a href="#砍需求" class="headerlink" title="砍需求"></a>砍需求</h3><p>用户故事的评价原则：</p>
+<p>INVEST</p>
+<ul>
+<li>Independent</li>
+<li>Negotiable 可协商的</li>
+<li>Valuable</li>
+<li>Estimatable</li>
+<li>Small</li>
+<li>Testable</li>
+</ul>
+<p>想要管理好需求，先把需求拆小</p>
+<p>需求的估算，怎么做才会比较合理，误差最小？</p>
+<p>推荐书籍</p>
+<ul>
+<li>《User Stories Applied》 <a href="https://book.douban.com/subject/4743056">用户故事与敏捷方法</a></li>
+<li>《Aglie Estimating and Planning》<a href="https://book.douban.com/subject/26811747/">敏捷软件开发实践</a></li>
+</ul>
+<h3 id="需求管理"><a href="#需求管理" class="headerlink" title="需求管理"></a>需求管理</h3><p>需求优先级管理，重要程度、紧急程度</p>
+<h3 id="最小代价"><a href="#最小代价" class="headerlink" title="最小代价"></a>最小代价</h3><p>MVP：Minimum Viable Product 最小可行产品</p>
+<h3 id="沟通反馈"><a href="#沟通反馈" class="headerlink" title="沟通反馈"></a>沟通反馈</h3><p>人生不如意，十之八九。</p>
+<p>沟通反馈就是改善编码、解码以及算法的方式。</p>
+<h3 id="编写可维护的代码"><a href="#编写可维护的代码" class="headerlink" title="编写可维护的代码"></a>编写可维护的代码</h3><blockquote>
+<p>任何人都可以写出计算机能够理解的代码，只有优秀的程序员才能写出人能够理解的代码<br>                                        ——Martin Fowler</p>
+</blockquote>
+<p>用业务语言编程</p>
+<p>领域驱动设计：Domain Driven Design</p>
+<p><strong>推荐阅读</strong><br>《代码整洁之道》–Robert Martin</p>
+<h3 id="22-轻量级沟通：为什么总是在开会"><a href="#22-轻量级沟通：为什么总是在开会" class="headerlink" title="22 轻量级沟通：为什么总是在开会"></a>22 轻量级沟通：为什么总是在开会</h3><p>开会是为了解决问题，但真实情况是开了会没有解决多少问题，却产生了会议过多的问题</p>
+<p>凡是效果特别号的会议，都是用来做信息同步的；效果不好的会议，基本都是用来讨论的。</p>
+<p>改善会议：</p>
+<ol>
+<li>减少参会人数</li>
+<li>当面沟通</li>
+<li>站立会议</li>
+</ol>
+<h3 id="可视化：一种更为直接的沟通方式"><a href="#可视化：一种更为直接的沟通方式" class="headerlink" title="可视化：一种更为直接的沟通方式"></a>可视化：一种更为直接的沟通方式</h3><p>技术雷达：结构化学习新知识的方式</p>
+<p><a href="https://github.com/thoughtworks/build-your-own-radar">构建自己的知识雷达</a></p>
+<h3 id="快速反馈：如何做好持续集成"><a href="#快速反馈：如何做好持续集成" class="headerlink" title="快速反馈：如何做好持续集成"></a>快速反馈：如何做好持续集成</h3><ol>
+<li>持续集成监视器，实时显示持续集成的状态</li>
+<li>遇到问题立即响应</li>
+</ol>
+<h3 id="复盘"><a href="#复盘" class="headerlink" title="复盘"></a>复盘</h3><p><strong>不要被同样的招数击败两次</strong></p>
+<p>复盘的好处：客体化，用别人的视角看问题</p>
+<p>复盘：过程还原，进行研讨与分析，找到自我改进方法的一个方式。这种方式拥有客体化的视角，能够更客观的看待曾经发生的一切。</p>
+<p>定期复盘，找准问题的根本原因，不断改善。</p>
+<h3 id="倾听用户的声音"><a href="#倾听用户的声音" class="headerlink" title="倾听用户的声音"></a>倾听用户的声音</h3><p>谁离用户近，谁就有发言权，无论你是什么角色</p>
+<p>多走进用户</p>
+<p>产品经理是用户需求的传声筒</p>
+<h3 id="Fail-Fast"><a href="#Fail-Fast" class="headerlink" title="Fail Fast"></a>Fail Fast</h3><p>如果有问题，那就尽早的将问题暴露出来。</p>
+<p>越早的暴露问题，解决问题的成本就越低。</p>
+<h3 id="结构化学习：会写文档"><a href="#结构化学习：会写文档" class="headerlink" title="结构化学习：会写文档"></a>结构化学习：会写文档</h3><p>将零散的知识结构化有很多种方式，输出是非常关键的一环。</p>
+<p>如何写好文档：无他，唯手熟尔。</p>
+<p>推荐阅读</p>
+<p><a href="https://book.douban.com/subject/4860526/">《乔布斯的演讲魔力》</a></p>
+<h3 id="懒惰的天性"><a href="#懒惰的天性" class="headerlink" title="懒惰的天性"></a>懒惰的天性</h3><p>做有价值的事是最重要的，这里的有价值，不仅仅是做了什么，通过不做节省时间和成本也是有价值的。</p>
+<p>从日常工作中的自动化开始，打造自己的自动化利器</p>
+<p>给别人打造自动化工具中需要具备的能力：软件设计</p>
+<p>在软件开发中，其他的东西都是易变的，唯有设计的可变性的可变性是自己可以控制的。</p>
+<p>优秀程序员的三大美德：懒惰、急躁和傲慢。</p>
+<h3 id="项目自动化"><a href="#项目自动化" class="headerlink" title="项目自动化"></a>项目自动化</h3><p>将工作过程自动化。</p>
+<h3 id="零散的运维知识"><a href="#零散的运维知识" class="headerlink" title="零散的运维知识"></a>零散的运维知识</h3><p>将零散的运维知识系统化，怎么系统化？</p>
+<h3 id="持续交付-≠-持续集成"><a href="#持续交付-≠-持续集成" class="headerlink" title="持续交付 ≠ 持续集成"></a>持续交付 ≠ 持续集成</h3><p>如何构建持续交付系统</p>
+<p>将部署纳入开发的考量</p>
+<h3 id="测试验收"><a href="#测试验收" class="headerlink" title="测试验收"></a>测试验收</h3><p>BBD: Behavior Driven Development<br>BBD 测试框架 <strong>Cucumber</strong></p>
+<p>关键一点：将验收测试自动化</p>
+<h3 id="逐步腐化的代码"><a href="#逐步腐化的代码" class="headerlink" title="逐步腐化的代码"></a>逐步腐化的代码</h3><p>对程序员最好的惩罚是让他维护自己三个月前写的代码</p>
+<p> 软件设计原则: <strong>SOLID</strong></p>
+<ul>
+<li>Single responsibility principle</li>
+<li>Open-closed principle</li>
+<li>Liskov subsitution principle</li>
+<li>Interface segregation principle</li>
+<li>Dependency inversioni principle</li>
+</ul>
+<p><strong>将函数写短</strong></p>
+<h3 id="MVC-封层设计"><a href="#MVC-封层设计" class="headerlink" title="MVC 封层设计"></a>MVC 封层设计</h3><p>分层的价值：构建一个良好的抽象</p>
+<p><img src="http://img.imesong.com/2020/04%E5%85%AD%E8%BE%B9%E5%9E%8B%E6%9E%B6%E6%9E%84.png" alt="六边形架构"></p>
+<h3 id="如何使用5万块做一个淘宝"><a href="#如何使用5万块做一个淘宝" class="headerlink" title="如何使用5万块做一个淘宝"></a>如何使用5万块做一个淘宝</h3><p>推荐书籍《淘宝技术这十年》</p>
+<p>不同量级的系统，根本不是一个系统</p>
+<p>用简单的技术解决问题，直到问题变复杂</p>
+<h3 id="做好DDD-再谈微服务"><a href="#做好DDD-再谈微服务" class="headerlink" title="做好DDD 再谈微服务"></a>做好DDD 再谈微服务</h3><p>DDD: Domain Driven Design 领域驱动设计</p>
+<p>推荐书籍</p>
+<ul>
+<li><a href="https://book.douban.com/subject/1230559/">企业应用架构模式</a></li>
+<li><a href="https://book.douban.com/subject/1629512/">领域驱动设计</a></li>
+<li><a href="https://book.douban.com/subject/25844633/">实现领域驱动设计</a></li>
+<li><a href="https://book.douban.com/subject/30333944/">领域驱动设计精粹</a></li>
+</ul>
+<h3 id="如何维护系统"><a href="#如何维护系统" class="headerlink" title="如何维护系统"></a>如何维护系统</h3><p>改造遗留系统，一个关键点就是，不要回到老路上。</p>
+<p>书籍推荐</p>
+<ul>
+<li><a href="https://book.douban.com/subject/2248759/">修改代码的艺术</a></li>
+</ul>
+<h3 id="如何保持竞争力"><a href="#如何保持竞争力" class="headerlink" title="如何保持竞争力"></a>如何保持竞争力</h3><p><strong>一专多能，成为T字型人才</strong></p>
+<p>在学习区工作和成长。<br><img src="http://img.imesong.com/2020/04/%E6%88%90%E9%95%BF%E7%8E%AF.jpg" alt="成长环"></p>
+]]></content>
+      <tags>
+        <tag>readingnotes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2019-summary</title>
+    <url>/2020/01/06/2019summary/</url>
+    <content><![CDATA[<blockquote>
+<p>古语有 “三十而立”，渴望经历三十个春秋后，能够“立身、立家、立业”。躬身自问，而立之年，得失参半。</p>
+</blockquote>
+<h3 id="生活中关键的选择"><a href="#生活中关键的选择" class="headerlink" title="生活中关键的选择"></a>生活中关键的选择</h3><p><strong>人生关键节点不多，每一次抉择，都决定了未来数年，甚至数十年的生活、工作。</strong>2019年，有幸完成了几次关键选择。</p>
+<ul>
+<li>“居者有其屋”，给家人一个稳定的居住环境。按照自己的设想，从裸露的钢筋、混凝土开始，一步步装饰成梦想中的家。</li>
+<li>“身份”转正，修成正果。在“魔都”漂浮7年，通过人才引进，顺利拿到了上海的户口，同时解决了Dora上学的后顾之忧。</li>
+<li>职业身份转换。历经7年，从一个学生，蜕变成一名职场人。2019，是终点亦是起点，下一个7年，作为一个名正言顺的”管理者”，策马向前，开启新的征程。</li>
+</ul>
+<h3 id="天使与魔鬼，等价交换？"><a href="#天使与魔鬼，等价交换？" class="headerlink" title="天使与魔鬼，等价交换？"></a>天使与魔鬼，等价交换？</h3><p>不曾想过，在接受生活的馈赠同时，我也要给其等价的东西交换。</p>
+<ul>
+<li>业绩不突出，腰椎间盘开始突出。</li>
+<li>夜夜笙歌，时不时有天使在耳边歌唱。2018年中开始，经常有神经性耳鸣。</li>
+<li>体重暴增3kg，这么多年，体重从未超过62kg。今年开始，首次接近65kg</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>summary</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>say hi 2023</title>
+    <url>/2023/03/12/2023-OKR/</url>
+    <content><![CDATA[<p>2023 已经过去一个双月了，公司最近完成了 2022 财年（2022&#x2F;3-2023&#x2F;2）的绩效考评，绩效结果预计 4 月中旬出来。这两天反复琢磨推敲，完成了 2023 年度的个人 OKR，希望通过 OKR 的方式 ，新的一年取得更好的绩效。</p>
+<p>个人的 OKR ，集中精力在三个方向上，专业技能、复合能力、幸福感。每个方向下有 2-3 个不同的主题（Object），目标不在多少，关键是看，在年底时完成度有多少。</p>
+<h2 id="专业技能"><a href="#专业技能" class="headerlink" title="[[专业技能]]"></a>[[专业技能]]</h2><ul>
+<li>专业技能：解决专业领域内问题、创造价值的能力。</li>
+<li>专业领域：移动端、大前端</li>
+</ul>
+<h2 id="复合能力"><a href="#复合能力" class="headerlink" title="[[复合能力]]"></a>[[复合能力]]</h2><ul>
+<li>[[写作能力]]</li>
+<li>[[英语能力]]</li>
+<li>[[工程管理]]</li>
+</ul>
+<h2 id="幸福感"><a href="#幸福感" class="headerlink" title="[[幸福感]]"></a>[[幸福感]]</h2><ul>
+<li>[[Healthy]]</li>
+<li>[[Finance]]</li>
+<li>[[Cooker]]</li>
+</ul>
+<span id="more"></span>
+
+
+<h2 id="O1-提升大前端领域技术能力，成为一名大前端技术专家"><a href="#O1-提升大前端领域技术能力，成为一名大前端技术专家" class="headerlink" title="O1 提升大前端领域技术能力，成为一名大前端技术专家"></a>O1 提升大前端领域技术能力，成为一名大前端技术专家</h2><h3 id="KR1：-客户端技术能力"><a href="#KR1：-客户端技术能力" class="headerlink" title="KR1：[[客户端技术能力]]"></a>KR1：[[客户端技术能力]]</h3><ul>
+<li>Android 专业能力</li>
+<li>架构设计能力</li>
+</ul>
+<h3 id="KR3：-跨平台能力：提高通用的跨端研发能力"><a href="#KR3：-跨平台能力：提高通用的跨端研发能力" class="headerlink" title="KR3：[[跨平台能力：提高通用的跨端研发能力]]"></a>KR3：[[跨平台能力：提高通用的跨端研发能力]]</h3><aside>
+👉 跨端容器，端渲染能力
+</aside>
+
+<h3 id="KR2：-前端技术能力：中高级的-FE-工程师"><a href="#KR2：-前端技术能力：中高级的-FE-工程师" class="headerlink" title="KR2：[[前端技术能力：中高级的 FE 工程师]]"></a>KR2：[[前端技术能力：中高级的 FE 工程师]]</h3><aside>
+👉 掌握React前端技术栈，胜任中后台、前端 H5 的业务需求
+</aside>
+
+<h2 id="O2-构建个人知识管理体系V1-0（PKM-V1-0）"><a href="#O2-构建个人知识管理体系V1-0（PKM-V1-0）" class="headerlink" title="O2  构建个人知识管理体系V1.0（PKM-V1.0）"></a>O2  构建个人知识管理体系V1.0（PKM-V1.0）</h2><h3 id="KR1：信息处理workflow"><a href="#KR1：信息处理workflow" class="headerlink" title="KR1：信息处理workflow"></a>KR1：信息处理workflow</h3><ul>
+<li>采集</li>
+<li>整理</li>
+<li>归纳</li>
+<li>输出</li>
+</ul>
+<h3 id="KR2：写作能力"><a href="#KR2：写作能力" class="headerlink" title="KR2：写作能力"></a>KR2：写作能力</h3><h2 id="O3-英语学习"><a href="#O3-英语学习" class="headerlink" title="O3 [[英语学习]]"></a>O3 [[英语学习]]</h2><h3 id="KR1：业务英语"><a href="#KR1：业务英语" class="headerlink" title="KR1：业务英语"></a>KR1：业务英语</h3><p>胜任工作场景的英语应用</p>
+<ul>
+<li>国际化电商相关的专业英语</li>
+<li>工程领域内的专业英语</li>
+</ul>
+<h3 id="KR2：口语表达能力"><a href="#KR2：口语表达能力" class="headerlink" title="KR2：口语表达能力"></a>KR2：口语表达能力</h3><p>满足日常会议、面试等场景的；</p>
+<h3 id="KR3：书写能力"><a href="#KR3：书写能力" class="headerlink" title="KR3：书写能力"></a>KR3：书写能力</h3><p>使用英文完成工作邮件、总结等；</p>
+<h2 id="O4-工程管理"><a href="#O4-工程管理" class="headerlink" title="O4 [[工程管理]]"></a>O4 [[工程管理]]</h2><h3 id="KR1-完善工程管理相关的理论体系，通过-MEM-考试-A-线"><a href="#KR1-完善工程管理相关的理论体系，通过-MEM-考试-A-线" class="headerlink" title="KR1: 完善工程管理相关的理论体系，通过 MEM 考试 A 线"></a>KR1: 完善工程管理相关的理论体系，通过 MEM 考试 A 线</h3><h2 id="05-幸福感"><a href="#05-幸福感" class="headerlink" title="05 [[幸福感]]"></a>05 [[幸福感]]</h2><h3 id="KR1：身体健康"><a href="#KR1：身体健康" class="headerlink" title="KR1：身体健康"></a>KR1：身体健康</h3><p>保持良好的生活习惯，体检指标不劣化</p>
+<ul>
+<li>腰椎</li>
+<li>体脂率、内脏脂肪等级</li>
+<li>睡眠</li>
+<li>耳鸣</li>
+</ul>
+<h3 id="KR2：增加家庭财务能力，提高抗风险能力"><a href="#KR2：增加家庭财务能力，提高抗风险能力" class="headerlink" title="KR2：增加家庭财务能力，提高抗风险能力"></a>KR2：增加家庭财务能力，提高抗风险能力</h3><p>提高家庭的财务稳定性，现金流xx</p>
+<ul>
+<li>现金流: xxx</li>
+<li>理财收益：≥3%</li>
+<li>被动收入: xxx</li>
+</ul>
+<h3 id="KR3：补充烹饪相关的理论知识，提高厨艺技巧"><a href="#KR3：补充烹饪相关的理论知识，提高厨艺技巧" class="headerlink" title="KR3：补充烹饪相关的理论知识，提高厨艺技巧"></a>KR3：补充烹饪相关的理论知识，提高厨艺技巧</h3><ul>
+<li>香料</li>
+<li>肉类</li>
+<li>海鲜类</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>2023</tag>
+        <tag>okr</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>M3-2023-OKR</title>
+    <url>/2023/03/18/M3-2023-OKR/</url>
+    <content><![CDATA[<p>![[okr-base-2023]]</p>
+<p>[[2023-OKR]]</p>
+<span id="more"></span>
+
+
+<h3 id="O1-客户端技术能力提升"><a href="#O1-客户端技术能力提升" class="headerlink" title="O1 客户端技术能力提升"></a>O1 客户端技术能力提升</h3><ul>
+<li>完成半年度技术规划</li>
+<li>学习 Jedi 框架，输出总结文档</li>
+<li>学习[[电商行业知识]]和专业名词，理解电商业务知识<blockquote>
+<p>#复盘<br>技术规划 0.3 ，<br>技术框架 0.3，<br>业务知识学习 0.3 ，<br>总体 0.3</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="O2-personal-knowledge-management-v0-1-版本框架搭建完成"><a href="#O2-personal-knowledge-management-v0-1-版本框架搭建完成" class="headerlink" title="O2 [[personal knowledge management]] v0.1 版本框架搭建完成"></a>O2 [[personal knowledge management]] v0.1 版本框架搭建完成</h2><ul>
+<li>采集系统</li>
+<li>处理系统</li>
+<li>[[写作工具箱]]</li>
+</ul>
+<p>能够在实践中应用，初步形成工作流。</p>
+<blockquote>
+<p>#复盘<br>采集系统 0.3， 处理系统 0.3，写作工具箱 0.3， 总体 0.3</p>
+</blockquote>
+<h2 id="O3-完成英语水平能力测试"><a href="#O3-完成英语水平能力测试" class="headerlink" title="O3 完成英语水平能力测试"></a>O3 完成英语水平能力测试</h2><ul>
+<li>听力、口语、词汇量等</li>
+<li>根据当前英语水平，制定英语学习的计划，包括学习资料、学习方式</li>
+</ul>
+<blockquote>
+<p>#复盘 </p>
+<ul>
+<li>英语水平能力测试 0.3 </li>
+<li>学习资料、计划整理 0.0</li>
+</ul>
+</blockquote>
+<h2 id="O4-确定MEM-目标院校、备考节奏"><a href="#O4-确定MEM-目标院校、备考节奏" class="headerlink" title="O4 确定MEM 目标院校、备考节奏"></a>O4 确定MEM 目标院校、备考节奏</h2><ul>
+<li>[[MEM 2024 交大 MEM 备考]]</li>
+<li>准备提前面试材料</li>
+</ul>
+<blockquote>
+<p>#复盘<br>确定学校、准备备考信息 0.7<br>提前面试材料准备 0.0</p>
+</blockquote>
+<h2 id="O5-幸福感提升"><a href="#O5-幸福感提升" class="headerlink" title="O5 幸福感提升"></a>O5 幸福感提升</h2><ul>
+<li>增加理财渠道</li>
+<li>至少一周，连续 7 天完成健身环闭合</li>
+<li>补充香料相关的理论，整理常用香料的使用技巧</li>
+</ul>
+<blockquote>
+<p>#复盘<br>理财 0.0<br>连续 7 天完成健身环闭合 0.7<br>烹饪理论学习 0.0</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>2023</tag>
+        <tag>okr</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>M5-OKR-Review</title>
+    <url>/2023/05/27/M5-OKR-Review/</url>
+    <content><![CDATA[<p>[[Q2-2023-OKR]]</p>
+<h2 id="Conclusion-0-3"><a href="#Conclusion-0-3" class="headerlink" title="Conclusion 0.3"></a>Conclusion 0.3</h2><span id="more"></span>
+
+
+<h2 id="O1-提升客户端架构设计能力，完成通用侧技术架构升级"><a href="#O1-提升客户端架构设计能力，完成通用侧技术架构升级" class="headerlink" title="O1 提升客户端架构设计能力，完成通用侧技术架构升级"></a>O1 提升客户端架构设计能力，完成通用侧技术架构升级</h2><blockquote>
+<p>0</p>
+</blockquote>
+<p>在客户端架构上，没有实际的进步和产出</p>
+<h2 id="O2-综合能力提升"><a href="#O2-综合能力提升" class="headerlink" title="O2 综合能力提升"></a>O2 综合能力提升</h2><blockquote>
+<p>0.5</p>
+</blockquote>
+<ol>
+<li>面试材料准备按计划完成</li>
+<li>MEM 数学和逻辑的学习进度不及预期</li>
+<li>学习一些不错的专栏<ol>
+<li>技术人生系列</li>
+<li>韩老板系列</li>
+<li>左耳朵分享的文章</li>
+</ol>
+</li>
+<li>Notion dashboard 使用方式常规化，逐渐养成习惯</li>
+<li>GTD 使用更加熟练<ol>
+<li>滴答清单</li>
+<li>Notion Inbox&#x2F;Task</li>
+<li>Lark -TODO</li>
+</ol>
+</li>
+<li>TimingBoxing<ol>
+<li>时间都去哪了？</li>
+<li>DirtyWork</li>
+</ol>
+</li>
+</ol>
+<h2 id="O3-英语能力"><a href="#O3-英语能力" class="headerlink" title="O3 英语能力"></a>O3 英语能力</h2><blockquote>
+<p>0.3</p>
+</blockquote>
+<ol>
+<li>恋恋有词 简单词汇未按计划完成掌握，只学习一遍</li>
+<li>基础语法部分完成一遍学习，未总结归纳，现在基本已忘光了。</li>
+<li>原味英语按时打卡，业务英语和听力有提升</li>
+</ol>
+<h2 id="O4-提升写作能力"><a href="#O4-提升写作能力" class="headerlink" title="O4 提升写作能力"></a>O4 提升写作能力</h2><blockquote>
+<p>0.3</p>
+</blockquote>
+<ol>
+<li>pkm 新增 五彩插件做信息输入</li>
+<li>滴答清单助手公众号不可用，新的 App 端信息收集方式暂未找到，通过notion 中转。<br> 开通VIP解决！</li>
+</ol>
+<h2 id="O5-幸福感"><a href="#O5-幸福感" class="headerlink" title="O5 幸福感"></a>O5 幸福感</h2><blockquote>
+<p>0.5</p>
+</blockquote>
+<ol>
+<li>血压日常记录，生活方式调整，未见明显变化。</li>
+<li>Waiting for Nora</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>2024 交大 MEM 备考</title>
+    <url>/2023/05/01/MEM%202024%20%E4%BA%A4%E5%A4%A7%20MEM%20%E5%A4%87%E8%80%83/</url>
+    <content><![CDATA[<p>MEM ：Master of Engineering Management，工程管理硕士，专业硕士学位。</p>
+<p>记录 2024 年交大 MEM 到备考过程，包括前期的调研、提前批面试 、笔试学习资料准备、学习计划制定等，所有和 MEM 相关的事情都会汇总到这里。</p>
+<ul>
+<li>MEM 择校，交大 or 复旦</li>
+<li>2024 MEM 的关键时间线</li>
+<li>提前批面试</li>
+<li>笔试学习资料</li>
+<li>笔试备考计划</li>
+</ul>
+<p><img src="https://img.imesong.com/2023/20230502154959.png" alt="交大MEM备考思维导图大纲.png"></p>
+<p>如果需要详细的思维导图，可以添加个人微信 <strong>imesong2012</strong> ，备注 <strong>交大MEM备考</strong>，一起学习交流，共同上岸。</p>
+<span id="more"></span>
+
+
+<h2 id="目标学校选择"><a href="#目标学校选择" class="headerlink" title="目标学校选择"></a>目标学校选择</h2><p>学校选择，前期锁定交大和复旦，没有再调研其他学校的硕士研究生信息，开始有点纠结 MBA 还是 MEM，学校选择交大和复旦个人感觉差异不是很大。<br>参加了几场交大、复旦的MBA、EMBA、MEM 的招生说明会，同时和几个在交大读EMAB、MBA、MEM 的朋友了解后，决定报考交大的 MEM 。<br>交大和复旦 MEM 的一些基本信息对比如下，仅供参考，复旦的部分数据来自2022年的历史统计，没有查找到2023年的最新政策说明。</p>
+<table>
+<thead>
+<tr>
+<th>基本信息</th>
+<th>交大</th>
+<th>复旦</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>学费</td>
+<td>23.8万</td>
+<td>19.8万</td>
+</tr>
+<tr>
+<td>学制</td>
+<td>2.5年</td>
+<td>2年</td>
+</tr>
+<tr>
+<td>招生规模</td>
+<td>400人</td>
+<td>80人</td>
+</tr>
+<tr>
+<td>招生方向</td>
+<td>项目管理方向</td>
+<td>项目管理方向</td>
+</tr>
+<tr>
+<td>学院</td>
+<td>电子信息与电气工程学院</td>
+<td>信息与工程学院</td>
+</tr>
+<tr>
+<td>奖学金</td>
+<td>状元 8万、榜眼 5万、探花 3万，<br>卓越 1%（约4人）2万，<br>优秀 4%（约16人）1万</td>
+<td>暂无信息</td>
+</tr>
+<tr>
+<td>提前批面试</td>
+<td>有</td>
+<td>有</td>
+</tr>
+</tbody></table>
+<p><a href="https://mem.seiee.sjtu.edu.cn/mem/info/35507.htm">上海交大电院2024级MEM招生优才选拔</a></p>
+<p><a href="http://www.it.fudan.edu.cn/Data/View/4138">复旦信息与工程学院MEM招生简介</a></p>
+<h2 id="2024-MEM-时间线"><a href="#2024-MEM-时间线" class="headerlink" title="2024 MEM 时间线"></a>2024 MEM 时间线</h2><p>如果准备参加交大 2024 年入学的 MEM 考试，包括提前批面试、笔试、复试，一些关键事项的时间点如下，以<strong>交大</strong>为例，其他学校略有差异。</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>关键事项</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2023年3月 - 2023年10月</td>
+<td>提前批面试</td>
+<td>各个批次的具体时间参考 提前批面试 表格</td>
+</tr>
+<tr>
+<td>2023年10月5日 - 2023年10月25日</td>
+<td>网上报名</td>
+<td></td>
+</tr>
+<tr>
+<td>2023年12月23日</td>
+<td>笔试联考</td>
+<td></td>
+</tr>
+<tr>
+<td>2024年3月</td>
+<td>笔试成绩公布</td>
+<td></td>
+</tr>
+<tr>
+<td>2024年4月</td>
+<td>复试</td>
+<td></td>
+</tr>
+<tr>
+<td>2024年9月</td>
+<td>入学</td>
+<td></td>
+</tr>
+<tr>
+<td>2027年3月</td>
+<td>毕业</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="提前批面试"><a href="#提前批面试" class="headerlink" title="提前批面试"></a>提前批面试</h2><p>交大的提前批面试一共有 4 批，每批次的时间安排如下</p>
+<table>
+<thead>
+<tr>
+<th>批次</th>
+<th>报名截止时间</th>
+<th>面试时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>第一批次</strong></td>
+<td>3月20日</td>
+<td>四月中上旬</td>
+</tr>
+<tr>
+<td><strong>第二批次</strong></td>
+<td>5月1日 - 6月5日</td>
+<td>六月中旬</td>
+</tr>
+<tr>
+<td><strong>第三批次</strong></td>
+<td>8月1日 - 9月5日</td>
+<td>九月中下旬</td>
+</tr>
+<tr>
+<td><strong>第四批次</strong></td>
+<td>9月10日 - 10月5日</td>
+<td>四月中下旬</td>
+</tr>
+</tbody></table>
+<p>面试考核主要包括两部分：考试履历评分和面试表现评分，两个结合得出提前批面试总分。</p>
+<h3 id="考生面试材料评分"><a href="#考生面试材料评分" class="headerlink" title="考生面试材料评分"></a>考生面试材料评分</h3><p>通过不同纬度，评估考生，最终给出是否合适该校 MEM 的招生，影响考生的录取总分。评估的维度相对客观，也存在操作的可能。</p>
+<h4 id="教育背景"><a href="#教育背景" class="headerlink" title="教育背景"></a>教育背景</h4><h4 id="工作履历"><a href="#工作履历" class="headerlink" title="工作履历"></a>工作履历</h4><p><strong>单位规模&#x2F;地位</strong></p>
+<ul>
+<li>世界 500 强</li>
+<li>行业龙头企业</li>
+<li>部分细分行业龙头企业</li>
+</ul>
+<h4 id="个人背景"><a href="#个人背景" class="headerlink" title="个人背景"></a>个人背景</h4><ul>
+<li>工作年限</li>
+<li>管理经验</li>
+<li>下属人数</li>
+<li>职务级别</li>
+<li>年薪收入</li>
+</ul>
+<h4 id="专业资格证书"><a href="#专业资格证书" class="headerlink" title="专业资格证书"></a>专业资格证书</h4><ul>
+<li><p>大学期间获得证书</p>
+<ul>
+<li>CET4 &#x2F; CET6</li>
+<li>雅思 &#x2F; 托福</li>
+</ul>
+</li>
+<li><p>工作期间获得</p>
+<ul>
+<li>CFA &#x2F; CPA &#x2F; PMP</li>
+</ul>
+</li>
+</ul>
+<h4 id="荣誉奖励"><a href="#荣誉奖励" class="headerlink" title="荣誉奖励"></a>荣誉奖励</h4><ul>
+<li>大学期间</li>
+<li>工作获得</li>
+<li>社会团体</li>
+</ul>
+<h4 id="推荐信"><a href="#推荐信" class="headerlink" title="推荐信"></a>推荐信</h4><p>2封推荐信，了解别人对你的评价，倾向于对自己比较了解的朋友、同事，最好有一定的社会地位，在公司担任一定的管理职务，优先考虑交大的校友。</p>
+<h4 id="职业规划"><a href="#职业规划" class="headerlink" title="职业规划"></a>职业规划</h4><p>了解考生的职业目标是否清晰，报考动机是否合理</p>
+<h4 id="论文短述"><a href="#论文短述" class="headerlink" title="论文短述"></a>论文短述</h4><p>通过短篇论文的方式，了解考生对所在的行业认知，观察考生的领导力，对未来的学习规划。</p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>个人特长和兴趣爱好</p>
+<h3 id="主要面试内容"><a href="#主要面试内容" class="headerlink" title="主要面试内容"></a>主要面试内容</h3><p>面试的内容，围绕应聘者提交的材料，考察应聘者的<strong>专业背景知识</strong>、<strong>工作业绩</strong>、<strong>英语水平</strong>、<strong>研究计划与职业规划</strong>、<strong>综合素质</strong>。</p>
+<p>面试采用 多 v1 的形式，即有三名面试考官，同时对 1 名考生进行考评，单个考生面试时长在 20min ～ 30min 之间，中文为主，有 3min ～ 5min 的英文自我介绍。</p>
+<h3 id="面试结果"><a href="#面试结果" class="headerlink" title="面试结果"></a>面试结果</h3><p>正常情况下，面试后 7 个工作日，会公布面试结果。交大的面试成绩分为三档</p>
+<ul>
+<li><strong>A 档</strong>：笔试成绩达到交大的合格线，政治考试、体检合格，<strong>可获得拟录取资格</strong>。参加提前批面试，目标也是为获取拟录取资格，不用再参加复试。</li>
+<li><strong>B档</strong>：笔试成绩达到交大的合格线，政治考试、体检合格，以笔试分数+优选面试分数（或复试分数）的总成绩排名，<strong>同等条件下优先获得拟录取资格</strong>（优选面试分数或者复试分数低于120分不录取）</li>
+<li><strong>普通档</strong>：笔试成绩达到交大的合格线，政治考试、体检合格，以笔试分数+优选面试分数（或复试分数）的总成绩排名，<strong>从高到低择优录取</strong>（优选面试分数或复试分数低于120分不录取）</li>
+</ul>
+<p><img src="https://img.imesong.com/2023/20230501121744.png" alt="image.png"></p>
+<h2 id="笔试"><a href="#笔试" class="headerlink" title="笔试"></a>笔试</h2><p>笔试包括两场考试，管理类综合和英语，每场考试各 3 个小时。管理类综合共 200 分， 英语 100分，笔试总计 300 分。</p>
+<h3 id="管理类综合"><a href="#管理类综合" class="headerlink" title="管理类综合"></a>管理类综合</h3><p>管理类综合 200 分为 3 部分，数学 75 分、逻辑 60 分、写作 65 分。</p>
+<ul>
+<li>数学：25道选择题</li>
+<li>逻辑：20道选择题</li>
+<li>写作：小作文、大作文</li>
+</ul>
+<p>[[MEM 管理类综合考试大纲]]</p>
+<h3 id="英语"><a href="#英语" class="headerlink" title="英语"></a>英语</h3><p>英语 100 分，考察 4 个部分，完形填空 10 分、阅读理解 50 分、翻译 15 分、写作 25 分。</p>
+<p>[[MEM 英语考试大纲]]</p>
+<h2 id="笔试学习资料"><a href="#笔试学习资料" class="headerlink" title="笔试学习资料"></a>笔试学习资料</h2><h3 id="教材"><a href="#教材" class="headerlink" title="教材"></a>教材</h3><p>看到其他同学分享的经验，教材普遍选用的是机械工业出版社的 MBA&#x2F;MEM&#x2F;MPA 通用教材，红皮书。<br><img src="https://img.imesong.com/2023/mem-%E6%95%99%E6%9D%90.webp" alt="mem-教材.webp"><br><strong>数学 - 陈剑</strong><br><strong>写作 - 赵鑫全</strong><br><strong>逻辑 - 孙勇</strong><br><strong>英语 - 新东方</strong></p>
+<p><img src="https://img.imesong.com/2023/20230501170414.png" alt="赵鑫全-写作.png"></p>
+<p><img src="https://img.imesong.com/2023/20230501170512.png" alt="陈剑-数学.png"></p>
+<p><img src="https://img.imesong.com/2023/20230501170653.png" alt="孙勇-逻辑.png"></p>
+<h2 id="笔试备考计划"><a href="#笔试备考计划" class="headerlink" title="笔试备考计划"></a>笔试备考计划</h2><p>工作中习惯了 OKR 工作法，MEM 备考这个事情，有清晰的目标，明确的考核标准，尝试使用 双月OKR 的思路辅助达成最终目标。<br><strong>时间投入</strong>：每周最少 15 ~ 20 个小时的备考时间。</p>
+<ul>
+<li>周一至周五：1hour × 5 &#x3D; 5hour</li>
+<li>周六：5 ~ 10 hour</li>
+<li>周日：5 hour</li>
+<li>总计：15 ~ 20 hour</li>
+</ul>
+<p>从 5月1日 起至 12 月 22 日，总计可投入的备考时间约60hour，换算成自然日（每天8小时）约 62.5天 ～ 82.5天，在 2 个月到 2个半月之间。细算下来，时间不是特别多。</p>
+<h3 id="双月备考-OKR"><a href="#双月备考-OKR" class="headerlink" title="双月备考 OKR"></a>双月备考 OKR</h3><p>围绕数学、逻辑、写作、英语四个方向，以双月维度评估备考计划的完成度。</p>
+<h3 id="详细备考计划"><a href="#详细备考计划" class="headerlink" title="详细备考计划"></a>详细备考计划</h3><p>详细的备考计划还在制作中，会在学习过程中不断完善，整体思路是先数据、逻辑，后英语、写作。</p>
+<p><a href="https://imesong.notion.site/MEM-46823dc2c6814ef89240ceb044c48e0a">MEM 详细备考计划- WIP版</a>，详细的备考计划还在制定中～，如果有正在备考 2024 年 MEM 的研友，可以添加微信 <strong>imesong2012</strong> ，学习讨论，共同进步，携手上岸！</p>
+<p><img src="https://img.imesong.com/2023/20230502160340.png" alt="MEM笔试备考计划.png"></p>
+]]></content>
+      <tags>
+        <tag>mem</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MEM 管理类综合考试大纲</title>
+    <url>/2023/05/01/MEM%20%E7%AE%A1%E7%90%86%E7%B1%BB%E7%BB%BC%E5%90%88%E8%80%83%E8%AF%95%E5%A4%A7%E7%BA%B2/</url>
+    <content><![CDATA[<h2 id="考试性质"><a href="#考试性质" class="headerlink" title="考试性质"></a>考试性质</h2><p>综合能力考试是为高等院校和科研院所招收管理类专业学位硕士研究生而设置的具有选拔性质的全国联考科目，其目的是科学、公平、有效地测试考生是否具备攻读专业学位所必需的基本素质、一般能力和培养潜能，评价的标准是高等学校本科毕业生所能达到的及格或及格以上水平，以利于各高等院校和科研院所在专业上择优选拔，确保专业学位硕士研究生的招生质量。</p>
+<h2 id="考查目标"><a href="#考查目标" class="headerlink" title="考查目标"></a>考查目标</h2><ol>
+<li>具有运用数学基础知识、基本方法分析和解决问题的能力。</li>
+<li>具有较强的分析、推理、论证等逻辑思维能力。</li>
+<li>具有较强的文字材料理解能力、分析能力以及书面表达能力。</li>
+</ol>
+<h2 id="考试形式和试卷结构"><a href="#考试形式和试卷结构" class="headerlink" title="考试形式和试卷结构"></a>考试形式和试卷结构</h2><h3 id="试卷满分及考试时间"><a href="#试卷满分及考试时间" class="headerlink" title="试卷满分及考试时间"></a>试卷满分及考试时间</h3><p>试卷满分为200分，考试时间为180分钟。</p>
+<h3 id="答题方式"><a href="#答题方式" class="headerlink" title="答题方式"></a>答题方式</h3><p>答题方式为闭卷、笔试。不允许使用计算器。</p>
+<h3 id="试卷内容与题型结构"><a href="#试卷内容与题型结构" class="headerlink" title="试卷内容与题型结构"></a>试卷内容与题型结构</h3><ol>
+<li>数学基础，75分，有以下两种题型：<ul>
+<li>问题求解，15小题，每小题3分，共45分</li>
+<li>条件充分性判断，10小题，每小题3分，共30分</li>
+</ul>
+</li>
+<li>逻辑推理，30小题，每小题2分，共60分</li>
+<li>写作，2小题，其中论证有效性分析30分，论说文35分，共65分</li>
+</ol>
+<span id="more"></span>
+
+
+<h2 id="考查内容"><a href="#考查内容" class="headerlink" title="考查内容"></a>考查内容</h2><h3 id="一-数学"><a href="#一-数学" class="headerlink" title="一.数学"></a>一.数学</h3><p>综合能力考试中的数学基础部分主要考查考生的<strong>运算能力、逻辑推理能力、空间想象能力和数据处理能力</strong>，通过问题求解和条件充分性判断两种形式来测试。</p>
+<p>试题涉及的数学知识范围有：</p>
+<p>(一)算术</p>
+<ol>
+<li>整数</li>
+</ol>
+<p>(1)整数及其运算</p>
+<p>(2)整除、公倍数、公约数</p>
+<p>(3)奇数、偶数</p>
+<p>(4)质数、合数</p>
+<ol>
+<li>分数、小数、百分数</li>
+<li>比与比例</li>
+<li>数轴与绝对值</li>
+</ol>
+<p>(二)代数</p>
+<ol>
+<li>整式</li>
+</ol>
+<p>(1)整式及其运算</p>
+<p>(2)整式的因式与因式分解</p>
+<ol>
+<li>分式及其运算</li>
+<li>函数</li>
+</ol>
+<p>(1)集合</p>
+<p>(2)一元二次函数及其图像</p>
+<p>(3)指数函数、对数函数</p>
+<ol>
+<li>代数方程</li>
+</ol>
+<p>(1)一元一次方程</p>
+<p>(2)一元二次方程</p>
+<p>(3)二元一次方程组</p>
+<ol>
+<li>不等式</li>
+</ol>
+<p>(1)不等式的性质</p>
+<p>(2)均值不等式</p>
+<p>(3)不等式求解</p>
+<p>一元一次不等式(组)，一元二次不等式，简单绝对值不等式，简单分式不等式。</p>
+<ol>
+<li>数列、等差数列、等比数列</li>
+</ol>
+<p>(三)几何</p>
+<ol>
+<li>平面图形</li>
+</ol>
+<p>(1)三角形</p>
+<p>(2)四边形</p>
+<p>矩形，平行四边形，梯形。</p>
+<p>(3)圆与扇形</p>
+<ol start="2">
+<li>空间几何体</li>
+</ol>
+<p>(1)长方体</p>
+<p>(2)柱体</p>
+<p>(3)球体</p>
+<ol start="3">
+<li>平面解析几何</li>
+</ol>
+<p>(1)平面直角坐标系</p>
+<p>(2)直线方程与圆的方程</p>
+<p>(3)两点间距离公式与点到直线的距离公式</p>
+<p>(四)数据分析</p>
+<ol>
+<li>计数原理</li>
+</ol>
+<p>(1)加法原理、乘法原理</p>
+<p>(2)排列与排列数</p>
+<p>(3)组合与组合数</p>
+<ol start="2">
+<li>数据描述</li>
+</ol>
+<p>(1)平均值</p>
+<p>(2)方差与标准差</p>
+<p>(3)数据的图表表示</p>
+<p>直方图，饼图，数表。</p>
+<ol start="3">
+<li>概率</li>
+</ol>
+<p>(1)事件及其简单运算</p>
+<p>(2)加法公式</p>
+<p>(3)乘法公式</p>
+<p>(4)古典概型</p>
+<p>(5)伯努利概型</p>
+<h3 id="二-逻辑推理"><a href="#二-逻辑推理" class="headerlink" title="二. 逻辑推理"></a>二. 逻辑推理</h3><p>综合能力考试中的逻辑推理部分主要考查考生对各种信息的理解、分析、综合，以及相应的判断、推理、论证等逻辑思维能力，不考查逻辑学的专业知识。试题题材涉及自然、社会和人文等各个领域，但不考查相关领域的专业知识。</p>
+<p>试题涉及的内容主要包括:</p>
+<p>(一) 概念</p>
+<ol>
+<li>概念的种类</li>
+<li>概念之间的关系</li>
+<li>定义</li>
+<li>划分</li>
+</ol>
+<p>(二)判断</p>
+<ol>
+<li>判断的种类</li>
+<li>判断之间的关系</li>
+</ol>
+<p>(三)推理</p>
+<ol>
+<li>演绎推理</li>
+<li>归纳推理</li>
+<li>类比推理</li>
+<li>综合推理</li>
+</ol>
+<p>(四)论证</p>
+<ol>
+<li>论证方式分析</li>
+<li>论证评价</li>
+</ol>
+<p>(1)加强</p>
+<p>(2)削弱</p>
+<p>(3)解释</p>
+<p>(4)其他</p>
+<ol start="3">
+<li>谬误识别</li>
+</ol>
+<p>(1)混淆概念</p>
+<p>(2)转移论题</p>
+<p>(3)自相矛盾</p>
+<p>(4)模棱两可</p>
+<p>(5)不当类比</p>
+<p>(6)以偏概全</p>
+<p>(7)其他谬误</p>
+<h3 id="三-写作"><a href="#三-写作" class="headerlink" title="三. 写作"></a>三. 写作</h3><p>综合能力考试中的写作部分主要考查考生的分析论证能力和文字表达能力，通过论证有效性分析和论说文两种形式来测试。</p>
+<ol>
+<li><p>论证有效性分析<br>论证有效性分析试题的题干为一段有缺陷的论证，要求考生分析其中存在的问题，选择若干要点，评论该论证的有效性。<br>本类试题的分析要点是：论证中的概念是否明确，判断是否准确，推理是否严密，论证是否充分等。<br>文章要求分析得当，理由充分，结构严谨，语言得体。</p>
+</li>
+<li><p>论说文<br>论说文的考试形式有两种：命题作文、基于文字材料的自由命题作文。每次考试为其中一种形式。要求考生在准确、全面地理解题意的基础上，对命题或材料所给观点进行分析，表明自己的观点并加以论证。<br>文章要求思想健康，观点明确，论据充足，论证严密，结构合理，语言流畅。</p>
+</li>
+</ol>
+<h2 id="数学大纲解析"><a href="#数学大纲解析" class="headerlink" title="数学大纲解析"></a>数学大纲解析</h2><p>数学部分共 25 道选择题，答题时间在 50 min 以内，平均每题 2min。25 道选择题的考查内容分布</p>
+<h3 id="考点分布"><a href="#考点分布" class="headerlink" title="考点分布"></a>考点分布</h3><table>
+<thead>
+<tr>
+<th>大纲</th>
+<th>考点</th>
+<th>题目数量</th>
+<th>占比</th>
+<th>难度级别</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>算术</td>
+<td>数 1、值 1</td>
+<td>2</td>
+<td>4%</td>
+<td>P2</td>
+<td>初等数学，基础中的基础</td>
+</tr>
+<tr>
+<td>代数</td>
+<td>式1、 函数1、方程2、不等式2、数列2</td>
+<td>8</td>
+<td>32%</td>
+<td>P0</td>
+<td>初等数学</td>
+</tr>
+<tr>
+<td>几何</td>
+<td>解2、平2、立1</td>
+<td>5</td>
+<td>25%</td>
+<td>P1</td>
+<td>初等数学</td>
+</tr>
+<tr>
+<td>数据分析</td>
+<td>排2、概2、据1</td>
+<td>5</td>
+<td>25%</td>
+<td>P0</td>
+<td>高等数学基础</td>
+</tr>
+<tr>
+<td>应用题</td>
+<td>比与比例、行程路程、工程、平均值、容斥原理、函数、方程</td>
+<td>5 - 8</td>
+<td>25% - 40%</td>
+<td>P1</td>
+<td>初等数学</td>
+</tr>
+</tbody></table>
+<h3 id="考试特点"><a href="#考试特点" class="headerlink" title="考试特点"></a>考试特点</h3><p><strong>重视基础</strong><br>难易分布以基础为主，<br>基础（6）：中等（3）：难度（1）</p>
+<ul>
+<li>基础知识点</li>
+<li>基础公式</li>
+<li>基础方法</li>
+<li>基础运算</li>
+</ul>
+<p><strong>题型灵活</strong></p>
+<ul>
+<li>条件充分性判断</li>
+<li>数列、几何、应用题</li>
+</ul>
+<p><strong>点面结合</strong><br>一题多点，一道题目涉及多个考点</p>
+<p><strong>涉及陷阱较多</strong><br>&#x3D;大的陷阱较少，小的陷阱较多</p>
+<h2 id="逻辑大纲解析"><a href="#逻辑大纲解析" class="headerlink" title="逻辑大纲解析"></a>逻辑大纲解析</h2><h2 id="写作大纲解析"><a href="#写作大纲解析" class="headerlink" title="写作大纲解析"></a>写作大纲解析</h2>]]></content>
+      <tags>
+        <tag>mem</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MEM 英语考试大纲</title>
+    <url>/2023/05/01/MEM%20%E8%8B%B1%E8%AF%AD%E8%80%83%E8%AF%95%E5%A4%A7%E7%BA%B2/</url>
+    <content><![CDATA[<h2 id="考试性质"><a href="#考试性质" class="headerlink" title="考试性质"></a>考试性质</h2><p>英语(二)考试主要是为高等院校和科研院所招收专业学位硕士研究生而设置的具有选拔性质的全国统一入学考试科目。其目的是科学、公平、有效地测试考生对英语语言的运用能力，评价的标准是高等学校非英语专业本科毕业生所能达到的及格或及格以上水平，以保证被录取者具有一定的英语水平，并有利于各高等学校和科研院所在专业上择优选拔。</p>
+<h2 id="考查内容"><a href="#考查内容" class="headerlink" title="考查内容"></a>考查内容</h2><p>考生应掌握下列语言知识和技能：</p>
+<h3 id="语言知识"><a href="#语言知识" class="headerlink" title="语言知识"></a>语言知识</h3><h4 id="语法知识"><a href="#语法知识" class="headerlink" title="语法知识"></a>语法知识</h4><p>考生应能熟练地运用基本的语法知识，其中包括：</p>
+<p>(1)名词、代词的数和格的构成及其用法;<br>(2)动词时态、语态的构成及其用法;<br>(3)形容词与副词的比较级和最高级的构成及其用法;<br>(4)常用连接词的词义及其用法;<br>(5)非谓语动词(不定式、动名词、分词)的构成及其用法;<br>(6)虚拟语气的构成及其用法;<br>(7)各类从句(定语从句、主语从句、表语从句等)及强调句型的结构及其用法;<br>(8)倒装句、插入语的结构及其用法。</p>
+<h4 id="词汇"><a href="#词汇" class="headerlink" title="词汇"></a>词汇</h4><p>考生应能较熟练地掌握 5500 个左右常用英语词汇以及相关常用词组(详见附录相关部分)。考生应能根据具体语境、句子结构或上下文理解一些非常用词的词义。</p>
+<h3 id="语言技能"><a href="#语言技能" class="headerlink" title="语言技能"></a>语言技能</h3><h4 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h4><p>考生应能读懂不同题材和体裁的文字材料。题材包括经济、管理、社会、文化、科普等，体裁包括说明文、议论文和记叙文等。</p>
+<p>根据阅读材料，考生应能：</p>
+<p>(1)理解主旨要义;</p>
+<p>(2)理解文中的具体信息;</p>
+<p>(3)理解语篇的结构和上下文的逻辑关系;</p>
+<p>(4)根据上下文推断重要生词或词组的含义;</p>
+<p>(5)进行一定的判断和推理;</p>
+<p>(6)理解作者的意图、观点或态度。</p>
+<h4 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h4><p>考生应能根据所给的提纲、情景或要求完成相应的短文写作。短文应中心思想明确、切中题意、结构清晰、条理清楚、用词恰当、无明显语言错误。</p>
+<span id="more"></span>
+
+
+
+
+<h2 id="考试形式、考试内容与试卷结构"><a href="#考试形式、考试内容与试卷结构" class="headerlink" title="考试形式、考试内容与试卷结构"></a>考试形式、考试内容与试卷结构</h2><h3 id="考试形式"><a href="#考试形式" class="headerlink" title="考试形式"></a>考试形式</h3><p>考试形式为笔试。考试时间为180分钟。满分为100分。</p>
+<p>试卷包括试题册和1张答题卡。考生应将英语知识运用和阅读理解部分的答案按要求涂写在答题卡相应题号的选项上，将英译汉和写作部分的答案书写在答题卡指定位置的边框区域内。</p>
+<h3 id="试卷结构"><a href="#试卷结构" class="headerlink" title="试卷结构"></a>试卷结构</h3><p>试题分四部分，共48题，包括英语知识运用、阅读理解、英译汉和写作。</p>
+<h4 id="第一部分-英语知识运用"><a href="#第一部分-英语知识运用" class="headerlink" title="第一部分 英语知识运用"></a>第一部分 英语知识运用</h4><p>主要考查考生对英语知识的综合运用能力。共20小题，每小题0.5分，共10分。</p>
+<p>在一篇约350词的文章中留出20个空白，要求考生从每题给出的4个选项中选出最佳答案，使补全后的文章意思通顺、前后连贯、结构完整。</p>
+<h4 id="第二部分-阅读理解"><a href="#第二部分-阅读理解" class="headerlink" title="第二部分 阅读理解"></a>第二部分 阅读理解</h4><p>主要考查考生获取信息、理解文章、猜测重要生词词义并进行推断等方面的能力。该部分由A、B两节组成，共25小题，每小题2分，共50分。</p>
+<p><strong>A节(20小题)</strong></p>
+<p>本节为单项选择题。共四篇文章，总长度为1500词左右。要求考生阅读文章并回答每篇文章后面的问题。考生需要在每小题所提供的选项(A、B、C、D)中选出唯一正确或是最合适的答案。</p>
+<p>每篇文章设5题，共20题。每小题2分，共40分。</p>
+<p><strong>B节(5小题)</strong></p>
+<p>本节有两种备选题型。每次考试从这两种题型中选择其中的一种形式，或者两种形式的组合进行考查。</p>
+<p>本节文章设5小题，每小题2分，共10分。</p>
+<p>备选题型包括:</p>
+<p>1)多项对应</p>
+<p>本节为一篇长度为450~550词的文章，试题内容分为左右两栏，左侧一栏为5道题目，右侧一栏为7个选项。要求考生在阅读后根据文章内容和左侧一栏中提供的信息从右侧一栏中的7个选项中选出对应的5项相关信息。</p>
+<p>2)小标题对应</p>
+<p>在一篇长度为450~550词的文章前有7个概括句或小标题。这些文字或标题分别是对文章中某一部分的概括或阐述。要求考生根据文章内容和篇章结构从这7个选项中选出最恰当的5个概括句或小标题填入文章空白处。</p>
+<h4 id="第三部分-英译汉"><a href="#第三部分-英译汉" class="headerlink" title="第三部分 英译汉"></a>第三部分 英译汉</h4><p>考查考生理解所给英语语言材料并将其译成汉语的能力。要求译文准确、完整、通顺。</p>
+<p>要求考生阅读、理解长度为150词左右的一个或几个英语段落，并将其全部泽成汉语。共15分。</p>
+<h4 id="第四部分-写作"><a href="#第四部分-写作" class="headerlink" title="第四部分 写作"></a>第四部分 写作</h4><p>该部分由A、B两节组成，主要考查考生的书面表达能力。共2题，25分。</p>
+<p><strong>A节</strong></p>
+<p>考生根据所给情景写出约100词(标点符号不计算在内)的应用性短文，包括私人和公务信函、备忘录、报告等。共10分。</p>
+<p><strong>B节</strong></p>
+<p>要求考生根据所规定的情景或给出的提纲，写出一篇150间左右的英语说明文或议论文。提供情景的形式为图西、图表或文字。共15分。</p>
+<h2 id="英语1-和英语2-的区别"><a href="#英语1-和英语2-的区别" class="headerlink" title="英语1 和英语2 的区别"></a>英语1 和英语2 的区别</h2><h3 id="适用专业不同"><a href="#适用专业不同" class="headerlink" title="适用专业不同"></a>适用专业不同</h3><p><strong>只适用英语一的专业</strong></p>
+<p>学硕：所有学术硕士全部适用(十三门类)。其中，其它语种、外国语言文学专业第二外语、单独考试外语可由招生单位设置自命题科目，也可选用全国统考科目。</p>
+<p>专硕：临床医学（1051）、口腔医学（1052）、公共卫生（1053）等10类专业硕士。</p>
+<p><strong>只适用英语二的专业</strong></p>
+<p>学硕：无</p>
+<p>专硕：工商管理（1251）、公共管理（1251）、会计（1253）等7类专业硕士。</p>
+<p><strong>选用英语一或英语二的专业</strong></p>
+<p>学硕：无</p>
+<p>专硕：金融(0251)、应用统计(0252)、税务(0253)等30类专业硕士。</p>
+<p><strong>不适用英语一或英语二的专业</strong></p>
+<p>学硕：无</p>
+<p>专硕：翻译(0551)</p>
+<h3 id="考试题材不同"><a href="#考试题材不同" class="headerlink" title="考试题材不同"></a>考试题材不同</h3><p>英语一的题材和体裁没有明确限制，英语二要求考生应能读懂不同题材和体裁的文字资料，题材包括经济、管理、社会、文化、科普等，体裁包括说明文、议论文和记叙文等。</p>
+<h3 id="试题难度不同"><a href="#试题难度不同" class="headerlink" title="试题难度不同"></a>试题难度不同</h3><p>英语一与英语二对考生词汇、语法掌握程度的考察深度不同。</p>
+<p>英语一和英语二的大纲规定考查词汇范围一致。英语二要求考生较熟练地掌握5500个左右常用英语词汇以及相关常用词组。英语一的考查除满足英语二的要求外，还要求考生掌握词汇之间的词义关系以及词汇生成的基本知识。</p>
+<p>英语二大纲规定了总共有八个语法点，而英语一大纲关于语法的规定则较为概念化，没有专门列出对语法知识的具体要求，语法复习范围更为宽泛，任务量较大。</p>
+]]></content>
+      <tags>
+        <tag>mem</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OKR 笔记</title>
+    <url>/2023/03/05/OKR%20%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h3 id="O-设置真正的目标？"><a href="#O-设置真正的目标？" class="headerlink" title="O: 设置真正的目标？"></a><strong>O: 设置真正的目标？</strong></h3><ol>
+<li>需要思考，什么是真正的目标？真正的目标来自于哪里？愿景？</li>
+<li>不要把完成目标的方式 (TODO)，当作目标本身。</li>
+<li>面向绩效，寻找真正的目标。目标完成后，发生了哪些变化？</li>
+<li>O 要有方向性。不只是我们要做什么，而且知道做这件事情的背后的深层次的目标、逻辑。完成一个目标的手段（TODO）有很多，我们需要找到最优解。</li>
+<li>O 并不强求有量化的指标，有的目标不是完全可以量化的，是针对某个需要达到什么水平的定性表述，需要多个纬度的能力（定量 KR）才能实现。</li>
+</ol>
+<span id="more"></span>
+
+
+<h3 id="KR-如何支撑-O-的绩效？"><a href="#KR-如何支撑-O-的绩效？" class="headerlink" title="KR: 如何支撑 O 的绩效？"></a><strong>KR: 如何支撑 O 的绩效？</strong></h3><ul>
+<li>KR是支持 O 实现的方式和路径。达成目标需要哪些能力和条件，然后不停的迭代这些能力和条件。</li>
+<li>KR 需要 Task 支撑，最终会落地为一个个的 Task (TODO) 。</li>
+</ul>
+<ol>
+<li>KR是真正可衡量的结果，而不是任务。KR 需要从目标出发，分析目前现状和目标差距，是什么能力和条件的缺失，为了达成目标，需要做成哪些结果来证明具备了这些能力和条件。任务型的 KR 可能本末倒置，只有苦劳没有绩效。</li>
+<li>KR 符合 SMART。</li>
+<li>KR 数量不要过多，3-5 个。</li>
+<li>KR的拆分，参考 MECE 法则。</li>
+</ol>
+<h3 id="跟踪-OKR：制定再完美、合理的-OKR，不去执行，等于空谈"><a href="#跟踪-OKR：制定再完美、合理的-OKR，不去执行，等于空谈" class="headerlink" title="跟踪 OKR：制定再完美、合理的 OKR，不去执行，等于空谈"></a><strong>跟踪 OKR：制定再完美、合理的 OKR，不去执行，等于空谈</strong></h3><p>跟踪 OKR 是一个动态的过程，优秀的执行力是一个基本的要求。</p>
+<h3 id="OKR的复盘"><a href="#OKR的复盘" class="headerlink" title="OKR的复盘"></a><strong>OKR的复盘</strong></h3><p>如果 OKR没有达成 1 ，一般需要复盘目标没有完成的原因，可以从以下几个方面思考和回答：</p>
+<ol>
+<li>设定 OKR的时候，进行了哪些基本假设？是否还成立？是否需要根据最近的理解更改基本假设？设定的目标是我真正想要的吗？</li>
+<li>基于假设，认为自己应该重点弥补的能力和条件，现在是否变化？还需要具备其他能力吗？</li>
+<li>对于这些能力和条件，我选择的手段和方式是否是最有效的？有没有更有效的方式？</li>
+<li>我发现了哪些做法，效果特别好，接下来可以放大？</li>
+<li>我做了什么，导致 OKR完成情况不符合预期，下个周期怎么避免？</li>
+</ol>
+<p><strong>ORK 是一种工具，只有使用起来才能发挥作用。善假于物，而不限于物。</strong></p>
+<p><a href="https://www.notion.so/OKR-3f89a82146484b398dc4f1201143a115">黄勇的OKR实战笔记</a></p>
+<p>链接: <a href="https://pan.baidu.com/s/1KQNWE8-R_YyhtyGblmMZ_w"></a><a href="https://pan.baidu.com/s/1KQNWE8-R_YyhtyGblmMZ_w">https://pan.baidu.com/s/1KQNWE8-R_YyhtyGblmMZ_w</a> 提取码: y3ku 复制这段内容后打开百度网盘手机App，操作更方便哦 –来自百度网盘超级会员v5的分享</p>
+]]></content>
+      <tags>
+        <tag>okr</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Q2-2023-OKR</title>
+    <url>/2023/04/02/Q2-2023-OKR/</url>
+    <content><![CDATA[<p>[[okr-base-2023]]</p>
+<span id="more"></span>
+
+
+<h2 id="O1-提升客户端架构设计能力，完成通用侧技术架构升级"><a href="#O1-提升客户端架构设计能力，完成通用侧技术架构升级" class="headerlink" title="O1 提升客户端架构设计能力，完成通用侧技术架构升级"></a>O1 提升客户端架构设计能力，完成通用侧技术架构升级</h2><p><a href="https://bytedance.feishu.cn/docx/KnZqdyn6QoJvuoxhS4ecB6nEn1c">S 客户端 Android Q2 OKR</a></p>
+<h3 id="KR1-交易链路技术改造，完成基础框架重构"><a href="#KR1-交易链路技术改造，完成基础框架重构" class="headerlink" title="KR1 交易链路技术改造，完成基础框架重构"></a><del>KR1 交易链路技术改造，完成基础框架重构</del></h3><h3 id="KR2-MVVM-框架演进方案调研，梳理架构演进路线图"><a href="#KR2-MVVM-框架演进方案调研，梳理架构演进路线图" class="headerlink" title="KR2 MVVM 框架演进方案调研，梳理架构演进路线图"></a><del>KR2 MVVM 框架演进方案调研，梳理架构演进路线图</del></h3><h3 id="KR3-学习端到端技术架构，调研业内最佳实践"><a href="#KR3-学习端到端技术架构，调研业内最佳实践" class="headerlink" title="KR3 学习端到端技术架构，调研业内最佳实践"></a><del>KR3 学习端到端技术架构，调研业内最佳实践</del></h3><h2 id="O2-综合能力提升"><a href="#O2-综合能力提升" class="headerlink" title="O2 综合能力提升"></a>O2 综合能力提升</h2><p><a href="https://www.notion.so/imesong/2024MBA-MEM-46823dc2c6814ef89240ceb044c48e0a?pvs=4">MEM备考计划</a></p>
+<h3 id="KR1-英语"><a href="#KR1-英语" class="headerlink" title="KR1 英语"></a>KR1 英语</h3><ol>
+<li>原味英语日常打卡 </li>
+<li>口语能力提升</li>
+<li>定级测试 A2 -&gt; B1</li>
+</ol>
+<h2 id="O3-提升写作能力"><a href="#O3-提升写作能力" class="headerlink" title="O3 提升写作能力"></a>O3 提升写作能力</h2><h3 id="KR1-写作工具箱-完善，解决写作流程中卡点"><a href="#KR1-写作工具箱-完善，解决写作流程中卡点" class="headerlink" title="KR1 [[写作工具箱]] 完善，解决写作流程中卡点"></a>KR1 [[写作工具箱]] 完善，解决写作流程中卡点</h3><ul>
+<li>[[obsidian]]</li>
+<li>图片素材管理</li>
+<li>手绘图资源管理</li>
+</ul>
+<blockquote>
+<p>手绘图、思维导图导出的图片更新问题，在 pkm 中比较常见。</p>
+</blockquote>
+<h3 id="KR2-提升写作技巧，补充写作相关的理论知识"><a href="#KR2-提升写作技巧，补充写作相关的理论知识" class="headerlink" title="KR2 提升写作技巧，补充写作相关的理论知识"></a>KR2 提升写作技巧，补充写作相关的理论知识</h3><ul>
+<li>[[卡片笔记]]</li>
+<li>[[渐进式笔记]]</li>
+<li>[[金字塔原理]]</li>
+<li>[[逻辑写作笔记]]</li>
+<li>[[一本小小的红色写作书]]</li>
+<li>[[麦肯锡教我的写作武器]]</li>
+</ul>
+<h2 id="O4-幸福感"><a href="#O4-幸福感" class="headerlink" title="O4 幸福感"></a>O4 幸福感</h2><h3 id="KR1-Hello-Nora"><a href="#KR1-Hello-Nora" class="headerlink" title="KR1 Hello ,Nora"></a>KR1 Hello ,Nora</h3><h3 id="KR2-健康"><a href="#KR2-健康" class="headerlink" title="KR2 健康"></a>KR2 健康</h3><ul>
+<li>[[体检小记-2023]]</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>okr</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tmux 使用小结</title>
+    <url>/2020/03/30/Tmux-tips/</url>
+    <content><![CDATA[<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>在 mac 系统上，通过brew 安装 tmux</p>
+<ol>
+<li>brew search tmux</li>
+<li>brew info tmux</li>
+<li>brew install tmux</li>
+</ol>
+<h3 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h3><p>使用github上寻找到的通用的配置,<a href="https://github.com/gpakosz/.tmux/">按照教程安装完成</a>。</p>
+<h3 id="基本概念理解"><a href="#基本概念理解" class="headerlink" title="基本概念理解"></a>基本概念理解</h3><ol>
+<li>Session</li>
+<li>window</li>
+<li>pane</li>
+</ol>
+<p><a href="http://cenalulu.github.io/linux/tmux/">基本概念介绍</a></p>
+<span id="more"></span>
+
+<h3 id="oh-my-tmux-配置理解"><a href="#oh-my-tmux-配置理解" class="headerlink" title="oh-my-tmux 配置理解"></a>oh-my-tmux 配置理解</h3><p>全局属性设置，<strong>prefix</strong> 绑定键，默认是Ctrl+b ，使用不方便，oh-my-tmux 中补充 Ctrl+a 为<strong>prefix</strong>键。</p>
+<h3 id="Session-操作"><a href="#Session-操作" class="headerlink" title="Session 操作"></a>Session 操作</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>命令</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>新建session</td>
+<td>tmux new -s  demo</td>
+<td>创建名字为 demo 的session</td>
+</tr>
+<tr>
+<td>查看当前session状态</td>
+<td>tmux list-session &#x2F;tmux ls</td>
+<td>列出当前所有的session，只能查看，不能切换</td>
+</tr>
+<tr>
+<td>切换session</td>
+<td><strong>prefix</strong>  s</td>
+<td>列出所有session，可以使用 j&#x2F;k 键切换</td>
+</tr>
+<tr>
+<td>rename session</td>
+<td><strong>prefix</strong>  $</td>
+<td></td>
+</tr>
+<tr>
+<td>kill-session</td>
+<td>tmux kill-session -t demo</td>
+<td>close demo session</td>
+</tr>
+<tr>
+<td>kill-server</td>
+<td>tmux kill-server</td>
+<td>close server ,everything gone</td>
+</tr>
+<tr>
+<td>attach-session</td>
+<td>tmux attach-session -t sessionName</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="Window-操作"><a href="#Window-操作" class="headerlink" title="Window 操作"></a>Window 操作</h3><p>一个window，一般会分割为多个pane，当然，默认是1个pane。类似iTerm的Tab</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>命令</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>新建window</td>
+<td><strong>prefix</strong> c</td>
+<td><image width = 400/></td>
+</tr>
+<tr>
+<td>切换窗口</td>
+<td><strong>prefix</strong> 窗口号</td>
+<td>如切换到第2个窗口：prefix 2</td>
+</tr>
+<tr>
+<td>关闭当前窗口</td>
+<td><strong>prefix</strong> &amp;</td>
+<td></td>
+</tr>
+<tr>
+<td>查看所有窗口</td>
+<td>tmux list-window</td>
+<td>显示所有窗口，并标注active的window</td>
+</tr>
+</tbody></table>
+<h3 id="Pane-操作"><a href="#Pane-操作" class="headerlink" title="Pane 操作"></a>Pane 操作</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>命令</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>水平分割window或pane</td>
+<td><strong>prefix</strong> -</td>
+<td>将一个window或者pane 水平分割为2等份，类似 sp</td>
+</tr>
+<tr>
+<td>垂直分割window或pane</td>
+<td><strong>prefix</strong> _</td>
+<td>类似 vs</td>
+</tr>
+<tr>
+<td>暂时把pane放到最大</td>
+<td><strong>prefix</strong> z</td>
+<td>pane填充满整个window,再次执行该操作，状态恢复</td>
+</tr>
+<tr>
+<td>查看所有pane 的编号</td>
+<td><strong>prefix</strong> q</td>
+<td></td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo</title>
+    <url>/2023/02/27/hexo/</url>
+    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近在整理资料时，发现2年前备份的hexo 网站的 <code>md</code> 源文件，才发现，自己的个人站点，已经2年多没有更新了，上次更新还是在2020年，在前司的办公电脑上操作的。趁着最近整理资料的契机，将个人博客重新部署、升级。</p>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> 迁移 hexo 源文件、配置</li>
+<li><input checked="" disabled="" type="checkbox"> 升级hexo 版本、Next 主题版本</li>
+<li><input checked="" disabled="" type="checkbox"> CI&#x2F;CD ,github page 自动更新 ^832567</li>
+<li><input checked="" disabled="" type="checkbox"> hexo 源文件，相关的配置备份;源文件多端同步，能够在不同的电脑、终端编辑博客</li>
+<li><input checked="" disabled="" type="checkbox"> 多平台发布<ul>
+<li><input checked="" disabled="" type="checkbox"> <a href="http://www.imesong.com/">hexo博客</a></li>
+<li><input checked="" disabled="" type="checkbox"> 微信公众号</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="hexo-文件迁移"><a href="#hexo-文件迁移" class="headerlink" title="hexo 文件迁移"></a>hexo 文件迁移</h2><p>翻箱倒柜，从移动硬盘上找到了3年前备份的hexo目录，当时保险起见，把整个安装包备份了下来。hexo 博客下面几个目录&#x2F;文件比较关键，只要这几个东西在，就能快速的重新把hexo搭建起来。</p>
+<ul>
+<li><code>source</code> 目录下的源文件</li>
+<li><code>config</code>  配置文件</li>
+<li><code>theme</code> 中的主题配置文件</li>
+<li><code>package.json</code> node 依赖</li>
+</ul>
+<ol>
+<li>把之前备份的整个目录 copy 到现在电脑上，删除 <code>node_modules</code> 目录</li>
+<li>执行 <code>npm install</code> 安装相关依赖</li>
+<li><code>npm install hexo-cli-g</code></li>
+<li><code>hexo server</code> , 惊喜的发现，本地可以直接运行起来。有一个多语言适配的问题，后面再解决。</li>
+</ol>
+<h2 id="hexo-版本升级"><a href="#hexo-版本升级" class="headerlink" title="hexo 版本升级"></a>hexo 版本升级</h2><p>hexo 版本升级过程比较简单，主要是更新相关的依赖内容<br>升级之前的版本信息</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">➜  imesong hexo version</span><br><span class="line">(node:41891) Warning: Accessing non-existent property &#x27;lineno&#x27; of module exports inside circular dependency</span><br><span class="line">(Use `node --trace-warnings ...` to show where the warning was created)</span><br><span class="line">(node:41891) Warning: Accessing non-existent property &#x27;column&#x27; of module exports inside circular dependency</span><br><span class="line">(node:41891) Warning: Accessing non-existent property &#x27;filename&#x27; of module exports inside circular dependency</span><br><span class="line">(node:41891) Warning: Accessing non-existent property &#x27;lineno&#x27; of module exports inside circular dependency</span><br><span class="line">(node:41891) Warning: Accessing non-existent property &#x27;column&#x27; of module exports inside circular dependency</span><br><span class="line">(node:41891) Warning: Accessing non-existent property &#x27;filename&#x27; of module exports inside circular dependency</span><br><span class="line">hexo: 4.2.1</span><br><span class="line">hexo-cli: 4.3.0</span><br><span class="line">os: darwin 21.6.0 12.6</span><br><span class="line"></span><br><span class="line">node: 18.7.0</span><br><span class="line">v8: 10.2.154.13-node.9</span><br><span class="line">uv: 1.43.0</span><br><span class="line">zlib: 1.2.11</span><br><span class="line">brotli: 1.0.9</span><br><span class="line">ares: 1.18.1</span><br><span class="line">modules: 108</span><br><span class="line">nghttp2: 1.47.0</span><br><span class="line">napi: 8</span><br><span class="line">llhttp: 6.0.7</span><br><span class="line">openssl: 3.0.5+quic</span><br><span class="line">cldr: 41.0</span><br><span class="line">icu: 71.1</span><br><span class="line">tz: 2022a</span><br><span class="line">unicode: 14.0</span><br><span class="line">ngtcp2: 0.1.0-DEV</span><br><span class="line">nghttp3: 0.1.0-DEV</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>看了下 <a href="https://hexo.io/docs/">hexo 官网 </a>最新的版本已经升级到了 6.3。升级过程如下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">//以下指令均在Hexo目录下操作，先定位到Hexo目录</span><br><span class="line">//查看当前版本，判断是否需要升级</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">hexo version</span></span><br><span class="line"></span><br><span class="line">//全局升级hexo-cli</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">npm i hexo-cli -g</span></span><br><span class="line"></span><br><span class="line">//再次查看版本，看hexo-cli是否升级成功</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">hexo version</span></span><br><span class="line"></span><br><span class="line">//安装npm-check，若已安装可以跳过</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">npm install -g npm-check</span></span><br><span class="line"></span><br><span class="line">//检查系统插件是否需要升级</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">npm-check</span></span><br><span class="line"></span><br><span class="line">//安装npm-upgrade，若已安装可以跳过</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">npm install -g npm-upgrade</span></span><br><span class="line"></span><br><span class="line">//更新package.json</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">npm-upgrade</span></span><br><span class="line"></span><br><span class="line">//更新全局插件</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">npm update -g</span></span><br><span class="line"></span><br><span class="line">//更新系统插件</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">npm update --save</span></span><br><span class="line"></span><br><span class="line">//再次查看版本，判断是否升级成功</span><br><span class="line"><span class="meta prompt_">&gt; </span><span class="language-bash">hexo version</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Next-版本升级"><a href="#Next-版本升级" class="headerlink" title="Next 版本升级"></a>Next 版本升级</h2><p>主题的升级过程稍显复杂，Next 主题从 7.8 版本升级到最新的 8.2 , 中间有 break changes，有一些配置文件需要手动 copy。升级步骤参<a href="https://theme-next.js.org/docs/getting-started/upgrade.html">Next官方文档</a>。</p>
+<blockquote>
+<p>[!NOTE] Breakking Changes<br>There are some breaking changes that need attention when upgrading across versions.</p>
+<ol>
+<li>Update language configuration (for Simplified Chinese)<br>Since v6.0.3, <code>zh-Hans</code> has been renamed to <code>zh-CN</code>: <a href="https://github.com/theme-next/hexo-theme-next/releases/tag/v6.0.3">https://github.com/theme-next/hexo-theme-next/releases/tag/v6.0.3</a><br>Users upgrading to v6.0.3 and later need to explicitly modify the <code>language</code> configuration in Hexo config file, otherwise the language display is incorrect.</li>
+<li>Since v8.0.0, all libraries under the <code>next/source/lib</code> directory was moved out to <a href="https://github.com/next-theme/plugins">@next-theme&#x2F;plugins</a>. Please see this article for the new 3rd-party libraries installation method: <a href="https://theme-next.js.org/docs/third-party-services/#Adding-Plugins">Adding Plugins</a>.</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>[!NOTE] Next 主题官方升级步骤<br>NexT suggest to upgrade from version 5 or 7 to version 8 in this way:</p>
+<ol>
+<li>You need to do some copies of old NexT files:<br>1.1. <code>_config.yml</code> or <code>next.yml</code> (if you used <a href="https://theme-next.js.org/docs/getting-started/configuration.html">Alternate Theme Config</a>).<br>1.2. Custom CSS files placed in <code>next/source/css/_custom/*</code> and<br><code>next/source/css/_variables/*</code> directories.<br>1.3. Custom layout files placed in <code>next/layout/_custom/*</code>.<br>1.4. Any another possible custom additions which can be found by compare tools between repositories.</li>
+<li>Then rename the old NexT folder, for example, rename <code>next</code> to <code>next-old</code>.</li>
+<li>Install the new version according to the method provided in this article: <a href="https://theme-next.js.org/docs/getting-started/installation.html">installation instructions</a>. Run <code>hexo clean</code> and <code>hexo s</code> to check whether the site works correctly.</li>
+<li>Update Hexo and Hexo plugin<br>If after completing the above steps, an error occurs when executing <code>hexo s</code> or <code>hexo g</code>, it means that there may be a conflict between the old version of Hexo &#x2F; Hexo plugin and the new version of the theme NexT. We recommend upgrading Hexo and Hexo plugins to the latest version. You can run <code>npm outdated</code> to see all the upgradeable plugins.</li>
+<li>If you see any bugs or you simply does not like this version, you can switch back to the old version at any time.</li>
+</ol>
+</blockquote>
+<h2 id="github-action-CI-x2F-CD-自动部署博客"><a href="#github-action-CI-x2F-CD-自动部署博客" class="headerlink" title="github action CI&#x2F;CD 自动部署博客"></a>github action CI&#x2F;CD 自动部署博客</h2><p>^bc6fa0</p>
+<p><a href="https://docs.github.com/en/actions">github action</a> 的介绍，可以参考官网。通过 github 提供的 CI&#x2F;CD 的能力，自动部署blog的工作流程如下：</p>
+<p><img src="https://img.imesong.com/2023/blog-publish-workflow-2023-03-18-1109.png" alt="blog-publish-workflow-2023-03-18-1109.png"> ^a5f3af</p>
+<p>整体流程介绍</p>
+<ol>
+<li>本地完成文章编辑，通过 git push 提交变更到私有仓库 imesong&#x2F;blog</li>
+<li>imesong&#x2F;blog 的 github action 捕捉到 push 事件，触发自动部署流程</li>
+<li>部署流程完成后，将编译产物  push 到 imesong&#x2F;imesong.github.io 的公共仓库</li>
+<li>再次访问  imesong.com 时，会自动更新到最新的部署内容</li>
+</ol>
+<h3 id="github-action-配置"><a href="#github-action-配置" class="headerlink" title="github action 配置"></a>github action 配置</h3><ol>
+<li>imesong&#x2F;blog 的仓库需要配置 github action 的能力，在项目的根目录下新建 <code>.github/worflows/deploy.yml</code>  的文件。github 会根据 deploy.yml 中配置的脚本，执行 workflow。 完整的脚本内容如下，具体的解释可以看官方文档。</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;main&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">A</span> <span class="string">job</span> <span class="string">to</span> <span class="string">deploy</span> <span class="string">blog.</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/checkout@v1</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">submodules:</span> <span class="literal">true</span> <span class="comment"># Checkout private submodules(themes or something else).</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Caching dependencies to speed up workflows. (GitHub will remove any cache entries that have not been accessed in over 7 days.)</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Cache</span> <span class="string">node</span> <span class="string">modules</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/cache@v1</span></span><br><span class="line">      <span class="attr">id:</span> <span class="string">cache</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">        <span class="attr">key:</span> <span class="string">$&#123;&#123;</span> <span class="string">runner.os</span> <span class="string">&#125;&#125;-node-$&#123;&#123;</span> <span class="string">hashFiles(&#x27;**/package-lock.json&#x27;)</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">restore-keys:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          $&#123;&#123; runner.os &#125;&#125;-node-</span></span><br><span class="line"><span class="string"></span>    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Dependencies</span></span><br><span class="line">      <span class="attr">if:</span> <span class="string">steps.cache.outputs.cache-hit</span> <span class="type">!=</span> <span class="string">&#x27;true&#x27;</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">npm</span> <span class="string">ci</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Deploy hexo blog website.</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Setup</span> <span class="string">hexo</span></span><br><span class="line">      <span class="attr">env:</span></span><br><span class="line">        <span class="attr">ACTION_DEPLOY_KEY:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.HEXO_DEPLOY_SECRET</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        mkdir -p ~/.ssh/</span></span><br><span class="line"><span class="string">        echo &quot;$ACTION_DEPLOY_KEY&quot; &gt; ~/.ssh/id_rsa</span></span><br><span class="line"><span class="string">        chmod 600 ~/.ssh/id_rsa</span></span><br><span class="line"><span class="string">        ssh-keyscan github.com &gt;&gt; ~/.ssh/known_hosts</span></span><br><span class="line"><span class="string">        git config --global user.email &quot;imesong@126.com&quot;</span></span><br><span class="line"><span class="string">        git config --global user.name &quot;imesong&quot;</span></span><br><span class="line"><span class="string">        npm install hexo-cli -g</span></span><br><span class="line"><span class="string">        npm install</span></span><br><span class="line"><span class="string"></span>    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Hexo</span> <span class="string">deploy</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        hexo clean</span></span><br><span class="line"><span class="string">        hexo generate --d</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+
+
+<ol start="2">
+<li>私有仓库要能够向公共仓库 push 代码，需要在私有仓库配置一个 secret key, 在 public repo 配置一个 deploy key</li>
+</ol>
+<ul>
+<li>使用 bash 命令，创建一个新的 ssh 秘钥<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash">ssh-keygen -f hexo-deploy-key</span></span><br></pre></td></tr></table></figure>
+命令执行成功后，会在当前文件夹下生成  <code>hexo-deploy-key</code> 和 <code>hexo-deploy-key.pub</code> 两个文件。</li>
+<li>登陆 <code>public repo</code> 在 settings 中找到 <code>Secrets</code> 新增一个 Secrets</li>
+</ul>
+<p><img src="https://img.imesong.com/2023/private_repo_add_secrets.png" alt="add sercrets"></p>
+<p>TITLE :  HEXO_DEPLOY_SECRET<br>VALUE:  <code>hexo-deploy-key</code> 中的内容</p>
+<ul>
+<li>打开 public repo, 新增一个 <code>deploy key</code></li>
+</ul>
+<p><img src="https://img.imesong.com/2023/public_repo_add_deploy_key.png" alt="deploy key"></p>
+<p>完成之后，编辑 blog ,push 之后查看 github action 执行情况</p>
+<p><img src="https://img.imesong.com/2023/github_action_bulid_hexo_blog.png"></p>
+<h2 id="多端同步"><a href="#多端同步" class="headerlink" title="多端同步"></a>多端同步</h2><ul>
+<li><p>github 备份</p>
+</li>
+<li><p>iCloud 备份</p>
+</li>
+</ul>
+<p><a href="https://zhuanlan.zhihu.com/p/119483271">https://zhuanlan.zhihu.com/p/119483271</a></p>
+<p><a href="https://github.com/HaoChuan9421/nosync-icloud">https://github.com/HaoChuan9421/nosync-icloud</a></p>
+<h2 id="多平台发布"><a href="#多平台发布" class="headerlink" title="多平台发布"></a>多平台发布</h2><p>多平台发布现在是个伪需求，当前最主要的是提高 blog 的更新频率和文章质量</p>
+<p>文章在 Obsidian 中编辑好以后，发布 hexo ，生成固定链接，然后再讲文件 copy 到 mdnice 重新排版，调整样式适合微信公众号，最后复制到微信公众号发布。</p>
+<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><h3 id="leanCloud-报错"><a href="#leanCloud-报错" class="headerlink" title="leanCloud 报错"></a>leanCloud 报错</h3><p>Q: 使用 leanCloud 统计文档的阅读次数，更新完主题后，出现 <code>Counter not initialized! See more at console err msg.</code></p>
+<p>A: 解决方案有两种，最简单的方法，设置 leanCloud 的 security 插件为 false</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">leancloud_visitors:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">app_id:</span> <span class="string">xxxx</span></span><br><span class="line">  <span class="attr">app_key:</span> <span class="string">xxxx</span></span><br><span class="line">  <span class="comment"># Required for apps from CN region</span></span><br><span class="line">  <span class="attr">server_url:</span> <span class="comment"># &lt;your server url&gt;</span></span><br><span class="line">  <span class="comment"># Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security</span></span><br><span class="line">  <span class="comment"># If you don&#x27;t care about security in leancloud counter and just want to use it directly</span></span><br><span class="line">  <span class="comment"># (without hexo-leancloud-counter-security plugin), set `security` to `false`.</span></span><br><span class="line">  <span class="attr">security:</span> <span class="literal">false</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h2><p><a href="https://zhangferry.com/2022/07/24/github_action_for_blog_deploy/">https://zhangferry.com/2022/07/24/github_action_for_blog_deploy/</a></p>
+<p><a href="https://makefile.so/2021/11/28/use-github-actions-to-deploy-hexo-blog/">https://makefile.so/2021/11/28/use-github-actions-to-deploy-hexo-blog/</a></p>
+]]></content>
+      <tags>
+        <tag>tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>obsidian</title>
+    <url>/2023/02/27/obsidian/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">尽可能简化配置，开箱即用，非必要不定制</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><input disabled="" type="checkbox"> 卡片笔记和 [[obsidian]] 结合，最佳实践</li>
+<li><input disabled="" type="checkbox"> canvas 插入到notes 中预览，无法看到节点中的文字</li>
+<li><input disabled="" type="checkbox"> Mac 原生键盘，如何输入 左上角的顿号，行内潜入 <code>代码块</code></li>
+</ul>
+<span id="more"></span>
+
+<h2 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h2><h3 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h3><p>根目录 <code>/blog/</code> 下新建目录 <code>_obsidian_template</code> 存放模板文件</p>
+<ol>
+<li>header_template , blog metadata </li>
+<li>okr-base-2023 </li>
+<li>readnotes_template</li>
+</ol>
+<h3 id="Files-amp-Links"><a href="#Files-amp-Links" class="headerlink" title="Files&amp;Links"></a>Files&amp;Links</h3><p><strong>Default location for new notes</strong>  : 根目录调整为 -&gt; Draft</p>
+<h3 id="Hotkeys"><a href="#Hotkeys" class="headerlink" title="Hotkeys"></a>Hotkeys</h3><p>自定义的快捷键</p>
+<ol>
+<li>插入模板 <code>cmd + i </code></li>
+</ol>
+<h3 id="Community-plugins"><a href="#Community-plugins" class="headerlink" title="Community plugins"></a>Community plugins</h3><ul>
+<li><p><strong>File Tree Alternative Plugin</strong>： 开箱即用</p>
+</li>
+<li><p><strong>Image Auto Upload Plugin</strong><br>  <img src="https://img.imesong.com/2023/20230404134505.png" alt="image.png"></p>
+</li>
+<li><p><strong>Tasks</strong>：调试中，开箱即用, 无特殊配置</p>
+</li>
+<li><p><strong>Advanced Table</strong>: 使用表格时，必须是在英文状态下输入 <strong>｜</strong> 才可以，在中文状态下输入，无法使用 Tab 键跳转到下个Cell</p>
+</li>
+</ul>
+<h2 id="iCloud-备份"><a href="#iCloud-备份" class="headerlink" title="iCloud 备份"></a>iCloud 备份</h2><ul>
+<li><p><strong>iCloud 目录</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">~/Library/Mobile Documents/iCloud~md~obsidian/Documents/blog</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>.zshrc 定义alias</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">alias tblog=&#x27;cd ~/Library/Mobile Documents/iCloud~md~obsidian/Documents/blog</span><br><span class="line">&#x27;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="资源管理"><a href="#资源管理" class="headerlink" title="资源管理"></a>资源管理</h2><h3 id="图片资源管理"><a href="#图片资源管理" class="headerlink" title="图片资源管理"></a>图片资源管理</h3><ol>
+<li>通过 [[PicGo]] 上传到七牛 OSS ，自建图床，本地不保留原文件</li>
+<li>手绘图原文件，包括 [[excalidraw]]、xmind 等原文件，通过 iCloud，创建单独的文件夹管理同步。这些有再次编辑、更新的可能，需要保存原文件。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>personal knowledge management</title>
+    <url>/2023/03/16/personal%20knowledge%20management/</url>
+    <content><![CDATA[<p>个人知识管理系统( <code>Personal Knowledge Management</code> )简称 <code>PKM</code> ，在搭建 PKM 之前，需要回答几个核心的问题</p>
+<ul>
+<li>知识是什么？</li>
+<li>信息、知识、技能、经验、智慧有什么区别？</li>
+<li>知识管理的目的是什么？</li>
+</ul>
+<p>一个完备的 <code>PKM</code>，包括信息的采集、处理和输出。pkm 的运行流程如下</p>
+<p><img src="https://img.imesong.com/2023/pkm-workflow-2023-03-16-1241.excalidraw.png" alt="pkm-workflow-2023-03-16-1241.excalidraw.png"></p>
+<p>在搭建 PKM 过程中，会借助各种工具，不断提高系统的效率、流畅度。</p>
+<span id="more"></span>
+
+
+<p>pkmv0.1 版本的框架如下</p>
+<p><img src="https://img.imesong.com/2023/pkm-V0.1.png" alt="pkm0.1框架"></p>
+<h2 id="采集系统"><a href="#采集系统" class="headerlink" title="采集系统"></a>采集系统</h2><p>采集系统主要用来收集信息，包括主动获取信息，被动接受信息。信息碎片化愈发严重情况下爱，一个高效的信息采集系统，能够帮助降低信息噪音，屏蔽垃圾信息。</p>
+<p>采集系统从不同维度分析，会有多种表现</p>
+<h3 id="信息获取介质"><a href="#信息获取介质" class="headerlink" title="信息获取介质"></a>信息获取介质</h3><p>信息可以通过不同的介质传播，采集系统更需要支持常见的传输介质，包括图文、音频、视频。v0.1版本只支持图文。</p>
+<h3 id="信息获取途径"><a href="#信息获取途径" class="headerlink" title="信息获取途径"></a>信息获取途径</h3><p>工作、生活中，除去睡眠时间，剩下的时间都有 iPhone、Mac 陪伴。信息时代，主要通过手机、电脑获取信息。</p>
+<p>在电脑上，习惯使用 Chrome 浏览信息，遇到感兴趣的信息，通过 Save to Notion ，收藏到 Notion 的 Inbox database 中。</p>
+<pre><code>滴答小助手2023年5月1日后，非会员不可以使用。udpate 2023年5月8日。
+</code></pre>
+<p>在 iPhone 上，主要通过微信公众号，获取自己感兴趣的东西。感兴趣的内容会分享给 <code>滴答小助手</code> ，临时存储在 <code>滴答清单</code> 的收件箱中。在其他的 App 中，如掘金，极客时间，Chrome 浏览器等，如果需要采集信息，也都是分享到 <code>滴答清单</code> ，保存在收件箱中。</p>
+<p>在公司内部，也有很多高质量的文章、博客，遇到感兴趣的，先收藏到 Chrome 的 <code>书签栏</code> ,或者保存快捷方式到个人的飞书文档空间中。</p>
+<p>信息的采集主要通过 <code>滴答小助手</code> 公众号 和 <code>Save to Notion</code> Chrome 插件。滴答小助手重点采集 iPhone 端， Chrome 插件采集 Mac 电脑端，相互配合，各有所长。</p>
+<h2 id="处理系统"><a href="#处理系统" class="headerlink" title="处理系统"></a>处理系统</h2><p>信息处理系统名字暂定 Sbrain(第二大脑)，处理系统是IPO 模型( Input→Process→Output)中的 P，是最关键的一个环节。</p>
+<p>处理系统中有几个名词，约定如下</p>
+<ul>
+<li>Info: 信息，一般指 Notion Inbox 和 滴答清单收件箱中采集的网页文章，临时的想法等，信息的内容可多可少，可大可小，没有经过个人主观的判断。一条 Info 可以产生一个 note，也可能是多个。info 和 note 是多对多的关系。</li>
+<li>Note：PKM 系统中的最小节点，具有原子性，可以自解释。</li>
+<li>Knowledge：note 的信息经过汇总、整理，可以输出为 knowledge。knowledge 在深入度、广度上有一定的要求。</li>
+<li>Project：project 是一个项目，需要经过一系列的 knowledge，持续的输出。</li>
+</ul>
+<p><img src="https://img.imesong.com/2023/pkm-process-workflow-2023-03-16-2258.excalidraw.png"></p>
+<h3 id="卡片笔记"><a href="#卡片笔记" class="headerlink" title="[[卡片笔记]]"></a>[[卡片笔记]]</h3><h2 id="输出系统"><a href="#输出系统" class="headerlink" title="输出系统"></a>输出系统</h2><p>在信息处理系统中，已经把输出的方式和流程涵盖了，输出的工具在[[写作工具箱]]中有介绍，主要包括 Notion、Obsidian、 Xmind、PicGo、Excalidraw 、MdNice等。</p>
+<p>输出平台包括</p>
+<ul>
+<li>[[source&#x2F;_posts&#x2F;hexo|个人网站 imesong.com]]</li>
+<li>微信公众号</li>
+</ul>
+<p> <strong>blog 的发布流程</strong><br> ![[source&#x2F;_posts&#x2F;hexo#^a5f3af]] </p>
+<h2 id="元数据管理"><a href="#元数据管理" class="headerlink" title="元数据管理"></a>元数据管理</h2><p>元数据的管理，主要包括三个方面</p>
+<ul>
+<li>数据备份</li>
+<li>数据格式<ul>
+<li>markdown first ，非必要，不适用其他格式</li>
+<li>尽量保留源文件，如流程图的 excalidraw ,xmind 等</li>
+</ul>
+</li>
+<li>数据存储<ul>
+<li>local first ,本地具有完全的数据权限，能够离线使用。</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h3><p>源文件备份在两个地方</p>
+<ul>
+<li>iCloud</li>
+<li>github 私人仓库</li>
+</ul>
+<p>访问源文件的设备包括个人设备（Mac&#x2F;iPad&#x2F;iPhone）和公司 Mac 办公电脑</p>
+<ul>
+<li>个人设备：具有iCloud、github 完整的数据读写访问权限</li>
+<li>公司Mac办公电脑：<del>不可以访问 iCloud</del>，现在可以访问 iCloud（update 20230401），具有github私人仓库的读写权限</li>
+</ul>
+<p><img src="https://img.imesong.com/2023/pkm-backup-2023-03-16-2258.excalidraw.png" alt="数据备份多端同步"></p>
+]]></content>
+      <tags>
+        <tag>pkm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>say bye 2021</title>
+    <url>/2022/03/05/say%20bye%202021/</url>
+    <content><![CDATA[<p>💡  进入宇宙厂将近一年的时间（2021&#x2F;05-2022&#x2F;04）,在这一年中，外部和内部环境都发生很大的变化，学习了很多新的知识，接触了一些之前未曾了解过的领域，最近业务又有调整，刚好有一段时间的空窗期，借此机会总结下过去一年的工作，希望未来能够做的越来越好。</p>
+<span id="more"></span>
+
+
+<blockquote>
+</blockquote>
+<h2 id="工作方式"><a href="#工作方式" class="headerlink" title="工作方式"></a>工作方式</h2><p>扁平化的工作方式，很多事情需要自己主动推动，争取落地的资源。每个人都有自己的 OKR，在工作中如何获其他同学的支持，成为事情能否顺利推进的关键。</p>
+<h2 id="OKR-全新的目标-amp-绩效管理工具"><a href="#OKR-全新的目标-amp-绩效管理工具" class="headerlink" title="OKR 全新的目标&amp;绩效管理工具"></a>OKR 全新的目标&amp;绩效管理工具</h2><p>主动规划，注重承诺，言出必行，使命必达。</p>
+<p>团结同学，把事情做好。</p>
+<h2 id="Do-by-yourself"><a href="#Do-by-yourself" class="headerlink" title="Do by yourself"></a>Do by yourself</h2><p>需要投入到具体的 coding 工作，对接需求，讨论需求细节</p>
+<h2 id="技术-Owner"><a href="#技术-Owner" class="headerlink" title="技术 Owner"></a>技术 Owner</h2><p>技术负责人，涵盖需求前期的对接到需求线上数据观察全流程。</p>
+<h2 id="专业能力"><a href="#专业能力" class="headerlink" title="专业能力"></a>专业能力</h2><ul>
+<li>移动端的业务开发能力</li>
+<li>前端领域的业务开发能力</li>
+<li>业务能力，业务分析和分解能</li>
+</ul>
+<h2 id="综合能力"><a href="#综合能力" class="headerlink" title="综合能力"></a>综合能力</h2><ul>
+<li>沟通协作</li>
+<li>学习能力</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>summary</tag>
+        <tag>2021</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>say bye 2022</title>
+    <url>/2023/03/01/say%20bye%202022/</url>
+    <content><![CDATA[<p>2022 已经过去一个双月，最近完成公司 2022 年度（2022&#x2F;3-2023&#x2F;2）的 360 。过去一年好似发生了很多、经历了很多，在总结时，又发现没有啥收获，不知道都做了什么。</p>
+<p>不念过往、不惧将来</p>
+<span id="more"></span>
+
+
+<h2 id="工作感受"><a href="#工作感受" class="headerlink" title="工作感受"></a>工作感受</h2><ol>
+<li>专业技能边界有扩展，熟悉了前端的技术栈，掌握公司内部的跨端开发框架Lynx，能够完成基础的跨端业务开发</li>
+<li>客户端的开发技能基本无变化，把之前忘记的东西捡回来了一些</li>
+<li>架构设计能力、性能优化、解决疑难问题的经验，有收获但不成系统</li>
+</ol>
+<h2 id="个人心态"><a href="#个人心态" class="headerlink" title="个人心态"></a>个人心态</h2><ol>
+<li>真实的面对个人的感受，包括负向的反馈：焦虑、烦躁、自卑等</li>
+<li>抗压能力，过压时要学会反馈，请求帮助</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>summary</tag>
+        <tag>2022</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>导出正确的照片时间</title>
+    <url>/2023/04/16/%E5%A6%82%E4%BD%95%E5%AF%BC%E5%87%BA%E7%85%A7%E7%89%87%E7%9A%84%E6%8B%8D%E7%85%A7%E6%97%B6%E9%97%B4/</url>
+    <content><![CDATA[<p>在备份几年前的旧照片到 iCloud 时，发现导入照片在 iCloud 上的时间线有误，显示为照片的导入时间，而非照片的拍摄时间。<br>照片在拍摄时，有一些元信息存储在 <a href="https://zh.wikipedia.org/wiki/Exif">Exif</a> 中，包括拍摄时间、拍摄时间等。在导入 iCloud 时，希望根据照片的拍摄时间进行显示，这样在看到照片时，能够回忆起拍摄时的场景。</p>
+<span id="more"></span>
+
+<h2 id="安装-jhead"><a href="#安装-jhead" class="headerlink" title="安装 jhead"></a>安装 jhead</h2><p><a href="https://www.sentex.ca/~mwandel/jhead/usage.html">jhead</a> 是一个可以编辑图片元信息到命令行工具。</p>
+<blockquote>
+<p>Jhead is a command line driven program for manipulating the non-image parts of <strong>Exif</strong> flavour JPEG files that most digital cameras produce.</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">brew install jhead</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>Things jhead can extract from an Exif jpeg file</strong></p>
+<ul>
+<li>Time and date picture was taken</li>
+<li>Camera make and model</li>
+<li>Integral low-res Exif thumbnail</li>
+<li>Shutter speed</li>
+<li>Camera F-stop number</li>
+<li>Flash used (yes&#x2F;no)</li>
+<li>Distance camera was focused at</li>
+<li>Focal length and calculate 35 mm equivalent focal length</li>
+<li>Image resolution</li>
+<li>GPS info, if stored in image</li>
+<li>IPTC header</li>
+<li>XMP data</li>
+</ul>
+<p><strong>Things jhead can modify in an exif jpeg file</strong></p>
+<ul>
+<li>Up-right images according to rotation tag using jpegtran</li>
+<li>Set or relative adjust internal exif timestamps</li>
+<li>Fix date &#x2F; time offsets in large batches of images</li>
+<li>Re-name or date stamp files according to exif timestamp</li>
+<li>Transfer exif headers between images</li>
+<li>Replace thumbnails inside Exif headers</li>
+<li>Edit jpeg comments (but not the Exif comments)</li>
+<li>Delete exif or comment sections from jpeg images</li>
+<li>Create new minimal exif header containing date and thumbnail</li>
+</ul>
+<h2 id="查看照片Exif-信息"><a href="#查看照片Exif-信息" class="headerlink" title="查看照片Exif 信息"></a>查看照片Exif 信息</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">jhead 招生信息.jpeg</span><br><span class="line"></span><br><span class="line">➜  Downloads jhead 招生信息.jpeg</span><br><span class="line">File name    : 招生信息.jpeg</span><br><span class="line">File size    : 5164623 bytes</span><br><span class="line">File date    : 2023:03:11 16:17:36</span><br><span class="line">Resolution   : 1024 x 12091</span><br><span class="line">JPEG Quality : 100</span><br><span class="line">Comment      : &#123;&quot;data&quot;:&#123;&quot;activityName&quot;:&quot;&quot;,&quot;imageEffectId&quot;:&quot;&quot;,&quot;filterId&quot;:&quot;&quot;,&quot;product&quot;:&quot;retouch&quot;,&quot;pictureId&quot;:&quot;640AB745-0641-415C-94C3-9F01C11E009A&quot;,&quot;infoStickerId&quot;:&quot;&quot;,&quot;playld&quot;:&quot;&quot;,&quot;stickerId&quot;:&quot;&quot;,&quot;appversion&quot;:&quot;7.2.0&quot;,&quot;os&quot;:&quot;ios&quot;&#125;,&quot;source_type&quot;:&quot;douyin_beauty_me&quot;&#125;</span><br><span class="line">======= IPTC data: =======</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="修改照片时间"><a href="#修改照片时间" class="headerlink" title="修改照片时间"></a>修改照片时间</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">jhead -ft xxx.jpg</span><br><span class="line"></span><br><span class="line">// 也可以对当前文件夹下的所有文件修改</span><br><span class="line">jhead -ft *.jpg</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Exif-信息"><a href="#Exif-信息" class="headerlink" title="Exif 信息"></a><a href="https://zh.wikipedia.org/wiki/Exif">Exif</a> 信息</h2><p>Exchangeable image file format: 可交换图像文件，记录数码相机照片的元信息，包括属性信息和拍摄数据。</p>
+<table data-draft-node="block" data-draft-type="table" data-size="normal" data-row-style="striped"><tbody><tr><th>标签号</th><th>Exif 定义名</th><th>中文定义名</th><th>备注</th></tr><tr><td>0x010E</td><td>ImageDescription</td><td>图像描述</td><td></td></tr><tr><td>0x013B</td><td>Artist</td><td>作者</td><td></td></tr><tr><td>0x010F</td><td>Make</td><td>生产商</td><td></td></tr><tr><td>0x0110</td><td>Model</td><td>型号</td><td>相机型号</td></tr><tr><td>0x0112</td><td>Orientation</td><td>方向</td><td></td></tr><tr><td>0x011A</td><td>XResolution</td><td>水平方向分辨率</td><td></td></tr><tr><td>0x011B</td><td>YResolution</td><td>垂直方向分辨率</td><td></td></tr><tr><td>0x0128</td><td>ResolutionUnit</td><td>分辨率单位</td><td></td></tr><tr><td>0x0131</td><td>Software</td><td>软件</td><td>固件 Firmware 版本或者编辑软件</td></tr><tr><td>0x0132</td><td>DateTime</td><td>日期和时间</td><td>照片最后修改时间</td></tr><tr><td>0x0213</td><td>YCbCrPositioning</td><td>YCbCr 定位</td><td></td></tr><tr><td>0x8769</td><td>ExifOffset</td><td>Exif 子 IFD 偏移量</td><td></td></tr><tr><td>0x829A</td><td>ExposureTime</td><td>曝光时间</td><td>快门速度</td></tr><tr><td>0x829D</td><td>FNumber</td><td>光圈系数</td><td>光圈的 F 值</td></tr><tr><td>0x8822</td><td>ExposureProgram</td><td>曝光程序</td><td>自动曝光、光圈优先、快门优先、M 档等</td></tr><tr><td>0x8827</td><td>ISOSpeedRatings</td><td>ISO 感光度</td><td></td></tr><tr><td>0x9000</td><td>ExifVersion</td><td>Exif 版本</td><td></td></tr><tr><td>0x9003</td><td>DateTimeOriginal</td><td>拍摄时间</td><td>照片拍摄时间</td></tr><tr><td>0x9004</td><td>DateTimeDigitized</td><td>数字化时间</td><td>照片被写入时间</td></tr><tr><td>0x9204</td><td>ExposureBiasValue</td><td>曝光补偿</td><td></td></tr><tr><td>0x9205</td><td>MaxApertureValue</td><td>最大光圈</td><td></td></tr><tr><td>0x9207</td><td>MeteringMode</td><td>测光模式</td><td>平均测光、中央重点测光、点测光</td></tr><tr><td>0x9208</td><td>Lightsource</td><td>光源</td><td>一般记录白平衡</td></tr><tr><td>0x9209</td><td>Flash</td><td>闪光灯</td><td>闪光灯状态</td></tr><tr><td>0x920A</td><td>FocalLength</td><td>镜头焦距</td><td>镜头物理焦距</td></tr><tr><td>0x927C</td><td>MakerNote</td><td>厂商注释</td><td></td></tr><tr><td>0x9286</td><td>UserComment</td><td>用户注释</td><td></td></tr><tr><td>0xA000</td><td>FlashPixVersion</td><td>FlashPix 版本</td><td></td></tr><tr><td></td><td>ColorSpace</td><td>色彩空间</td><td>AdobeRGB、sRGB 等</td></tr><tr><td></td><td>ExifImageWidth</td><td>图像宽度</td><td></td></tr><tr><td>0xA003</td><td>ExifImageLength</td><td>图像高度</td><td></td></tr><tr><td>0xA433</td><td>LensMake</td><td>镜头生产商</td><td></td></tr><tr><td>0xA434</td><td>LensModel</td><td>镜头型号</td><td></td></tr></tbody></table>]]></content>
+      <tags>
+        <tag>tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>烈日下的一把火</title>
+    <url>/2020/08/24/%E7%83%88%E6%97%A5%E4%B8%8B%E7%9A%84%E4%B8%80%E6%8A%8A%E7%81%AB/</url>
+    <content><![CDATA[<blockquote>
+<p>公司新入职的技术中心负责人，刚入职三天，在管理层的例会上，给大家分享了未来的工作规划。在此分享给大家，一起学习。</p>
+</blockquote>
+<p><img src="http://img.imesong.com/2020/08/%E7%83%88%E6%97%A5%E4%B8%8B%E7%9A%84%E4%B8%80%E6%8A%8A%E7%81%AB.png" alt="烈日下的一把火"></p>
+<h3 id="目前存在的问题"><a href="#目前存在的问题" class="headerlink" title="目前存在的问题"></a>目前存在的问题</h3><h4 id="管理流程"><a href="#管理流程" class="headerlink" title="管理流程"></a>管理流程</h4><ul>
+<li>研发管理流程缺少精细化的管理和度量，一线团队缺少自我迭代改进的文化机制和土壤。</li>
+<li>需求标准规范缺失,需求逻辑质量和目标质量不明确，经常有返工,需求效果不透明没跟踪。</li>
+<li>研发约束少，被动式开发，代码准入复查缺失，工程师文化缺乏，开发提测质量差。</li>
+<li>保姆式测试，被动接受任务，手工测试占据90%以上工作，可替代性太强，测试人效比比较低(1:4)。</li>
+<li>运维规范流程尚不健全,规范化逐步进行，自动化以及平台化尚未起步，手工运维占据90%以上工作。</li>
+</ul>
+<p><strong>评注：这五个问题可以归为两类，人的问题和制度的问题</strong></p>
+<ul>
+<li><p>人的问题：1 的后半句，和第 3 项、第 4 项 ，“老白兔”太多了，是人员自我升级不及时，同时人员流动性较差，导致新鲜血液不能及时补充</p>
+</li>
+<li><p>制度的问题：其他几项，可以理解为，项目管理的各个环节，缺少精细化的管控，各项数据的度量，对项目生命周期的各个阶段无法准去评估。</p>
+<span id="more"></span></li>
+</ul>
+<h4 id="基础设施建设"><a href="#基础设施建设" class="headerlink" title="基础设施建设"></a>基础设施建设</h4><ul>
+<li>缺少研发团队效能度量大盘，研发过程数据基本没有采集，很难给各个团队一个持续改进数据基础。</li>
+<li>项目和需求管理信息化尚不健全,从目标到需求开发上线贯穿打透。</li>
+<li>测试平台基本没有积累，产出靠堆人。</li>
+<li>运维工具化初步建设中，还没有体系化和平台化。</li>
+<li>基础架构存在感和产出还很弱，业务认可度不高，移动端一些技术赋能，核心指标优化刚启动。</li>
+<li>整体研发架构服务化拆分和服务治理基础设施基本没有（日志进行统一，但应用内日志尚没有标准化和统一）,服务限流熔断降级的基本没有。</li>
+<li>基础设施和中台运营能力弱，资源分散运营不同统一，中台是技术平台，更是强运营，要深入一线业务生产帮助业务优化架构和服务化重构。</li>
+</ul>
+<p><strong>评注：量化、统一</strong></p>
+<ol>
+<li>量化之后，将整个系统链路上的相关人员工具化，只需要提高各自模块的指标和数据即可</li>
+<li>统一，提高中心的控制力，同时降低复杂度</li>
+</ol>
+<h4 id="人才升级"><a href="#人才升级" class="headerlink" title="人才升级"></a>人才升级</h4><ul>
+<li>架构人才要精兵强将，要有大型项目服务化治理的经验，阿里的P7以上，要深入一线生产进行架构治理和重构。</li>
+<li>普通开发人才要贯穿工程师文化，要有效率意识和质量意识和工具文化，要对自己代码质量负责(低级和重复的问题必须收到惩罚)，要主动挑战业务需求和结果。</li>
+<li>测试人才要部分转型为业务专家，测试必须是要比研发更懂业务，要站在用户的角度去主动提前完善产品需求的不足(测试左移右移)，要主动去跟踪需求上线以后的数据度量效果和反馈改进建议。</li>
+<li>测试转型为测试专项领域的技术专家，在公司成立中台测试专项技术研究组，如全链路压测，性能测试，app云测等等。</li>
+<li>所有运维都要逐步升级为有开发能力和业务紧迫感的开发者，从自动化脚本开始，逐步升级为合格的云开发，基础设施逐步云化下沉后，运维开发将承担越来越重要的角色。</li>
+</ul>
+<p><strong>评注：一切问题，归根结底都是人的问题</strong><br>万里江山万里尘，一朝天子一朝臣，又是一场血雨腥风，关键是，当事人有没有能力主动选择。</p>
+<h4 id="全局规划，业务-sense，闭环思维"><a href="#全局规划，业务-sense，闭环思维" class="headerlink" title="全局规划，业务 sense，闭环思维"></a>全局规划，业务 sense，闭环思维</h4><h3 id="改进方案：降本增效提质，架构升级"><a href="#改进方案：降本增效提质，架构升级" class="headerlink" title="改进方案：降本增效提质，架构升级"></a>改进方案：降本增效提质，架构升级</h3><h4 id="敏捷文化，工程师文化落地"><a href="#敏捷文化，工程师文化落地" class="headerlink" title="敏捷文化，工程师文化落地"></a>敏捷文化，工程师文化落地</h4><ul>
+<li>scrum+xp+看板实践，一线研发团队自改进自优化,持续迭代，持续进步，逐步量变积累到质变。</li>
+<li>研发效能度量体系驱动持续改进。</li>
+<li>研发质量提升3倍以上，测试开发比达到1：7，测试开发时间比达到1：4以上,迭代吞吐量上升30%，迭代计划完成率95%以上；平局需求交付时长缩短30%以上。</li>
+</ul>
+<h4 id="提升研发中台平台化和运营能力"><a href="#提升研发中台平台化和运营能力" class="headerlink" title="提升研发中台平台化和运营能力"></a>提升研发中台平台化和运营能力</h4><ul>
+<li>整合测试开发，运维开发以及基础架构承载研发中台使命，集中开发资源，从开发测试运维全局角度做整体规划和优先级排序。</li>
+<li>以应用为中心做全局设计，从应用创建规范，app应用可视化编排(app工厂),应用代码提交，应用交付流水线，应用启动运行统一监控告警，应用日志统一采集分发存储，应用下架资源回收和依赖整理告警等。</li>
+<li>中台不仅是工具平台，更是流程和文化，成立专门的运营组负责推进整体落地，并且持续迭代改进业务需求。</li>
+<li>移动端增强技术赋能，逐步提升移动端app标准的核心指标,如app启动速度，首页速度,crash率,耗电，包体积，马甲包交付速度，热升级等各个业内标准实践。</li>
+</ul>
+<h4 id="各角色的人才升级"><a href="#各角色的人才升级" class="headerlink" title="各角色的人才升级"></a>各角色的人才升级</h4><h4 id="架构升级，精细化管理降低it成本"><a href="#架构升级，精细化管理降低it成本" class="headerlink" title="架构升级，精细化管理降低it成本"></a>架构升级，精细化管理降低it成本</h4><ul>
+<li>业务应用逐步云化架构，应用上云是为了让应用符合无状态，自动动态扩容收容,有效降低it运维成本。</li>
+<li>以应用为中心梳理每个应用使用多少cpu，多少内存，多少存储等，对it成本有更精细化的分析和计算。</li>
+<li>加强和阿里云谈判，现阶段是85折，整体千万级应用成本理论上可以拿到5折以下，总的来说通过商务手段和技术升级，能将it成本降低30%。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>电商行业知识</title>
+    <url>/2023/03/18/%E7%94%B5%E5%95%86%E8%A1%8C%E4%B8%9A%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<p>电商是一个比较复杂的业务 ，电商行业的模型，在各个公司、各个阶段表现不一样。电商业务的参与者，围绕着 <strong>人-货-场</strong>  解决各个域的问题。</p>
+<p><img src="https://img.imesong.com/2023/ecommerce-model-1-2023-03-18-1109.excalidraw.png"></p>
+<span id="more"></span>
+
+
+
+
+<h2 id="人（流量供给）"><a href="#人（流量供给）" class="headerlink" title="人（流量供给）"></a>人（流量供给）</h2><p>货最终是要卖给人的。没有流量（人），货就没有去向。<br>为什么说阿里电商是流量的黑洞呢？</p>
+<h2 id="货（商品供给）"><a href="#货（商品供给）" class="headerlink" title="货（商品供给）"></a>货（商品供给）</h2><p>商家、商品端，包括供应链、物流等，都是围绕 B 端提供服务。</p>
+<h2 id="场"><a href="#场" class="headerlink" title="场"></a>场</h2><p>人 与 货 产生关联的地方。<br>在场中，达成人、货交易。</p>
+<h2 id="货架电商"><a href="#货架电商" class="headerlink" title="货架电商"></a>货架电商</h2><p>货架，类似大卖场，商品固定在各个场景中，人在其中浏览、逛、搜索，最终找到想要商品。大卖场里会有不同的专区，有折扣区、会员区、品牌区等。</p>
+<h2 id="直播电商"><a href="#直播电商" class="headerlink" title="直播电商"></a>直播电商</h2><p>直播电商，也是一种场，本质上没有区别，只是在人-货建立关系方式上发生了些许差异。直播场景会提供多种货触达人的方式。通过主播讲解、小黄车、讲解卡、福袋、各种直播道具等。在货架场景，也有货找人的方式，如推送、短信召回，但效率、转换率没有直播高。</p>
+<p>线下卖场中，有些商品区域(牛奶、生鲜等)会有推销员介绍一些新品、打折促销活动等。这些场景，和直播电商有类似的功能，主动提供 货-&gt;人的方式，互动性也比较强。</p>
+<h2 id="电商指标体系"><a href="#电商指标体系" class="headerlink" title="电商指标体系"></a>电商指标体系</h2><h3 id="GDP"><a href="#GDP" class="headerlink" title="GDP"></a>GDP</h3><p>国内生产总值<br><img src="https://img.imesong.com/2023/20230326181525.png" alt="image.png"><br>反应一个国家的综合经济能力，中国 100 万亿人民币，非中国家合计 500 万亿人民币，数据来自<a href="https://data.worldbank.org.cn/country/china?view=chart">2022年世界银行统计</a></p>
+<h3 id="社会消费品零售总额：GDP-社零占比"><a href="#社会消费品零售总额：GDP-社零占比" class="headerlink" title="社会消费品零售总额：GDP * 社零占比"></a>社会消费品零售总额：GDP * 社零占比</h3><h5 id="社会消费品零售总额"><a href="#社会消费品零售总额" class="headerlink" title="社会消费品零售总额"></a>社会消费品零售总额</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">指企业（单位、个体户）通过交易直接售给个人、社会集团非生产、非经营用的实物商品金额，以及提供餐饮服务所取得的收入金额。个人包括城乡居民和入境人员，社会集团包括机关、社会团体、部队、学校、企事业单位、居委会或村委会等。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://img.imesong.com/2023/20230326180720.png" alt="2016-2022年中国社会消费品零售总额，数据来自国家统计局"><br>以上数据来自<a href="http://www.gov.cn/shuju/hgjjyxqk/xiangqing/tcg.html">国家统计局</a> 官方网站</p>
+<h4 id="社零占比"><a href="#社零占比" class="headerlink" title="社零占比"></a><a href="http://www.gov.cn/xinwen/2022-05/21/content_5691590.htm">社零占比</a></h4><blockquote>
+<p>新华社北京5月20日电（记者 谢希瑶、王雨萧）这十年，我国扩内需促消费取得新进展，消费模式不断创新，网络零售市场发展壮大。2021年全国网上零售额13.1万亿元，比2012年增长9倍。2021年实物商品网上零售额10.8万亿元，占社零总额比重达**24.5%**，规模居世界第一。</p>
+</blockquote>
+<h3 id="电商收入"><a href="#电商收入" class="headerlink" title="电商收入"></a>电商收入</h3><p>电子商务的收入 &#x3D; 社会消费品零售总额 * 货币化率</p>
+<h4 id="货币化率"><a href="#货币化率" class="headerlink" title="货币化率"></a>货币化率</h4><ul>
+<li>中国 30%</li>
+<li>其他国家 10%-30% 不等</li>
+</ul>
+<h2 id="电商变现方式"><a href="#电商变现方式" class="headerlink" title="电商变现方式"></a>电商变现方式</h2><ul>
+<li>会员费（用户）</li>
+<li>消费贷（用户）</li>
+<li>佣金（商家）</li>
+<li>广告（商家）</li>
+<li>物流配送（商家）</li>
+<li>支付（商家）</li>
+<li>商家融资（商家）</li>
+<li>仓储（商家）</li>
+<li>供应链提效（商家、生产商）</li>
+<li>App Store 分成（开发者）</li>
+</ul>
+<h2 id="电商行业玩家"><a href="#电商行业玩家" class="headerlink" title="电商行业玩家"></a>电商行业玩家</h2><ul>
+<li>Amazon</li>
+<li>Alibaba</li>
+<li>JingDong</li>
+<li>PinDuoDuo</li>
+<li>eBay</li>
+<li>SheIn</li>
+<li>Shoppe</li>
+<li>Lazada</li>
+<li>AliExpress</li>
+<li>Coupang</li>
+</ul>
+<h2 id="业务指标"><a href="#业务指标" class="headerlink" title="业务指标"></a>业务指标</h2><h3 id="GMV"><a href="#GMV" class="headerlink" title="GMV"></a>GMV</h3><p>**GMV &#x3D; PV * CTR * C_O * AOV </p>
+<pre><code>= 用户量* ARPU
+= 流量 * 转化率 * 客单价
+</code></pre>
+<p>PV：流量供给<br>CTR：货的供给、场的转化率、<br>AOV： Average order value ,平均订单价值，客单价</p>
+<h3 id="UV-转化率"><a href="#UV-转化率" class="headerlink" title="UV 转化率"></a>UV 转化率</h3><h3 id="流量供给"><a href="#流量供给" class="headerlink" title="流量供给"></a>流量供给</h3><ul>
+<li><p>UV、PV</p>
+</li>
+<li><p>DAU</p>
+</li>
+<li><p>DAC</p>
+</li>
+<li><p>电商渗透率  DAC&#x2F;DAU</p>
+</li>
+<li><p>LTV </p>
+</li>
+<li><p>RPD</p>
+</li>
+<li><p>转化率</p>
+<ul>
+<li>CTR</li>
+<li>CVR</li>
+</ul>
+</li>
+<li><p>复购率</p>
+</li>
+<li><p>补贴率</p>
+</li>
+<li><p>NPS: 净推荐值，评价用户忠诚度</p>
+</li>
+</ul>
+<h2 id="业务知识"><a href="#业务知识" class="headerlink" title="业务知识"></a>业务知识</h2><h3 id="SKU"><a href="#SKU" class="headerlink" title="SKU"></a>SKU</h3><p><strong>Stock Keeping Unit ,物理上不可分割的最小存货单元。</strong></p>
+<blockquote>
+<p>SKU：土豪金 16G 苹果 6（商品的不可分割的最小单元）。</p>
+</blockquote>
+<h3 id="SPU"><a href="#SPU" class="headerlink" title="SPU"></a>SPU</h3><p><strong>Standard Product Unit ,商品聚合信息的最小单元，是一组可复用、易检索的标准化信息的集合，描述一个产品的特性。</strong></p>
+<blockquote>
+<p>SPU: 苹果15（商品聚合信息的最小单位），手机→苹果手机→苹果 15，苹果 15 就是 SPU。</p>
+</blockquote>
+<ul>
+<li>CPC: cost per click, 按点击付费。</li>
+<li>CPA: cost per action, 按行为、效果付费，单个下载、激活的成本。</li>
+<li>CPM : cost per mille , 按千次曝光付费。比较常见的推广方式，99元&#x2F;CPM, 每 1000 个用户看见推广的广告，需要给推广商 99 块。可以有效的增加曝光率。</li>
+<li>CPS: cost per sales , 通过实际销售量进行收费，比较适合购物类 App 推广</li>
+<li>CPT: cost per time , 通过时间进行收费，类似包月。</li>
+<li>LTV：LTV_30,LTV_all，用户生命周期价值，一般会带上时间限制。如 30 天内用户产生的价值。</li>
+<li>CAC：customer acquisition cost, 用户获取成本，广告场景下等同于 CPA</li>
+<li>PBP：payback period ，投资回收期，指从项目投建之日起，用项目的净收益偿还原始投资所需的时间。</li>
+<li>ROI: 投资回报率</li>
+</ul>
+<h3 id="流量成本"><a href="#流量成本" class="headerlink" title="流量成本"></a>流量成本</h3><ul>
+<li>货架电商和直播电商的获客成本，哪个更高？</li>
+</ul>
+<p>直播电商是一种新的营销方式？</p>
+<ul>
+<li>提高营销的效率</li>
+<li>降低成本</li>
+</ul>
+<blockquote>
+<p>个人思考</p>
+</blockquote>
+<p><strong>电商的本质是交易</strong><br>用户拥有的金钱、时间、经历 -&gt; 商家的货品、服务</p>
+<h3 id="电商系统的三个核心"><a href="#电商系统的三个核心" class="headerlink" title="电商系统的三个核心"></a>电商系统的三个核心</h3><p><strong>信息流</strong><br>信息发布、信息流转、信息交换的全过程。<br>商品信息的流转，商家 -&gt; 平台 -&gt; 用户；用户决策信息流转，用户 -&gt; 平台 -&gt; 商家。</p>
+<p><strong>资金流</strong><br>消费者将钱给到商家的过程，为了解决信任感问题，引入担保交易模式，包括退还等逆向流程。以及在基础交易之上的分佣、分账、出资等</p>
+<p><strong>物流</strong><br>商品的流转，将物权从商家转移到消费者手中。跨境物流包括报关、出关、报税等流程。</p>
+<h3 id="商品"><a href="#商品" class="headerlink" title="商品"></a>商品</h3><p><strong>商品的描述</strong></p>
+<h2 id="正向交易"><a href="#正向交易" class="headerlink" title="正向交易"></a>正向交易</h2><p>转化率相关</p>
+<ul>
+<li>加购率</li>
+<li>立购率</li>
+<li>提单率</li>
+<li>地址页</li>
+<li>支付率</li>
+<li>创单率</li>
+</ul>
+<p>全链路的转化指标</p>
+<p>UG 场景下，影响提单页转化率的核心因素是邮费，是否包邮？商品价格反而不敏感</p>
+<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><ul>
+<li><input disabled="" type="checkbox"> 拼多多为什么没有购物车？</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>okr</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>终身幼儿园</title>
+    <url>/2021/10/02/%E7%BB%88%E8%BA%AB%E5%B9%BC%E5%84%BF%E5%9B%AD/</url>
+    <content><![CDATA[<p>💡 Scratch 创始人，MIT 媒体实验室学习研究教授，乐高教育全球董事，乐高教育理念奠基人之一。</p>
+<span id="more"></span>
+
+
+
+<h2 id="创造性学习"><a href="#创造性学习" class="headerlink" title="创造性学习"></a>创造性学习</h2><p>现在的小学生，大概有2&#x2F;3会在将来从事目前尚未发明出来的工作。要想在变化如此快速的世界蓬勃发展，创造性地思考和行动的能力变得前所未有的重要。</p>
+<h2 id="从-A-型人到-X-型人"><a href="#从-A-型人到-X-型人" class="headerlink" title="从 A 型人到 X 型人"></a>从 A 型人到 X 型人</h2><ul>
+<li>A 型：墨守成规、循规蹈矩、执行、顺从</li>
+<li>X 型：创造性、开放型</li>
+</ul>
+<h2 id="像幼儿园那样学习"><a href="#像幼儿园那样学习" class="headerlink" title="像幼儿园那样学习"></a>像幼儿园那样学习</h2><p>世界上第一家幼儿园—&gt; 玛丽亚·蒙台梭利</p>
+<aside>
+💡 当弗里德里希·福禄贝尔于1837年在德国开办了世界上第一家幼儿园时，它不单单是一所幼儿的学校，更是一种与以前的学校教育截然不同的教育方式
+
+</aside>
+
+<p><img src="https://img.imesong.com/2023/%E7%BB%88%E8%BA%AB%E5%B9%BC%E5%84%BF%E5%9B%AD%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%BC%8F.png" alt="创造性学习螺旋.png"></p>
+<h2 id="4P-学习理论"><a href="#4P-学习理论" class="headerlink" title="4P 学习理论"></a>4P 学习理论</h2><ul>
+<li>Project:创建项目是Scratch社区的核心活动。当MahoAshley使用Scratch的时候，她不断地创建项目，并不断地通过创造性学习螺旋，深入了解了创造过程。</li>
+<li>Passion:当人们致力于自己关切的项目时，常常愿意花更多的时间，更加努力地工作</li>
+<li>Peer: 人们合作、分享并建构彼此的作品</li>
+<li>Play: 有趣的实验来培养年轻人的创造力，鼓励他们冒险尝试新事物</li>
+</ul>
+<h2 id="创造力是什么，不是什么"><a href="#创造力是什么，不是什么" class="headerlink" title="创造力是什么，不是什么"></a>创造力是什么，不是什么</h2><p>对创造力的误解</p>
+<ul>
+<li>创造力只是一种艺术表达</li>
+<li>只有一小部分人有创造力</li>
+<li>创造力来源于洞察力</li>
+<li>创造力无法被教授</li>
+</ul>
+<p>创造力来源于某一类别的艰苦工作，那综合了好奇的探索、有趣的实验和系统的调查。新想法和新见解看起来就像是闪电般突然出现的，但它们通常发生在想象、创造、游戏、分享和反思的许多个周期之后，也就是在经历了创造性学习螺旋的多次迭代之后才会出现。</p>
+<p>所有孩子与生俱来都具有创造的潜能，但是他们的创造力并不一定能够自行发展，而是需要培养、鼓励和支持。</p>
+<h1 id="Project"><a href="#Project" class="headerlink" title="Project"></a>Project</h1><p>项目是 创造性学习的基本单位，是体验和参与创造性学习的全新途径。当孩子沉浸在项目的创造和制作中时，才有机会成长为创造型思考者。</p>
+<p>通过创造来学习，Learning by doing。</p>
+<p>🤵🏼‍♂️西蒙·派珀特（Seymour Papert）</p>
+<ol>
+<li>计算机不是教师的替代品，而是一种新的表达手段，一种制造事物的新工具</li>
+<li>在学习编程的过程中，孩子们“既获得了一种对最现代、最强大的技术的掌控感，又与科学、数学以及知识模型建构艺术的一些最深刻思想建立了密切的联系”</li>
+<li>编程是一种流畅的表达方式</li>
+</ol>
+<p><strong>如何判断哪些玩具对你的孩子好呢？</strong></p>
+<ul>
+<li>不要问这个玩具能为你的孩子做些什么，要问你的孩子能拿这个玩具做些什么。</li>
+<li>和能够思考的玩具相比，能引人思考的玩具才是我的兴趣所在。如果孩子们可以用这个玩具去想象和创造他们自己的项目，让自己沉浸在创造性学习螺旋中，那么这就是能让我感到兴奋的好玩具。</li>
+</ul>
+<p>写作和编程都是一种表达方式，是与他人交流思想的方法</p>
+<p>表达得更流畅，无论是通过写作还是通过编程，都可以帮助你开发思维，发出自己的声音，并培养你的身份认同感。</p>
+<h1 id="Passion"><a href="#Passion" class="headerlink" title="Passion"></a>Passion</h1><p>兴趣和内在动机才是创造力和长期坚持的关键，教育不是灌满一桶水，而是点燃一把火。</p>
+<p>低地板、高天花板、宽围墙</p>
+<p>当人们从事自己感兴趣的项目时，他们会更加积极，愿意投入更多的时间，付出更多的努力。不止如此，热情和动力让他们更有可能迸发出新的想法，发展出新的思维方式。</p>
+<p>最好的学习经历包括了沉浸和反思相互交替的阶段，热情是驱动“沉浸－反思”循环的燃料。</p>
+<p>奖励可以带来短期的提升，就像咖啡因的刺激可以让你多坚持几个小时一样。但这种影响会逐渐消失，更糟糕的是，这会降低一个人继续从事这个项目的长期动力</p>
+<p><strong>个性化学习</strong></p>
+<p>我希望学习者能对自己的学习方式、学习内容、学习时间和学习地点有更多的控制权。当学习者拥有更多的选择和控制权时，学习就可以建立在兴趣和热情的基础上，从而变得更加个人化，更有动力，也更有意义。</p>
+<h1 id="Peer"><a href="#Peer" class="headerlink" title="Peer"></a>Peer</h1><p>大多数思考过程都是跟他人联系在一起的；我们互相分享想法，从同伴哪里得到反馈，相互借鉴彼此的灵感。</p>
+<p>共创—&gt;</p>
+<p>社区应该怎么做？？？</p>
+<p>当人们感到周围的同伴在关心、尊重自己时，他们就更有可能去尝试新事物、承担风险，而风险是创造过程中必不可少的一部分。</p>
+<p>好的老师需要扮演的四种角色</p>
+<ul>
+<li>催化剂：通过提问，激发学生的想象力、创造性思维</li>
+<li>顾问：幕后指导，不是在前台提供最佳答案</li>
+<li>连接者： 让学生和其他人连接起来，拓宽眼界和见识</li>
+<li>协作者：和学生共创</li>
+</ul>
+<h1 id="Play"><a href="#Play" class="headerlink" title="Play"></a>Play</h1><p>游戏不需要开放的控件或昂贵的玩具，他是好奇心、想象力和实验的结合，创造力蕴含期间。</p>
+<p>创造力并非来自欢笑和乐趣，它来自实验、冒险和挑战边界。</p>
+<p>游戏  &lt;—&gt; 学习</p>
+<p>修补自下而上的过程始于一些看似随机的探索，但并不会就此结束。真正的修补者知道如何将他们最初的探索从底层向上升华，变成一个有目的的活动。</p>
+<p>具有成长型思维模式的人认为，智力是可塑的，他们认识到自己可以通过努力工作和投入来继续学习和发展。因此，他们愿意接受挑战，坚持面对挫折，从错误中学习。</p>
+<h1 id="创新型社会"><a href="#创新型社会" class="headerlink" title="创新型社会"></a>创新型社会</h1><p>想帮助年轻人做好准备，让他们在一个创新型社会里生活得更好，方法之一就是确保他们有机会追随自己的兴趣，探索自己的想法，发出自己的声音。在任何时代，我都推崇这些价值观，而现在，它们尤其重要。</p>
+<h2 id="给学习者的10条建议"><a href="#给学习者的10条建议" class="headerlink" title="给学习者的10条建议"></a>给学习者的10条建议</h2><ul>
+<li>从简单的开始做起</li>
+<li>做你自己喜欢的东西</li>
+<li>如果你不知道该做什么，那就先瞎折腾吧</li>
+<li>不要害怕尝试</li>
+<li>找到一个朋友共同协作，并分享想法</li>
+<li>为激发你的想法，复制也没关系</li>
+<li>把你的想法记在本子上</li>
+<li>建造，拆开，再重建</li>
+<li>很多事都可能会出错，要坚持住</li>
+<li>创建你自己的学习策略</li>
+</ul>
+<h2 id="给家长和老师的10条建议"><a href="#给家长和老师的10条建议" class="headerlink" title="给家长和老师的10条建议"></a>给家长和老师的10条建议</h2><ul>
+<li>想象：展示例子，激发想法</li>
+<li>想象：鼓励捣乱</li>
+<li>创造：提供多种材料</li>
+<li>创造：拥抱所有类型的制造</li>
+<li>游戏：强调过程，而非结果</li>
+<li>游戏：延长项目的时间</li>
+<li>分享：扮演媒人的角色</li>
+<li>分享：作为一个协作者参与进来</li>
+<li>反思：带有诚意地问问题</li>
+<li>反思：分享你自己的反思</li>
+</ul>
+<h2 id="给设计师和开发者的10条建议"><a href="#给设计师和开发者的10条建议" class="headerlink" title="给设计师和开发者的10条建议"></a>给设计师和开发者的10条建议</h2><ul>
+<li>为设计师而设计</li>
+<li>支持“低地板”和“高天花板”</li>
+<li>把墙拓宽</li>
+<li>把兴趣和想法结合起来</li>
+<li>优先考虑简单性</li>
+<li>深刻理解你为之做设计的人</li>
+<li>发明你自己想用的东西</li>
+<li>组建一个小型跨学科设计团队<ul>
+<li>设计有趣的学习技术，需要跨学科的专业知识，包括计算机科学、电子工程、设计学、心理学、教育学等</li>
+</ul>
+</li>
+<li>要控制设计，更要利用大众反馈</li>
+<li>迭代，迭代，再迭代</li>
+</ul>
+<p>终身幼儿园的道路将是漫长而曲折的，需要很多地方、很多人以及很多时间的工作。我们需要开发更好的技术、活动和策略，让孩子更多地参与创造性的学习活动；我们需要创造更多的空间，让孩子能够从事自己的创造性项目，发展他们的创新能力；我们需要想出更好的方法，来记录和展示项目、热情、同伴和游戏的力量。</p>
+]]></content>
+      <tags>
+        <tag>readingnotes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>费曼技巧</title>
+    <url>/2019/12/06/%E8%B4%B9%E6%9B%BC%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h3 id="费曼技巧概述"><a href="#费曼技巧概述" class="headerlink" title="费曼技巧概述"></a>费曼技巧概述</h3><p>费曼技巧是一种学习方法，帮助人们快速的学习、掌握一门知识或者技能。费曼本人没有明确提出过费曼技巧这个说法，是人们根据费曼的文章、授课方法总结而来的。费曼这个人呢，是一位有名的物理学家，擅长通过讲述的方式，将高深的知识传授给学生。关于费曼先生的其他几个事情：</p>
+<ul>
+<li>1965年获得了诺贝尔物理学奖，奖励其在量子力学中的贡献</li>
+<li>1943年，费曼先生参加了曼哈顿工程，为第一个颗原子弹成功研制做出了贡献。</li>
+<li>费曼先生是比尔.盖茨的偶像之一，比尔.盖茨对费曼先生的学习方法尤其推崇，将其部分授课的视频版权买过来后，放在网上供大家学习 **<a href="https://www.bilibili.com/video/av73925687/">费曼，最优秀的老师 The Best Teacher I Never Had</a>**。</li>
+</ul>
+<span id="more"></span>
+
+<h3 id="费曼技巧的内容"><a href="#费曼技巧的内容" class="headerlink" title="费曼技巧的内容"></a>费曼技巧的内容</h3><p>费曼技巧主要有4个步骤</p>
+<ul>
+<li><p>确定一个要学习的主题<br>将这个主题，写在一张白纸上。</p>
+</li>
+<li><p>将这个主题用自己的语言，教会给一个初学者（对这个主题不了解的人员）<br>假设你正在向一个初学者，对这个完全不了解的人讲述这个主题。你需要让他完全明白需要掌握的内容，这个事情，你会更加清楚，自己对这个主题，还有哪些地方掌握的不足。</p>
+</li>
+<li><p>如果在教授的过程中卡壳了，重新回到原始的学习材料继续学习<br>无论什么时候，只要感觉自己卡壳了，就重新回到原始的学习材料，继续学习，直到自己掌握为止。</p>
+</li>
+<li><p>总结并归纳<br>为了让自己的讲述过程通俗易懂，简化自己的语言，可以利用一些沟通的技巧如：比喻、举例等。</p>
+</li>
+</ul>
+<p>费曼技巧本身内容较少，很容易记住并理解，但难点在如何应用并实践。比如:</p>
+<ul>
+<li>第一、如何掌握并理解原始的学习材料，费曼大人没有说啊，向我等天资愚钝之人，看书都很困苦，第一步就直接卡壳。</li>
+<li>第二、讲述的过程，使用哪种技巧也没有说明的，这个需要考个人领悟。</li>
+<li>第三、总结归纳，历来简答题中最后压轴大题，根据上下文，概括中心思想，没有指出可操作的方法。</li>
+</ul>
+<p><strong>总之，费曼技巧可以理解为一种上层心法，至于如何发挥作用，达到何种境界，看个人造化。</strong></p>
+<h3 id="参考资料推荐"><a href="#参考资料推荐" class="headerlink" title="参考资料推荐"></a>参考资料推荐</h3><p>费曼技巧是有科学依据。美国的一个小伙子，斯科特.杨，利用费曼技巧，一年内修完了MIT4年33门课，自然，杨少侠原本也是天赋异禀之人，他还写了一本书《Learn More Study Less》中文版<a href="https://book.douban.com/subject/25783654/">《如何高效学习》</a>,书中提供了详细的学习技巧，大家可以参考。</p>
+<p><a href="https://www.zhihu.com/question/20576786">知乎问答:号称快速学习的费曼技巧，究竟是什么？</a></p>
+<p><a href="https://fs.blog/2012/04/feynman-technique/">The Feynman Technique: The Best Way to Learn Anything</a></p>
+<h3 id="技巧实践"><a href="#技巧实践" class="headerlink" title="技巧实践"></a>技巧实践</h3><p>利用费曼技巧重新学习的主题清单：</p>
+<ul>
+<li><a href="">软件工程</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>逻辑写作笔记</title>
+    <url>/2020/07/25/%E9%80%BB%E8%BE%91%E5%86%99%E4%BD%9C%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<blockquote>
+<p>本文内容主要来自 三节课 逻辑写作课程的学习笔记，选取部分章节。</p>
+</blockquote>
+<p><strong>逻辑</strong> 怎么理解？</p>
+<p>首先有观点，明确且唯一，用事实和论点去支持佐证，论点和事实按照一定的顺序展开。<br>结构分明，条理清晰，重点突出。</p>
+<p>写作是职场中的一项重要技能，在平常的日报、周报及月报，还有阶段性的工作汇报与总结，都需要用到写作的技能。在对外提交正式的书面邮件时，如何准确、简洁、严谨的传递出信息，体现了个人的综合能力。</p>
+<p>写作的时候，要能够在阅读者的角度考虑</p>
+<ul>
+<li>内容是否通俗易懂</li>
+<li>重点是否突出，简洁明了</li>
+<li>是否有太多行业术语</li>
+</ul>
+<p>逻辑写作主要从 <strong>观点、案例、总结</strong> 三个方面阐述，如何进行有逻辑的创作</p>
+<span id="more"></span>
+
+<h3 id="观点"><a href="#观点" class="headerlink" title="观点"></a>观点</h3><p>对一项事情的看法或判断，观点要鲜明，有明确清晰，重点突出。观点有以下几个特性</p>
+<ul>
+<li>观点是有限的</li>
+<li>观点可以包含事实</li>
+<li>观点可以包含多个论点</li>
+</ul>
+<h4 id="观点的有限性"><a href="#观点的有限性" class="headerlink" title="观点的有限性"></a>观点的有限性</h4><p>一篇文章的观点，最好不要超过3个。7个观点是上线，参考《奇妙的数字7+2》。</p>
+<h4 id="观点可以包含事实"><a href="#观点可以包含事实" class="headerlink" title="观点可以包含事实"></a>观点可以包含事实</h4><p>通过陈述事实的方式，表达观点。虽然事实是客观存在的，但通过对事实的选择，体现我们的观点。如：小明同学身高150，体重200斤。这是一个描述小明身高体重的事实描述，但接收到这个信息的人，都会觉得，小明是一个小胖子。通过描述事实的方式，传递一个有价值导向的观点。</p>
+<h4 id="观点可以包含多个论点"><a href="#观点可以包含多个论点" class="headerlink" title="观点可以包含多个论点"></a>观点可以包含多个论点</h4><p>用论点去论证观点，论点是观点的子集，是观点的一部分。</p>
+<p><strong>观点：小明同学是一个优秀的伙伴。</strong></p>
+<p>论点1：小明的技术能力很突出，大家有解决不了的问题，交给小明，他总是能够解决。<br>论点2：小明对公司的责任心很强，在放假期间，小明主动解决了客户反馈的问题，提高了我们公司的品牌和形象。<br>论点3：小明的学习能力强，小明刚进公司的时候，对数据分析的业务不了解，通过两个月的学习，已经胜任公司各个项目的分析要求，能够为项目的精细化运营提供有效的分析结论。</p>
+<p>上面的示例，从技术能力、责任心、学习能力三个论点，支撑小明是一个优秀的伙伴的观点。</p>
+<p>论点可以有子论点，论点的提炼原则可以使用<strong>MECE法则</strong></p>
+<ul>
+<li>相互独立</li>
+<li>完全穷尽<br>论点可以按照<strong>时间、程度、演绎</strong>的方式组织。</li>
+</ul>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>案例可以有三种形式呈现</p>
+<ul>
+<li>故事</li>
+<li>数据</li>
+<li>论述性文字</li>
+</ul>
+<p>故事增加人的感性认知，可以打动人，情绪上感染人。<br>数据可以增加理性，逻辑更加严谨<br>论述性文字描述推理、思考的过程。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>回顾主题，让读者明白，文章讲述的是什么，你在表达什么</li>
+<li>升华主题，让读者意犹未尽。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>写作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>长期主义</title>
+    <url>/2023/05/13/%E9%95%BF%E6%9C%9F%E4%B8%BB%E4%B9%89/</url>
+    <content><![CDATA[<h2 id="关于-长期主义-，ChatGPT这样说"><a href="#关于-长期主义-，ChatGPT这样说" class="headerlink" title="关于[[长期主义]]，ChatGPT这样说"></a>关于[[长期主义]]，ChatGPT这样说</h2><blockquote>
+<p>以下内容来自open AI chatGPT的回答，只做排版和格式调整，内容仅供参考</p>
+</blockquote>
+<span id="more"></span>
+
+<h3 id="Q：长期主义是什么意思？"><a href="#Q：长期主义是什么意思？" class="headerlink" title="Q：长期主义是什么意思？"></a>Q：长期主义是什么意思？</h3><h3 id="ChatGPT"><a href="#ChatGPT" class="headerlink" title="ChatGPT"></a>ChatGPT</h3><p>长期主义（Long-termism）是一种伦理观点和决策方法，强调考虑和优先关注长期未来的利益和福祉，而不仅仅关注当前和短期的利益。它认为我们应该采取行动以确保未来的世代能够享有可持续的资源、环境和生活条件。</p>
+<p>长期主义的核心思想是，我们应该将我们的决策和行为的影响延伸到未来，并考虑未来世代的需求和权益。这意味着我们需要对气候变化、环境保护、资源管理、技术发展等问题进行长期规划和投资，以确保未来的可持续性和人类福祉。</p>
+<p>长期主义与短期主义相对，短期主义更注重眼前的利益和满足当前的需求，而忽视了未来的影响和长期可持续性。长期主义强调长远利益的重要性，认为我们应该更加关注和考虑未来世代的需求和权益，从而采取更加可持续和负责任的行动。</p>
+<p>长期主义在许多领域具有应用价值，包括环境保护、气候变化、经济发展、公共政策等。它提醒我们，我们的决策和行为应该超越眼前的短期利益，而要考虑到未来的可持续性和人类福祉。</p>
+<h3 id="Q：如何成为一个长期主义者？"><a href="#Q：如何成为一个长期主义者？" class="headerlink" title="Q：如何成为一个长期主义者？"></a>Q：如何成为一个长期主义者？</h3><h3 id="ChatGPT-1"><a href="#ChatGPT-1" class="headerlink" title="ChatGPT"></a>ChatGPT</h3><p>成为一个长期主义者可以通过以下方式：</p>
+<ol>
+<li>提高长期思维意识：培养关注未来和长期影响的意识，将视野放在更广阔的时间尺度上。思考自己的决策和行动对未来世代的影响，并认识到长远利益的重要性。</li>
+<li>学习和了解相关知识：深入了解环境保护、可持续发展、气候变化、公共政策等与长期主义相关的领域。阅读相关的书籍、报告和研究，了解不同领域的长期影响和可持续性挑战。</li>
+<li>责任与行动：认识到个人的责任和作用，积极采取行动来促进长期利益和可持续发展。可以通过支持环保组织、参与公共倡议、投资可持续项目等方式来贡献自己的力量。</li>
+<li>长期规划和决策：在自己的生活和工作中，采取长期规划和决策的方式。考虑到未来的影响和长期可持续性，避免短期利益的过度追求。例如，在投资中考虑环境、社会和治理（ESG）因素，选择可持续发展的产品和服务等。</li>
+<li>教育他人和传播价值观：与他人分享你对长期主义的理解和认识，提高他们的长期思维意识。通过教育和传播长期主义的价值观，可以影响更多人采取长远利益和可持续发展的行动。<br>成为一个长期主义者是一个渐进的过程，需要不断的学习、思考和行动。关键是培养长期思维意识，认识到自己的影响力和责任，并在日常生活中积极采取行动来促进长远利益和可持续发展。</li>
+</ol>
+<h3 id="Q：作为一个个体，如何成为一名长期主义者？"><a href="#Q：作为一个个体，如何成为一名长期主义者？" class="headerlink" title="Q：作为一个个体，如何成为一名长期主义者？"></a>Q：作为一个个体，如何成为一名长期主义者？</h3><h3 id="ChatGPT："><a href="#ChatGPT：" class="headerlink" title="ChatGPT："></a>ChatGPT：</h3><p>作为个体，你可以采取以下措施来成为一名长期主义者：</p>
+<ol>
+<li>审视自己的价值观和目标：思考并明确你对未来的价值观和目标。考虑自己对环境、社会和未来世代的关注程度，并确立长期利益和可持续发展的重要性。</li>
+<li>提高长期思维意识：培养关注未来和长期影响的意识。在日常生活中，思考自己的决策和行动对未来的影响，考虑长期利益和可持续性。</li>
+<li>学习和了解相关知识：深入了解与长期主义相关的领域，例如环境保护、可持续发展、气候变化等。阅读相关书籍、报告和研究，加强对长期主义理念和可持续发展的理解。</li>
+<li>责任与行动：认识到个人的责任和作用，积极采取行动来促进长期利益和可持续发展。例如，减少资源消耗，节约能源，支持环保组织，参与公益活动等。</li>
+<li>长期规划和决策：在个人生活和职业发展中，采取长期规划和决策的方式。考虑到未来的影响和长期可持续性，避免追求短期利益的行为。例如，在职业发展中选择与可持续发展相关的领域，或者将长期利益纳入投资决策。</li>
+<li>教育他人和影响他人：与他人分享你对长期主义的理解和认识，提高他们的长期思维意识。通过教育和传播长期主义的价值观，影响他人采取长远利益和可持续发展的行动。</li>
+</ol>
+<p>通过这些措施，你可以逐步转变为一名长期主义者，将长期利益和可持续发展纳入自己的生活和决策中。关键是持续地反思和行动，不断提高自己的意识和实践。</p>
+<h3 id="Q：站在长期主义的角度，阐述一下如何做个人的规划"><a href="#Q：站在长期主义的角度，阐述一下如何做个人的规划" class="headerlink" title="Q：站在长期主义的角度，阐述一下如何做个人的规划"></a>Q：站在长期主义的角度，阐述一下如何做个人的规划</h3><h3 id="ChatGPT-2"><a href="#ChatGPT-2" class="headerlink" title="ChatGPT"></a>ChatGPT</h3><p>站在长期主义的角度，个人规划应该考虑以下几个方面：</p>
+<ol>
+<li>定义长期目标：首先，明确自己的长期目标。这些目标应该与可持续发展和长期利益相一致，例如提升自己的技能和知识、追求有意义的事业、促进环境保护等。确立清晰的长期目标可以帮助你有方向地规划和迈向未来。</li>
+<li>识别短期和中期目标：将长期目标分解为短期和中期目标。短期目标是指能够在近期内实现的目标，中期目标是在长期目标实现之前需要达到的里程碑。分解目标有助于将远大的长期目标转化为具体可行的行动步骤。</li>
+<li>综合考虑个人发展和社会影响：个人规划不仅关注自身的成长和利益，还应综合考虑社会和环境的影响。思考你的行动对社会、环境以及未来世代的影响，如何能够在个人成长的同时对他人和环境产生积极影响。</li>
+<li>持续学习和发展：长期主义强调持续学习和发展的重要性。规划个人的学习路径，不断提升自己的技能和知识，以适应未来的变化和挑战。寻求学习机会、参与培训课程、阅读有关领域的书籍和文章等，不断扩展自己的视野和能力。</li>
+<li>考虑风险和适应性：长期规划需要考虑到不确定性和风险。预留一定的灵活性和适应性，使自己能够应对未来可能出现的变化和挑战。在规划中考虑多种可能性，并采取相应的风险管理措施。</li>
+<li>定期回顾和调整：个人规划不是一成不变的，需要定期回顾和调整。定期检查自己的目标和进展，看是否需要调整行动计划或目标设定。灵活性和适应性是长期主义的核心价值之一，因此，不断进行回顾和调整是必要的。</li>
+</ol>
+<p>在制定个人规划时，长期主义的关键是将个人的成长和发展与社会、环境的长远利益相结合，追求可持续性的发展和共同的福祉。这样</p>
+<h3 id="Q：请继续"><a href="#Q：请继续" class="headerlink" title="Q：请继续"></a>Q：请继续</h3><h3 id="ChatGPT-3"><a href="#ChatGPT-3" class="headerlink" title="ChatGPT"></a>ChatGPT</h3><p>这样的个人规划能够帮助你在个人成长的同时对社会产生积极影响，并为未来世代创造更好的环境和机会。以下是一些实际操作的建议：</p>
+<ol>
+<li>制定明确的目标和里程碑：将长期目标分解为可量化和可操作的短期和中期目标。确保目标具体、可衡量，并设定合理的时间框架和里程碑。这样可以更好地跟踪和评估自己的进展。</li>
+<li>学习和发展计划：根据个人规划的方向，制定学习和发展计划。确定需要学习的技能、知识和经验，并制定相应的学习计划。参加相关培训、课程或工作坊，积极寻求提升自身的机会。</li>
+<li>建立支持网络：与志同道合的人建立联系，共同探讨和分享长期主义的理念和实践。参与社区、组织或在线论坛，与其他长期主义者进行交流和合作，互相支持和鼓励。</li>
+<li>持续评估和调整：定期回顾个人规划，评估自己的进展和达成目标的效果。识别潜在的障碍和挑战，并采取适当的调整和改进措施。灵活性和适应性是长期主义者的重要品质，要有勇于调整的心态。</li>
+<li>社会参与和影响力：积极参与社会活动和倡议，通过行动和言论影响他人和社会。参与环保项目、社区服务、公益活动等，推动可持续发展和长期利益的实现。</li>
+<li>持续学习和关注领域发展：保持对相关领域的学习和关注，了解最新的研究、创新和趋势。持续学习和保持更新的知识可以帮助你更好地适应变化，并为个人规划做出优化和调整。</li>
+</ol>
+<p>通过这些步骤，你可以将长期主义的价值观融入到个人的规划和行动中，实现个人成长与社会影响力的有机结合。同时，记得在规划的过程中保持积极的心态，持之以恒地追求自己的目标和愿景。</p>
+<h3 id="在日常的生活中，如何践行长期主义呢？"><a href="#在日常的生活中，如何践行长期主义呢？" class="headerlink" title="在日常的生活中，如何践行长期主义呢？"></a>在日常的生活中，如何践行长期主义呢？</h3><p>以下是几个践行长期主义的建议，可以在日常生活中尝试：</p>
+<ol>
+<li>设定长期目标：长期主义强调长远的眼光和目标，因此，设定长期的目标是非常重要的。这些目标应该是具有挑战性、可衡量和可实现的，可以分解为一系列短期的任务和计划。将目标写下来，并将其放在一个容易看到的地方，以便时常提醒自己。</li>
+<li>坚持学习：长期主义者注重不断的学习和自我提高。无论是通过阅读书籍、参加课程、参加工作坊还是与他人交流，都可以让自己获得新的知识和技能。要把学习看作是一种长期的投资，因为不断的学习可以让你更好地适应不断变化的环境。</li>
+<li>保持健康的生活方式：健康的生活方式可以帮助你长期保持健康和精力充沛。充足的睡眠、健康的饮食和适度的运动可以提高身体素质，减少生病的风险，提高工作效率和生产力。</li>
+<li>建立积极的人际关系：建立积极的人际关系可以帮助你在长期的生活中获得支持和鼓励。与家人、朋友、同事和其他社交圈子建立良好的关系可以帮助你建立信任、获得帮助和建立更有意义的人际关系。</li>
+<li>确立时间管理和优先事项：长期主义者应该优先处理那些对实现长期目标最重要的任务。建立一个时间表或日历，列出每天、每周和每月的任务和优先事项，确保你在有限的时间内集中精力处理最重要的任务。这也可以帮助你保持工作和生活的平衡，从而避免过度的压力和疲劳。</li>
+<li>持续改进：长期主义者应该持续改进自己的工作和生活。这意味着不断地寻找改进的机会和方式，并不断地尝试新的方法和策略，以提高自己的表现和效率。这也可以帮助你发现新的机会和挑战，从而实现更高的目标和梦想。</li>
+</ol>
+<p>总之，践行长期主义需要持久的毅力和决心，需要不断地寻找和实现长期的</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>黄勇的 OKR实战学习笔记</title>
+    <url>/2023/03/05/%E9%BB%84%E5%8B%87%E7%9A%84%20OKR%20%20%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="OKR是什么"><a href="#OKR是什么" class="headerlink" title="OKR是什么"></a>OKR是什么</h1><h2 id="OKR-的发展历史"><a href="#OKR-的发展历史" class="headerlink" title="OKR 的发展历史"></a>OKR 的发展历史</h2><p><img src="https://img.imesong.com/2023/okr_history.png" alt="okr 历史回顾"></p>
+<span id="more"></span>
+
+
+
+
+<h2 id="OKR-的基本原则"><a href="#OKR-的基本原则" class="headerlink" title="OKR 的基本原则"></a>OKR 的基本原则</h2><p>Objectives &amp;KeyResult</p>
+<ul>
+<li><p>目标管理工具</p>
+</li>
+<li><p>绩效管理工具</p>
+</li>
+<li><p>沟通工具</p>
+</li>
+<li><p>人才激励工具</p>
+</li>
+</ul>
+<p><strong>是一个工具,背后代表在一种管理理念和思维方式</strong></p>
+<p><img src="https://img.imesong.com/2023/okr_principle.png" alt="okr-principle"></p>
+<h2 id="OKR的数据结构"><a href="#OKR的数据结构" class="headerlink" title="OKR的数据结构"></a>OKR的数据结构</h2><p><img src="https://img.imesong.com/2023/data-struct.png" alt="Untitled"></p>
+<h2 id="OKR-三板斧"><a href="#OKR-三板斧" class="headerlink" title="OKR 三板斧"></a>OKR 三板斧</h2><ol>
+<li><p>制定 OKR：自顶向下地制定目标，自底向上对齐目标。</p>
+</li>
+<li><p>执行 OKR：唯有做到持续追踪、持续更新，才能做到拥抱变化。</p>
+</li>
+<li><p>评估 OKR：周期性地评估和复盘，持续改进、持续迭代。</p>
+</li>
+</ol>
+<p><img src="https://img.imesong.com/2023/how-to-use.png" alt="Untitled"></p>
+<ol>
+<li><p>OKR 不仅是目标管理工具，也是激励与沟通工具。</p>
+</li>
+<li><p>OKR 的概念比较容易理解，但内涵却充满了许多人性和智慧。</p>
+</li>
+<li><p>OKR 适合在环境多变的时代下，用敏捷精神去拥抱变化。</p>
+</li>
+</ol>
+<h1 id="OKR-与-KPI-区别"><a href="#OKR-与-KPI-区别" class="headerlink" title="OKR 与 KPI 区别"></a>OKR 与 KPI 区别</h1><p>KPI：Key Performance Indicator(关键绩效指标)</p>
+<p>OKR：objective &amp; Key Result（目标和关键结果）</p>
+<ul>
+<li><p>关注对象：OKR 关注的是目标是否达成，而 KPI 关注的却是结果是否完成。OKR 的目标野心勃勃和无限挑战，而 KPI 体现的是制定的指标是否可以达标。</p>
+</li>
+<li><p>核心原理：OKR 的核心原理在于“目标对齐”，而 KPI 的核心原理却在于“指标分解”。</p>
+</li>
+<li><p>实操过程：OKR 是鼓励员工自己去制定目标，能激发其主观能动性，而 KPI 却是领导去下达指标，员 工去接受任务，中间难免会有“讨价还价”的过程。</p>
+</li>
+<li><p>用户行为：OKR 让我们更愿意主动地挑战，而 KPI 却让我们不得不被动地执行。</p>
+</li>
+<li><p>利益关联：OKR 与利益不直接相关，而 KPI 却与利益挂钩。</p>
+</li>
+</ul>
+<p><img src="https://img.imesong.com/2023/diff-to-kpi.png"></p>
+<h2 id="OKR-可以取代-KPI-吗？"><a href="#OKR-可以取代-KPI-吗？" class="headerlink" title="OKR 可以取代 KPI 吗？"></a>OKR 可以取代 KPI 吗？</h2><p>OKR 是目标管理工具，KPI 是绩效管理工具，那么在管理中所有的目标是绩效吗？</p>
+<p>目标包括绩效，但不局限于绩效。绩效是组织期望的结果，但目标还包括个人成长<br><img src="https://img.imesong.com/2023/compare-okr-kpi.png"></p>
+<p>推算型工作更适合用 KPI，探索型工作更适合用 OKR。</p>
+<ol>
+<li><p>OKR 与 KPI 关注点不同，前者更注重过程，后者只在意结果。</p>
+</li>
+<li><p>OKR 无法取代 KPI，也没有必要取代 KPI。</p>
+</li>
+<li><p>需要充分发挥我们身上的领导力，将 OKR 与 KPI 相结合，让价值最大化。</p>
+</li>
+</ol>
+<h1 id="OKR-落地的条件"><a href="#OKR-落地的条件" class="headerlink" title="OKR 落地的条件"></a>OKR 落地的条件</h1><h2 id="面对沟通时，是否公开透明"><a href="#面对沟通时，是否公开透明" class="headerlink" title="面对沟通时，是否公开透明"></a>面对沟通时，是否公开透明</h2><ul>
+<li><p>在目标“制定”过程中，通过跟自己的上级、平级、下级沟通，从而实现目标对齐。</p>
+</li>
+<li><p>在目标“执行”过程中，我们需要不断跟踪目标的进度，一旦有调整就需要及时沟通。</p>
+</li>
+<li><p>在目标“评估”过程中，我们需要对目标进行评估和复盘，需要跟团队一起开会讨论，这又会产生更进一 步的沟通。</p>
+</li>
+</ul>
+<h2 id="面对交付时，是否信守承诺"><a href="#面对交付时，是否信守承诺" class="headerlink" title="面对交付时，是否信守承诺"></a>面对交付时，是否信守承诺</h2><p>当我们制定 OKR 时，本质上就是在制定目标，而这些目标很大程度上，恰恰代表了我们自己对团队的一种承诺。</p>
+<p>如果我们在制定OKR 时已经做出了承诺，而后又很随意地推翻了当初的承诺，最终对此事也没有跟大家同 步想法，更没有什么有效反馈，不过是几句轻描淡写，此事就这样过去了。那么，OKR 的价值实便不存在 了</p>
+<h2 id="面对压力时，是否勇于挑战"><a href="#面对压力时，是否勇于挑战" class="headerlink" title="面对压力时，是否勇于挑战"></a>面对压力时，是否勇于挑战</h2><p>当你制定 OKR 时，如果都是按照自己最安全的角度来制定目标的话，多数会出现这样一种现象：最终，根 据你所制定出的OKR 评分标准，大家几乎都能拿满分。</p>
+<p>它所暴露出来的本质问题：这样也就把 OKR 做成“自定义 KPI”了， 从而很大程度上失去了使用 OKR 的实际意义。</p>
+<p>团队内驱力强的团队，非常适合 OKR。</p>
+<p>从 <strong>个人成长</strong>、<strong>团队贡献</strong>两个角度考察团队内驱力</p>
+<p><img src="https://img.imesong.com/2023/okr-team.png" alt="Untitled"></p>
+<ul>
+<li><p>OKR 对内驱力强的人有价值，我们应该先让那 20% 的人用上 OKR，再去努力提升他们的领导力，最后让他们影响剩余 80% 的人，最终大家顺理成章地就都用上了 OKR。</p>
+</li>
+<li><p>OKR 是自驱力较强的人自我成长的利器。</p>
+</li>
+</ul>
+<h1 id="OKR-怎么对齐"><a href="#OKR-怎么对齐" class="headerlink" title="OKR 怎么对齐"></a>OKR 怎么对齐</h1><p>对齐一定 是 O 与 O 之间的支撑关系，与 KR 没有任何直接关系。</p>
+<p><img src="https://img.imesong.com/2023/okr-duiqi.png"></p>
+<p><img src="file:///Users/imesong/Downloads/okr%E7%AC%94%E8%AE%B0/%E9%BB%84%E5%8B%87%E7%9A%84OKR%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0%203f89a82146484b398dc4f1201143a115/Untitled%208.png?lastModify=1678943650" alt="%E9%BB%84%E5%8B%87%E7%9A%84OKR%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0%203f89a82146484b398dc4f1201143a115/Untitled%208.png"></p>
+<p>OKR 的目的在于“聚焦”，而手段在于“对齐”，我们需要深刻理解“对齐”二字的真实含义，以 及“对齐”与“分解”的区别，这对我们实践 OKR 起到了至关重要的作用。</p>
+<ol>
+<li><p>我们做任何事情（包括加班）都要有目标，凡是有目标的，就能使用 OKR。</p>
+</li>
+<li><p>制定 OKR 绝不是拿团队的 KR 作为自己的 O，而是用自己的 O 去对齐团队的 O。</p>
+</li>
+<li><p>公司每个人都要有自己的“个人 OKR”，我们都应该为自己所在的团队而贡献力量。</p>
+</li>
+</ol>
+<p><img src="https://img.imesong.com/2023/okr-fenjie.png"></p>
+<h1 id="如何制定-OKR"><a href="#如何制定-OKR" class="headerlink" title="如何制定 OKR"></a>如何制定 OKR</h1><h2 id="Objectives"><a href="#Objectives" class="headerlink" title="Objectives"></a>Objectives</h2><p>O 是 OKR 中“What”的层面，它解决了“做什么”的问题。</p>
+<ul>
+<li><p>O 尽可能要以动词形式开头。</p>
+</li>
+<li><p>O用通俗易懂的语言来表达。</p>
+</li>
+<li><p>O 最好能附上一句目标描述。</p>
+</li>
+</ul>
+<blockquote>
+<p>2021 年 Q1 团队目标</p>
+</blockquote>
+<blockquote>
+<p>O1：打造能让每个人都喜爱的工程师文化</p>
+</blockquote>
+<blockquote>
+<p>描述：希望能提升工程师团队的凝聚力，让每个人在团队中都能得到成长，并为加入我们的团队而感到骄傲，因此，我希望大家能一起打造让我们团队每个人都喜爱的文化。</p>
+</blockquote>
+<h2 id="KeyResult"><a href="#KeyResult" class="headerlink" title="KeyResult"></a>KeyResult</h2><p>KR 是针对OKR 中“How”的层面，它解决了具体“怎么做”的问题。O 是定性的，KR 是定量的。</p>
+<p>KR 对 O具有支撑作用。KR完成了，O 也应该完成。</p>
+<p><strong>KR 的三条核心原则</strong></p>
+<ol>
+<li><p>KR要支撑目标，需要与 O 直接关联。</p>
+</li>
+<li><p>KR 用数据说话，需要通过数据去度量，符合 SMART 原则。</p>
+</li>
+<li><p>KR 具备挑战性，难易度设置需要恰到好处。</p>
+</li>
+</ol>
+<p><strong>KR 制定时注意事项</strong></p>
+<ol>
+<li><p>KR 需要通过努力才可能完成。可能是实现难度较大，或者是它的时间成本较大。</p>
+</li>
+<li><p>KR 不是日常工作或行动计划。实际上，KR 是完成一系列任务后才能得到的结果。</p>
+</li>
+<li><p>KR 必须要具备良好的实操性。当写完一条 KR 后，试着经常问自己“这条KR应该如何去实操呢？”。</p>
+</li>
+</ol>
+<p><img src="https://img.imesong.com/2023/okr-skills.png"></p>
+<ol>
+<li><p>O 要能聚焦。既要明确方向，又要激励人心。</p>
+</li>
+<li><p>KR 要有意义。既要能够度量，又要能够支撑目标。</p>
+</li>
+<li><p>OKR 制定过程，可以将其视为一个项目，并从项目管理中追求效率的提升。</p>
+</li>
+</ol>
+<h1 id="OKR的执行"><a href="#OKR的执行" class="headerlink" title="OKR的执行"></a>OKR的执行</h1><p>动态变化的，需要定期回顾执行情况</p>
+<ol>
+<li><p>建议我们做到“每天更新、每周回顾、每月优化、每季复盘”。具体来说就是，每天更新自己的 OKR 完 成进度，每周对自己的 OKR 做一次回顾，每月对自己的 OKR 做一次优化，每季对团队和个人的 OKR 分 别做一次复盘，逐渐养成习惯。</p>
+</li>
+<li><p>建议在周会上每个人向团队同步一次自己的 OKR 执行进度，让彼此之间能看到各自的 OKR 在往前进行， 每个人充分享受成长和贡献所带来的快乐。</p>
+</li>
+<li><p>建议每月我们开一次 OKR 交流会，在会上允许对自己的 OKR 内容进行更新，若其他人的 OKR 可能受影 响时，我们就在这次会上进行探讨。</p>
+</li>
+</ol>
+<p>你可以不修改任何内容、进度、信心指数，但一定要每周做一次查看和思考</p>
+<h2 id="OKR高效执行的方法"><a href="#OKR高效执行的方法" class="headerlink" title="OKR高效执行的方法"></a>OKR高效执行的方法</h2><ol>
+<li><p>OKR 需要设一个固定的执行周期，我们可以将此周期定为 2 个月。</p>
+</li>
+<li><p>将 OKR 制定完毕后，必须定期对它的内容、进度、信心指数进行更新和同步，这样才能最大化避免 OKR 更新不及时，从而导致信息不对称的风险。</p>
+</li>
+<li><p>只有将 OKR 与自己的日常工作任务关联起来，并通过任务去驱动 OKR 完成，才能提高执行效率，达到高效。</p>
+</li>
+</ol>
+<p>将任务与 OKR 之间看成是一个“二级驱动”关系，即任务驱动 KR 的完成，进而促使KR 驱动 O 的达成。<br><img src="https://img.imesong.com/2023/okr-to-task.png"></p>
+<ol>
+<li><p>执行力有多强取决于领导力有多强，而领导力需要在立即作出决策时发挥作用。</p>
+</li>
+<li><p>无论使用多么先进的工作法，缺乏有效的过程跟踪，就是在给自己挖坑。</p>
+</li>
+<li><p>在团队中引入OKR，一定要和原有工作流相结合，OKR才能顺利落地。</p>
+</li>
+</ol>
+<h1 id="OKR-评估"><a href="#OKR-评估" class="headerlink" title="OKR 评估"></a>OKR 评估</h1><h2 id="简化OKR评估标准"><a href="#简化OKR评估标准" class="headerlink" title="简化OKR评估标准"></a>简化OKR评估标准</h2><ul>
+<li><p>1.0 分：不可能做到，但实际做到了。</p>
+</li>
+<li><p>0.7 分：希望能做到，实际也做到了。</p>
+</li>
+<li><p>0.3 分：肯定能做到，实际也做到了。</p>
+</li>
+<li><p>0 分：肯定能做到，但实际没做到。</p>
+</li>
+</ul>
+<p>举个例子，以你自己的经历来看，一个月最多只能精读 1 本书，而你希望一个月可以花更多的时间去阅读，因此你可以制定这样的 OKR：</p>
+<blockquote>
+<p>O：充分享受阅读所带来的乐趣</p>
+</blockquote>
+<blockquote>
+<p>KR：一个月看 5 本书</p>
+</blockquote>
+<ul>
+<li><p>这个 KR 对于你目前而言是不可能做到的，如果你实际上做到了，在 OKR 评估时，你就可以对该 KR 评 1.0 分，因为这件事儿对于你的挑战简直是超乎想象的，结果你却奇迹般地做到了。</p>
+</li>
+<li><p>如果你将 KR 写为“一个月看 1 本书”，这是你肯定能做到的事情，加入你实际上却没做到的，那么就只 能评 0 分；如果做到了，就只能评 0.3 分，因为这是你力所能及的事情，对你而言几乎没有什么挑战，那 么评分也不可能很高。</p>
+</li>
+<li><p>如果你认为应该去挑战一下自己，但又不希望最终的结果离期望相差太远，那么你可以将 KR 写为“一个 月看 3 本书”；如果你做到了，那么你也只能得 0.7 分，因为挑战还不够大，你的得分也不会很高。</p>
+</li>
+</ul>
+<p>OKR 评分标准的定义，没有太多的分值选项设置，只有 0、0.3、0.7、1.0 四种分值选项，你只需给自己一定挑战，最后根据客观事实做出评估即可。</p>
+<p><strong>OKR 评估方式就是自评，而OKR 评估也是自我管理的有效手段。</strong></p>
+<ol>
+<li><p>OKR 评估必须落实和体现在自我层面上，自己制定的 OKR 就需要由自己去评估。</p>
+</li>
+<li><p>让复杂过程简单化，OKR 评分其实根本没有想象中那么难。</p>
+</li>
+<li><p>OKR 评估过程在本质上是对自我管理的一种体验，进而提升管理能力，这都需要从自我评估开始。</p>
+</li>
+</ol>
+<p>OKR 评估是给自己看的，而不是给别人看的，更不是拿来做比较的，我们应该为自己所制定的目标负责<br><img src="https://img.imesong.com/2023/okr-grade.png"></p>
+<h1 id="OKR-复盘"><a href="#OKR-复盘" class="headerlink" title="OKR 复盘"></a>OKR 复盘</h1><ol>
+<li><p>审视目标</p>
+</li>
+<li><p>回顾过程</p>
+</li>
+<li><p>分析得失</p>
+</li>
+<li><p>总结规律</p>
+</li>
+</ol>
+<h2 id="审视目标"><a href="#审视目标" class="headerlink" title="审视目标"></a>审视目标</h2><p>为何当初你要制定这样的目标，而不是其他目标？你所制定的目标现在达成了吗？如果没达成，现实和预期之间的差距在哪里呢？</p>
+<h2 id="回顾过程"><a href="#回顾过程" class="headerlink" title="回顾过程"></a>回顾过程</h2><p>整个目标执行过程是如何执行的？你大致分为几个阶段去执行？每个阶段中发生了什么重要事件？</p>
+<h2 id="分析得失"><a href="#分析得失" class="headerlink" title="分析得失"></a>分析得失</h2><p>在这次在这次 OKR 周 期中，哪些方面你做得很好？为什么好？哪些方面你做得不够好？为什么不好？</p>
+<h2 id="总结规律"><a href="#总结规律" class="headerlink" title="总结规律"></a>总结规律</h2><p>如果再次做同类事情，如果再次做同类事情，你会怎么去做？对我们后续的工作有何指导？我们收获了哪些规律、原则、方法论？</p>
+<ol>
+<li><p>复盘能帮助你看清 OKR 执行过程中的每一个步骤，帮助团队深刻体会 OKR 所带来的价值。</p>
+</li>
+<li><p>复盘不是简单地回顾和总结，需要借助一套严谨且合理的方法论，才能让复盘变得更有意义。</p>
+</li>
+<li><p>如果 OKR缺少了复盘，不仅会让你频繁踩坑，还会让你失去一次锻炼和展示自己领导力的绝佳机会。</p>
+</li>
+</ol>
+<h1 id="技术团队的价值"><a href="#技术团队的价值" class="headerlink" title="技术团队的价值"></a>技术团队的价值</h1><p>项目管理的价值仅在于让项目顺 利上线，至于项目是否产生应有的价值，似乎就无法控制了。</p>
+<h1 id="向上管理"><a href="#向上管理" class="headerlink" title="向上管理"></a>向上管理</h1><p>向上管理，管理的其实是领导对你的期望。</p>
+<p>1.做⼀名“被领导者”，需要发挥⾃⼰的智慧，充分挖掘出领导对你的期望。</p>
+<p>2.产品经理管理的是⽤⼾对产品的期望，你需要管理的是领导对你的期望。</p>
+<p>3.OKR是⼀种管理思维，只要双⽅认可OKR的价值，就能快速达成共识。</p>
+<h1 id="中层管理"><a href="#中层管理" class="headerlink" title="中层管理"></a>中层管理</h1><p>企业的发展⽅向取决于创始⼈，但企业的经营节奏却取决于管理者。尤其对于中层管理者⽽⾔，上 有⾼层领导，下有基层团队。更加形象地来说，⾼层领导是企业的“头部”，基层团队是企业的“腿部”， 那么中层管理者就是企业的“腰部”。</p>
+<h2 id="中层腰虚的表现"><a href="#中层腰虚的表现" class="headerlink" title="中层腰虚的表现"></a>中层腰虚的表现</h2><ul>
+<li><p>团队执⾏⼒不强。⾼层说中层缺乏能⼒，中层说基层能⼒不够，对下级总是不认可。</p>
+</li>
+<li><p>⾼层对基层交付结果不满。⾼层认为是中层没传达好，中层说是基层没执⾏好。</p>
+</li>
+<li><p>基层出现⽆法解决的问题。久⽽久之，就会逐级上升，直到⾼层介⼊，⾼层会认为中层能⼒不⾏。</p>
+</li>
+<li><p>中层之间关系不和谐。经常互怼，甚⾄相互伤害，所带领的团队也出现“抱团”现象。</p>
+</li>
+<li><p>中层抗压⼒不够或内⼼不够强⼤。经常给基层制造负⾯情绪，导致团队吐槽不断。</p>
+</li>
+</ul>
+<h1 id="OKR-落地过程中常见问题"><a href="#OKR-落地过程中常见问题" class="headerlink" title="OKR 落地过程中常见问题"></a>OKR 落地过程中常见问题</h1><p>OKR只是一个目标管理工具，这个工具在团队中是否能够发挥作用，发挥怎么样的作用，完全取决 于使用工具的你</p>
+<ul>
+<li><p>将 OKR 用于绩效考核</p>
+</li>
+<li><p>用 KPI 思维做 OKR</p>
+</li>
+<li><p>O 数量太多，不够聚焦、</p>
+</li>
+<li><p>KR 不够量化，无法评估</p>
+</li>
+<li><p>将 KR 当成行动计划或待办任务</p>
+</li>
+<li><p>忽略 OKR 向上对齐和水平对齐</p>
+</li>
+<li><p>忽略 OKR 更新和复盘</p>
+</li>
+<li><p>忽略 OKR 评分环节</p>
+</li>
+<li><p>认为 OKR 可取代 KPI</p>
+</li>
+</ul>
+<p>OKR 不与绩效考核相关，不与奖金或薪资直接挂钩。</p>
+<p>OKR 是公开透明的，每个人都能看到所有人的 OKR。</p>
+<p>OKR 要有评分，评分不是越高越好，越高说明挑战越不够。</p>
+<p>OKR 目的在于让事情变得聚焦，在正确的轨道上做出努力。</p>
+<p>OKR 是工作法，也是管理方法，它能激励团队取得成功。</p>
+<p>OKR 需做出承诺并付出行动，它是思想，也是文化。</p>
+<p>链接:</p>
+<p><a href="https://pan.baidu.com/s/1KQNWE8-R_YyhtyGblmMZ_w">https://pan.baidu.com/s/1KQNWE8-R_YyhtyGblmMZ_w</a></p>
+<p>提取码: y3ku 复制这段内容后打开百度网盘手机App，操作更方便哦 –来自百度网盘超级会员v5的分享</p>
+]]></content>
+      <tags>
+        <tag>readingnotes</tag>
+        <tag>okr</tag>
+      </tags>
+  </entry>
+</search>
